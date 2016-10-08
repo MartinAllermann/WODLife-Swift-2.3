@@ -1,0 +1,369 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B20A67F1D4B797E006F42C9 /* WodResult+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20A67D1D4B797E006F42C9 /* WodResult+CoreDataProperties.swift */; };
+		5B20A6801D4B797E006F42C9 /* WodResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20A67E1D4B797E006F42C9 /* WodResult.swift */; };
+		5B22793F1D605DB60020C0C1 /* forTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22793E1D605DB60020C0C1 /* forTimeViewController.swift */; };
+		5B2279411D605DD40020C0C1 /* amrapTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2279401D605DD40020C0C1 /* amrapTimeViewController.swift */; };
+		5B65128D1D4A2E5000824B6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65128C1D4A2E5000824B6C /* AppDelegate.swift */; };
+		5B65128F1D4A2E5000824B6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65128E1D4A2E5000824B6C /* ViewController.swift */; };
+		5B6512921D4A2E5000824B6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6512901D4A2E5000824B6C /* Main.storyboard */; };
+		5B6512951D4A2E5000824B6C /* WODLife.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512931D4A2E5000824B6C /* WODLife.xcdatamodeld */; };
+		5B6512971D4A2E5000824B6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6512961D4A2E5000824B6C /* Assets.xcassets */; };
+		5B65129A1D4A2E5000824B6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6512981D4A2E5000824B6C /* LaunchScreen.storyboard */; };
+		5B6512A21D4A2EAC00824B6C /* WodsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512A11D4A2EAC00824B6C /* WodsCollectionViewController.swift */; };
+		5B6512A41D4A31ED00824B6C /* WodsResumeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512A31D4A31ED00824B6C /* WodsResumeCollectionViewCell.swift */; };
+		5B6512A71D4A4E3000824B6C /* WodDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512A61D4A4E3000824B6C /* WodDescriptionViewController.swift */; };
+		5B6512A91D4A6C3800824B6C /* WodResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512A81D4A6C3800824B6C /* WodResultTableViewController.swift */; };
+		5BAC71FD1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC71FC1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5B20A67D1D4B797E006F42C9 /* WodResult+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WodResult+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B20A67E1D4B797E006F42C9 /* WodResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodResult.swift; sourceTree = "<group>"; };
+		5B22793E1D605DB60020C0C1 /* forTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = forTimeViewController.swift; sourceTree = "<group>"; };
+		5B2279401D605DD40020C0C1 /* amrapTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = amrapTimeViewController.swift; sourceTree = "<group>"; };
+		5B6512891D4A2E5000824B6C /* WODLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WODLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B65128C1D4A2E5000824B6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B65128E1D4A2E5000824B6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B6512911D4A2E5000824B6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B6512941D4A2E5000824B6C /* WODLife.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WODLife.xcdatamodel; sourceTree = "<group>"; };
+		5B6512961D4A2E5000824B6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B6512991D4A2E5000824B6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5B65129B1D4A2E5000824B6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B6512A11D4A2EAC00824B6C /* WodsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodsCollectionViewController.swift; sourceTree = "<group>"; };
+		5B6512A31D4A31ED00824B6C /* WodsResumeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodsResumeCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B6512A61D4A4E3000824B6C /* WodDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodDescriptionViewController.swift; sourceTree = "<group>"; };
+		5B6512A81D4A6C3800824B6C /* WodResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodResultTableViewController.swift; sourceTree = "<group>"; };
+		5BAC71FC1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodAMRAPResultsViewController.swift; sourceTree = "<group>"; };
+		5BC5C3BF1D99A45700F3A179 /* WODLife.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WODLife.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B6512861D4A2E5000824B6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B6512801D4A2E5000824B6C = {
+			isa = PBXGroup;
+			children = (
+				5B20A67D1D4B797E006F42C9 /* WodResult+CoreDataProperties.swift */,
+				5B20A67E1D4B797E006F42C9 /* WodResult.swift */,
+				5B65128B1D4A2E5000824B6C /* WODLife */,
+				5B65128A1D4A2E5000824B6C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5B65128A1D4A2E5000824B6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B6512891D4A2E5000824B6C /* WODLife.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B65128B1D4A2E5000824B6C /* WODLife */ = {
+			isa = PBXGroup;
+			children = (
+				5BC5C3BF1D99A45700F3A179 /* WODLife.entitlements */,
+				5B65128C1D4A2E5000824B6C /* AppDelegate.swift */,
+				5B65128E1D4A2E5000824B6C /* ViewController.swift */,
+				5B6512901D4A2E5000824B6C /* Main.storyboard */,
+				5B6512961D4A2E5000824B6C /* Assets.xcassets */,
+				5B6512981D4A2E5000824B6C /* LaunchScreen.storyboard */,
+				5B65129B1D4A2E5000824B6C /* Info.plist */,
+				5B6512931D4A2E5000824B6C /* WODLife.xcdatamodeld */,
+				5B6512A11D4A2EAC00824B6C /* WodsCollectionViewController.swift */,
+				5B6512A31D4A31ED00824B6C /* WodsResumeCollectionViewCell.swift */,
+				5B6512A61D4A4E3000824B6C /* WodDescriptionViewController.swift */,
+				5B6512A81D4A6C3800824B6C /* WodResultTableViewController.swift */,
+				5BAC71FC1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift */,
+				5B22793E1D605DB60020C0C1 /* forTimeViewController.swift */,
+				5B2279401D605DD40020C0C1 /* amrapTimeViewController.swift */,
+			);
+			path = WODLife;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B6512881D4A2E5000824B6C /* WODLife */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B65129E1D4A2E5000824B6C /* Build configuration list for PBXNativeTarget "WODLife" */;
+			buildPhases = (
+				5B6512851D4A2E5000824B6C /* Sources */,
+				5B6512861D4A2E5000824B6C /* Frameworks */,
+				5B6512871D4A2E5000824B6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WODLife;
+			productName = WODLife;
+			productReference = 5B6512891D4A2E5000824B6C /* WODLife.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B6512811D4A2E5000824B6C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Martin;
+				TargetAttributes = {
+					5B6512881D4A2E5000824B6C = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ER36A8F5UP;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 5B6512841D4A2E5000824B6C /* Build configuration list for PBXProject "WODLife" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5B6512801D4A2E5000824B6C;
+			productRefGroup = 5B65128A1D4A2E5000824B6C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B6512881D4A2E5000824B6C /* WODLife */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B6512871D4A2E5000824B6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B65129A1D4A2E5000824B6C /* LaunchScreen.storyboard in Resources */,
+				5B6512971D4A2E5000824B6C /* Assets.xcassets in Resources */,
+				5B6512921D4A2E5000824B6C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B6512851D4A2E5000824B6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BAC71FD1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift in Sources */,
+				5B22793F1D605DB60020C0C1 /* forTimeViewController.swift in Sources */,
+				5B65128F1D4A2E5000824B6C /* ViewController.swift in Sources */,
+				5B6512A21D4A2EAC00824B6C /* WodsCollectionViewController.swift in Sources */,
+				5B20A6801D4B797E006F42C9 /* WodResult.swift in Sources */,
+				5B6512A41D4A31ED00824B6C /* WodsResumeCollectionViewCell.swift in Sources */,
+				5B65128D1D4A2E5000824B6C /* AppDelegate.swift in Sources */,
+				5B6512A71D4A4E3000824B6C /* WodDescriptionViewController.swift in Sources */,
+				5B20A67F1D4B797E006F42C9 /* WodResult+CoreDataProperties.swift in Sources */,
+				5B6512A91D4A6C3800824B6C /* WodResultTableViewController.swift in Sources */,
+				5B6512951D4A2E5000824B6C /* WODLife.xcdatamodeld in Sources */,
+				5B2279411D605DD40020C0C1 /* amrapTimeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5B6512901D4A2E5000824B6C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B6512911D4A2E5000824B6C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5B6512981D4A2E5000824B6C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B6512991D4A2E5000824B6C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B65129C1D4A2E5000824B6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5B65129D1D4A2E5000824B6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B65129F1D4A2E5000824B6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = ER36A8F5UP;
+				INFOPLIST_FILE = WODLife/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Martin.WODLife;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
+			};
+			name = Debug;
+		};
+		5B6512A01D4A2E5000824B6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = ER36A8F5UP;
+				INFOPLIST_FILE = WODLife/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Martin.WODLife;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B6512841D4A2E5000824B6C /* Build configuration list for PBXProject "WODLife" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B65129C1D4A2E5000824B6C /* Debug */,
+				5B65129D1D4A2E5000824B6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B65129E1D4A2E5000824B6C /* Build configuration list for PBXNativeTarget "WODLife" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B65129F1D4A2E5000824B6C /* Debug */,
+				5B6512A01D4A2E5000824B6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5B6512931D4A2E5000824B6C /* WODLife.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5B6512941D4A2E5000824B6C /* WODLife.xcdatamodel */,
+			);
+			currentVersion = 5B6512941D4A2E5000824B6C /* WODLife.xcdatamodel */;
+			path = WODLife.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5B6512811D4A2E5000824B6C /* Project object */;
+}

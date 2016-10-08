@@ -1,6 +1,6 @@
 //
 //  WodResultTableViewController.swift
-//  WODLife
+//  WODLife Beta
 //
 //  Created by Martin on 28/07/2016.
 //  Copyright © 2016 Martin. All rights reserved.

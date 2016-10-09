@@ -43,6 +43,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var backgroundColor: UIView!
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setWod()
         
@@ -71,12 +72,10 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         details.append(dateArray.reverse())
         tableView.reloadData()
         
-        
     }
 
-
-    
     func setWod() {
+        
         wodNameLabel.text = wodName
         timeComponentLabel.text = timeComponent
         firstExerciseLabel.text = firstExercise
@@ -89,11 +88,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         super.didReceiveMemoryWarning()
     }
     
-
-    
     // MARK: - Navigation
-
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -161,15 +156,16 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
         if section == 0
         {
             return 300
-            
         }
         else
         {
             return 20; // your other headers height value
         }
+        
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -224,7 +220,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        
         if timeComponentType?.rangeOfString("For") != nil  {
             
             print("For Time")
@@ -258,7 +253,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
         }
         
-        
     }
     
     func timeComponentCheck() {
@@ -273,19 +267,18 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             getWodAmrapResult()
             
-            
         }
         
         if timeComponentType?.rangeOfString("EMON") != nil {
             
             getWodResult()
             
-            
         }
     
     }
     
     func getWodResult() {
+        
         let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         let con: NSManagedObjectContext = appDel.managedObjectContext
         

@@ -239,10 +239,6 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
     }
     
-    
-    
-    
-
     // Go back on "save"
     func dismissVC(){
         navigationController?.popViewControllerAnimated(true)

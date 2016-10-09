@@ -11,17 +11,11 @@ class forTimeViewController: UIViewController {
     var startStopWatch: Bool = true
     var previousTimeIsEmpty: Bool = true
     var previousTime: String?
-    
 
     @IBOutlet weak var currentTime: UILabel!
-    
     @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
-    
     @IBOutlet weak var startAndStop: UIButton!
-    
     @IBOutlet weak var reset: UIButton!
-    
-
     
     @IBAction func cancelBtn(sender: AnyObject) {
         timer?.invalidate()

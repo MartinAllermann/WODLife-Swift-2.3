@@ -8,14 +8,12 @@
 
 import UIKit
 
-
-
 class WodsCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var segmentedControlBar: UISegmentedControl!
     
     var wodCollectionOne = "Girls"
-    var wodCollectionTwo = "Heros"
+    var wodCollectionTwo = "Heroes"
     var segmentSelected: String?
     var theGirlsWodsCollection:[[String]] = [
         
@@ -70,13 +68,16 @@ class WodsCollectionViewController: UICollectionViewController {
     var heroWodsCollection:[[String]] = [
         
         ["Murph","For Time","1 mile Run","100 Pull-ups","200 push-ups","300 Squats...","For time"],
+        
         ["Luce","3 Rounds For Time","1k Run","10 Muscle Ups","100 Squats","","For time"],
+        
         ["White","5 Rounds For Time","3 Rope climb","10 Toes to bar","21 lunges","Run 400 meters","For time"],
+        
         ["Bull","2 Rounds For Time","200 Double-unders","50 Overhead Squat","50 Pull-ups","Run 1 mile","For time"],
+        
         ["Randy","AMRAP","75 Power Snatch","","","","AMRAP"],
+        
         ["DT","5 Rounds For Time","12 Deadlift","9 Hang Power Clean","6 Push Jerk","","For time"],
-        
-        
         
     ]
 
@@ -118,7 +119,6 @@ class WodsCollectionViewController: UICollectionViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = true
-        
         
     }
     
@@ -173,7 +173,6 @@ class WodsCollectionViewController: UICollectionViewController {
             }
             
         }
-        
         
     }
     
@@ -250,55 +249,4 @@ class WodsCollectionViewController: UICollectionViewController {
         }
      
     }
-    /*
-    // Responsive cells
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let size = collectionView.frame.width
-        
-        if (size <= 320) {
-            return CGSize(width: (144.5), height: (144.5)) // iPhone 5
-            
-        }
-        if (size <= 375) {
-            return CGSize(width: (172.5), height: (172.5)) // iPhone 6
-        }
-        if (size <= 414) {
-            return CGSize(width: (191.5), height: (191.5)) // iPhone 6 Plus
-        }
-        
-        return CGSize(width: 172.5, height: 172.5)
-    }
-     */
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    */
-
 }

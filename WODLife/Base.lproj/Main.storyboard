@@ -178,7 +178,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="lhM-1o-cre" detailTextLabel="5t9-Cd-N7Y" style="IBUITableViewCellStyleValue1" id="Nt7-Hj-A4U">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nt7-Hj-A4U" id="zK9-Ze-98d">
                                             <frame key="frameInset" width="375" height="43"/>
@@ -273,7 +273,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0:00" textAlignment="right" minimumFontSize="17" id="hdu-4G-YcN">
-                                                    <frame key="frameInset" minX="282" minY="7" width="77" height="30"/>
+                                                    <frame key="frameInset" minX="62" minY="7" width="297" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -304,13 +304,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveBtnLabel" destination="rB2-kF-cMd" id="qIJ-wY-7Bo"/>
                         <outlet property="timeTextField" destination="hdu-4G-YcN" id="lD8-fv-l87"/>
                         <outlet property="wodNameLabel" destination="Qzh-WU-s2E" id="m3c-zD-S0l"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LhY-U3-xKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1726" y="1259"/>
+            <point key="canvasLocation" x="1725.5" y="1258.5"/>
         </scene>
         <!--WodAMRAP Results Table View Controller-->
         <scene sceneID="uRB-55-Xoc">
@@ -354,18 +355,19 @@
                                             <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="right" minimumFontSize="17" id="k2L-o6-bEk">
-                                                    <frame key="frameInset" minX="270" minY="8" width="97" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="17" id="k2L-o6-bEk">
+                                                    <frame key="frameInset" minX="82" minY="8" width="285" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rounds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mNl-rV-4Q7">
-                                                    <frame key="frameInset" minX="8" minY="11" width="58" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rounds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UJY-Ib-gYa">
+                                                    <frame key="frameInset" minX="16" minY="11" width="58" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -387,12 +389,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="roundsTextField" destination="k2L-o6-bEk" id="zgt-fq-p5R"/>
+                        <outlet property="saveBtnLabel" destination="jaH-GG-CRw" id="vrz-vr-6x2"/>
                         <outlet property="wodNameLabel" destination="RtV-ri-UVa" id="sqO-UE-VVV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zGY-90-wOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1805" y="-437"/>
+            <point key="canvasLocation" x="1804.5" y="-437.5"/>
         </scene>
         <!--For Time View Controller-->
         <scene sceneID="T9r-MN-x8g">

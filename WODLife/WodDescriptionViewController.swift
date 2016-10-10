@@ -45,11 +45,13 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         setWod()
         
         timeComponentCheck()
         tableView.backgroundColor = UIColor.clearColor()
         backgroundColor.backgroundColor = color
+        view.backgroundColor = UIColor.lightGrayColor()
         
         titles.append(wodLogTitle)
         titles.append(timerTitle)
@@ -124,33 +126,42 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
+        let view = UIView(frame: CGRect.zero)
+        let label = UILabel(frame: CGRect(x: 14, y: -10, width: 100, height: 50))
         
-        switch(section) {
+        switch (section) {
             
         case 0:
-            headerView.backgroundColor = UIColor.clearColor()
+            view.backgroundColor = UIColor.clearColor()
+            
+        case 2:
+            
+            if history.isEmpty == false {
+                
+            label.text = "HISTORY"
+            
+            } else {
+                
+            label.text = ""
+            
+            }
+            
+            label.font = label.font.fontWithSize(14)
+            label.textColor = UIColor.blackColor()
+            view.backgroundColor = UIColor.lightGrayColor()
+            view.addSubview(label)
             
         default:
-            headerView.backgroundColor = UIColor.lightGrayColor()
             
+            view.backgroundColor = UIColor.lightGrayColor()
         }
         
-        return headerView
+        return view
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView()
-        
-        switch(section) {
-            
-        case 0:
-            footerView.backgroundColor = UIColor.lightGrayColor()
-            
-        default:
-            footerView.backgroundColor = UIColor.lightGrayColor()
-            
-        }
+        footerView.backgroundColor = UIColor.lightGrayColor()
         
         return footerView
     }
@@ -163,21 +174,11 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         }
         else
         {
-            return 20; // your other headers height value
+            return 30; // your other headers height value
         }
         
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if section > 1 {
-             return "History"
-        } else {
-             return ""
-        }
-
-    }
-
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return titles.count
     }
@@ -216,7 +217,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         return cell
     }
-    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

@@ -11,6 +11,7 @@ import CoreData
 
 class WodResultTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, NSFetchedResultsControllerDelegate{
 
+    @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
     
     @IBOutlet weak var timeTextField: UITextField!
     
@@ -30,7 +31,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         super.viewDidLoad()
         
         wodNameLabel.text = wodName
-        
+   
         minutes = 0
         seconds = 0
         
@@ -43,13 +44,21 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
             timeTextField.text = wodResult
             
         }
-
+        
+        self.timeTextField.becomeFirstResponder()
+        
     }
     @IBAction func saveBtn(sender: AnyObject) {
         
-            saveResult()
+        if timeTextField.text!.isEmpty {
+            
+            timeTextField.text = "0:00"
         
+        }
+    
+        saveResult()
     }
+    
     
     func saveResult(){
     

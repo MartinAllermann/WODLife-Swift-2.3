@@ -14,6 +14,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
    
     @IBOutlet weak var roundsTextField: UITextField!
     @IBOutlet weak var wodNameLabel: UILabel!
+    @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
     
     var wodName: String?
     var roundsFromTimer: Int?
@@ -36,12 +37,14 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
     
     @IBAction func saveB(sender: AnyObject) {
         
+        if roundsTextField.text!.isEmpty {
+        roundsTextField.text = "0"
+        }
+        
         saveResult()
         
-  
     }
     
-  
     
     func saveResult(){
         

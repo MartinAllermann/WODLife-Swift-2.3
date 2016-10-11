@@ -49,10 +49,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         setWod()
         
         timeComponentCheck()
-        tableView.backgroundColor = UIColor.clearColor()
         backgroundColor.backgroundColor = color
-        view.backgroundColor = UIColor.lightGrayColor()
-        
+
         titles.append(wodLogTitle)
         titles.append(timerTitle)
         titles.append(history.reverse())
@@ -125,56 +123,26 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
 
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect.zero)
-        let label = UILabel(frame: CGRect(x: 14, y: -10, width: 100, height: 50))
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        switch (section) {
-            
-        case 0:
-            view.backgroundColor = UIColor.clearColor()
-            
+        switch(section){
+        
         case 2:
             
-            if history.isEmpty == false {
+            if (history.isEmpty == true) {
                 
-            label.text = "HISTORY"
+            return ""
             
             } else {
+            
+            return "HISTORY"
                 
-            label.text = ""
-            
             }
-            
-            label.font = label.font.fontWithSize(14)
-            label.textColor = UIColor.blackColor()
-            view.backgroundColor = UIColor.lightGrayColor()
-            view.addSubview(label)
-            
+
         default:
             
-            view.backgroundColor = UIColor.lightGrayColor()
-        }
-        
-        return view
-    }
-    
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView()
-        footerView.backgroundColor = UIColor.lightGrayColor()
-        
-        return footerView
-    }
-    
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        if section == 0
-        {
-            return 300
-        }
-        else
-        {
-            return 30; // your other headers height value
+        return ""
+            
         }
         
     }

@@ -132,6 +132,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         let spaceButton1 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         let spaceButton2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(WodResultTableViewController.donePicker))
+        doneButton.tintColor = UIColor.blackColor()
       
         toolBar.setItems([spaceButton1,spaceButton2, doneButton], animated: false)
         toolBar.userInteractionEnabled = true

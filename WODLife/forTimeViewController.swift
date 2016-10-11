@@ -54,7 +54,7 @@ class forTimeViewController: UIViewController {
      currentTime.text = "00:00.00"
      
      startStopWatch = true
-     startAndStop.setTitle("Start", forState: UIControlState.Normal)
+     startAndStop.setTitle("START", forState: UIControlState.Normal)
      startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
      }
     
@@ -70,7 +70,7 @@ class forTimeViewController: UIViewController {
             self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(forTimeViewController.updateTime), userInfo: nil, repeats: true)
             
             startStopWatch = false
-            startAndStop.setTitle("Stop", forState: UIControlState.Normal)
+            startAndStop.setTitle("STOP", forState: UIControlState.Normal)
             startAndStop.backgroundColor = UIColor(hue: 0.9833, saturation: 0.68, brightness: 0.85, alpha: 1.0)
             
             
@@ -82,7 +82,7 @@ class forTimeViewController: UIViewController {
             self.timer = nil
             
             startStopWatch = true
-            startAndStop.setTitle("Start", forState: UIControlState.Normal)
+            startAndStop.setTitle("START", forState: UIControlState.Normal)
             startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
             
         }
@@ -93,6 +93,7 @@ class forTimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         saveBtnLabel.enabled = false
+         startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
         
         // Do any additional setup after loading the view.
     }

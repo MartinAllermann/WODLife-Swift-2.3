@@ -33,6 +33,8 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startTimerLabel.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+        
         timeLeftLabel.hidden = true
         saveBtnLabel.enabled = false
         hourPicker.delegate = self
@@ -162,7 +164,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             // Start timer
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.setTimeLeft), userInfo: nil, repeats: true)
             
-            startTimerLabel.setTitle("Stop", forState: UIControlState.Normal)
+            startTimerLabel.setTitle("STOP", forState: UIControlState.Normal)
             startTimerLabel.backgroundColor = UIColor(hue: 0.9833, saturation: 0.68, brightness: 0.85, alpha: 1.0)
             startTimer = false
             
@@ -174,7 +176,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         } else if startTimer == false {
             
             timer?.invalidate()
-            startTimerLabel.setTitle("Start", forState: UIControlState.Normal)
+            startTimerLabel.setTitle("START", forState: UIControlState.Normal)
             startTimerLabel.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
             startTimer = true
             timeLeftLabel.text = "00:00:OO"

@@ -157,8 +157,7 @@ class WodsCollectionViewController: UICollectionViewController {
             vc.thirdExercise = theGirlsWodsCollection[indexPath.row][4]
             vc.fourthExercise = theGirlsWodsCollection[indexPath.row][5]
             vc.timeComponentType = theGirlsWodsCollection[indexPath.row][6]
-            vc.color = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0) // Green
-                
+            vc.color = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
             }
             
             if segmentSelected == wodCollectionTwo {
@@ -170,6 +169,7 @@ class WodsCollectionViewController: UICollectionViewController {
                 vc.thirdExercise = heroWodsCollection[indexPath.row][4]
                 vc.fourthExercise = heroWodsCollection[indexPath.row][5]
                 vc.timeComponentType = heroWodsCollection[indexPath.row][6]
+                vc.color = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
             }
             
         }
@@ -224,7 +224,7 @@ class WodsCollectionViewController: UICollectionViewController {
             cell.secondExercise.text = theGirlsWodsCollection[indexPath.row][3]
             cell.thirdExercise.text = theGirlsWodsCollection[indexPath.row][4]
             cell.fourthExercise.text = theGirlsWodsCollection[indexPath.row][5]
-            cell.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0) // Green
+            cell.backgroundColor = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
             
             return cell
             

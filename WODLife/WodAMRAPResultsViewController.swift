@@ -32,7 +32,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
             roundsTextField.text = "\(roundsFromTimer!)"
         
         }
-        
+        self.roundsTextField.becomeFirstResponder()
     }
     
     @IBAction func saveB(sender: AnyObject) {

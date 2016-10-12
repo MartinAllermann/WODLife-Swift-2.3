@@ -11,6 +11,7 @@ class forTimeViewController: UIViewController {
     var startStopWatch: Bool = true
     var previousTimeIsEmpty: Bool = true
     var previousTime: String?
+    var wodResultString: String?
 
     @IBOutlet weak var currentTime: UILabel!
     @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
@@ -124,7 +125,11 @@ class forTimeViewController: UIViewController {
         let timeString = String(format:"%02d:%02d.%02d",minutes,seconds,fraction)
         currentTime.text = timeString
         
-        let wodResultString = "\(minutes)" + ":" + "0\(seconds)"
+        if seconds < 9 {
+            wodResultString = "\(minutes)" + ":" + "0\(seconds)"
+        } else {
+            wodResultString = "\(minutes)" + ":" + "\(seconds)"
+        }
         wodResult = wodResultString
         
         print(timeString)

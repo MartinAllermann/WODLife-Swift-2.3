@@ -1,6 +1,6 @@
 //
 //  WodsCollectionViewController.swift
-//  WODLife 
+//  WODLife
 //
 //  Created by Martin on 28/07/2016.
 //  Copyright © 2016 Martin. All rights reserved.
@@ -17,88 +17,88 @@ class WodsCollectionViewController: UICollectionViewController {
     var segmentSelected: String?
     var theGirlsWodsCollection:[[String]] = [
         
-        ["Angie","For time","100 pull-ups","100 push-ups","100 sit-ups","100 squats","For time"],
+        ["Amanda","9-7-5 reps for time","Muscle-ups","135-lb. snatches","","","For time","orange"],
         
-        ["Barbara","5 rounds, each for time","20 pull-ups","30 push-ups","40 sit-ups","50 squats","For time"],
+        ["Angie","For time","100 pull-ups","100 push-ups","100 sit-ups","100 squats","For time","blue"],
         
-        ["Chelsea","Every minute on the minute for 30 minutes","5 pull-ups","10 push-ups","15 squats","","EMON"],
+        ["Annie","50-40-30-20-10 reps for time","Double-unders","Sit-ups","","","For time","blue"],
         
-        ["Cindy","As many rounds as possible in 20 minutes","5 pull-ups","10 push-ups","15 squats","","AMRAP"],
+        ["Barbara","5 rounds, each for time","20 pull-ups","30 push-ups","40 sit-ups","50 squats","For time","blue"],
         
-        ["Diane","21-15-9 reps for time","225-lb. deadlifts","Handstand push-ups","","","For time"],
+        ["Candy","5 rounds for time","20 pull-ups","40 push-ups","60 squats","","For time","blue"],
         
-        ["Elizabeth","21-15-9 reps for time","135-lb. cleans","Ring dips","","","For time"],
+        ["Chelsea","Every minute on the minute for 30 minutes","5 pull-ups","10 push-ups","15 squats","","EMON","blue"],
         
-        ["Fran","21-15-9 reps for time","95-lb. thrusters","Pull-ups","","","For time"],
+        ["Cindy","As many rounds as possible in 20 minutes","5 pull-ups","10 push-ups","15 squats","","AMRAP","blue"],
         
-        ["Grace","30 reps for time","21 Thrusters","pull-ups","","","For time"],
+        ["Diane","21-15-9 reps for time","225-lb. deadlifts","Handstand push-ups","","","For time","orange"],
         
-        ["Helen","3 rounds for time","Run 400 meters","21 kettlebell swings","12 pull-ups","","For time"],
+        ["Elizabeth","21-15-9 reps for time","135-lb. cleans","Ring dips","","","For time","orange"],
         
-        ["Isabel","30 reps for time","135-lb. snatches","","","","For time"],
+        ["Eva","5 rounds for time","Run 800 meters","30 kettlebell swings","30 pull-ups","","For time","purple"],
         
-        ["Jackie","For time","Row 1,000 meters","50 45-lb. thrusters","30 pull-ups","","For time"],
+        ["Fran","21-15-9 reps for time","95-lb. thrusters","Pull-ups","","","For time","orange"],
         
-        ["Karen","For time","150 wall-ball shots","","","","For time"],
+        ["Grace","30 reps for time","21 Thrusters","pull-ups","","","For time","yellow"],
         
-        ["Linda","10-9-8-7-6-5-4-3-2-1 reps for time","1 1/2 BW deadlifts","BW bench presses","3/4 BW cleans","","For time"],
+        ["Helen","3 rounds for time","Run 400 meters","21 kettlebell swings","12 pull-ups","","For time","purple"],
         
-        ["Mary","As many rounds as possible in 20 minutes","5 handstand push-ups","10 1-legged squats","15 pull-ups","","AMRAP"],
+        ["Isabel","30 reps for time","135-lb. snatches","","","","For time","yellow"],
         
-        ["Nancy","5 rounds for time","Run 400 meters","95-lb. overhead squats, 15 reps","","","For time"],
+        ["Jackie","For time","Row 1,000 meters","50 45-lb. thrusters","30 pull-ups","","For time","orange"],
         
-        ["Annie","50-40-30-20-10 reps for time","Double-unders","Sit-ups","","","For time"],
+        ["Karen","For time","150 wall-ball shots","","","","For time","purple"],
         
-        ["Eva","5 rounds for time","Run 800 meters","30 kettlebell swings","30 pull-ups","","For time"],
+        ["Kelly","5 rounds for time","Run 400 meters","30 box jumps","30 wall-ball shots","","For time","purple"],
         
-        ["Kelly","5 rounds for time","Run 400 meters","30 box jumps","30 wall-ball shots","","For time"],
+        ["Linda","10-9-8-7-6-5-4-3-2-1 reps for time","1 1/2 BW deadlifts","BW bench presses","3/4 BW cleans","","For time","yellow"],
         
-        ["Lynne","5 rounds for max reps","BW bench press","pull-ups","","","For time"],
+        ["Lynne","5 rounds for max reps","BW bench press","pull-ups","","","For time","orange"],
         
-        ["Nicole","As many rounds as possible in 20 minutes.","Run 400 meters","Max-reps pull-ups","","","AMRAP"],
+        ["Maggie","5 rounds for time","20 handstand push-ups","40 pull-ups","60 one-legged squats","","For time","blue"],
         
-        ["Amanda","9-7-5 reps for time","Muscle-ups","135-lb. snatches","","","For time"],
+        ["Mary","As many rounds as possible in 20 minutes","5 handstand push-ups","10 1-legged squats","15 pull-ups","","AMRAP","blue"],
         
-        ["Candy","5 rounds for time","20 pull-ups","40 push-ups","60 squats","","For time"],
-        
-        ["Maggie","5 rounds for time","20 handstand push-ups","40 pull-ups","60 one-legged squats","","For time"],
+        ["Nancy","5 rounds for time","Run 400 meters","95-lb. overhead squats, 15 reps","","","For time","purple"],
+    
+        ["Nicole","As many rounds as possible in 20 minutes.","Run 400 meters","Max-reps pull-ups","","","AMRAP","blue"],
         
         ]
     
     var heroWodsCollection:[[String]] = [
         
-        ["Murph","For Time","1 mile Run","100 Pull-ups","200 push-ups","300 Squats...","For time"],
+        ["Bull","2 Rounds For Time","200 Double-unders","50 Overhead Squat","50 Pull-ups","Run 1 mile","For time"],
         
+        ["DT","5 Rounds For Time","12 Deadlift","9 Hang Power Clean","6 Push Jerk","","For time"],
+    
         ["Luce","3 Rounds For Time","1k Run","10 Muscle Ups","100 Squats","","For time"],
         
-        ["White","5 Rounds For Time","3 Rope climb","10 Toes to bar","21 lunges","Run 400 meters","For time"],
-        
-        ["Bull","2 Rounds For Time","200 Double-unders","50 Overhead Squat","50 Pull-ups","Run 1 mile","For time"],
+        ["Murph","For Time","1 mile Run","100 Pull-ups","200 push-ups","300 Squats","For time"],
         
         ["Randy","AMRAP","75 Power Snatch","","","","AMRAP"],
         
-        ["DT","5 Rounds For Time","12 Deadlift","9 Hang Power Clean","6 Push Jerk","","For time"],
+        ["White","5 Rounds For Time","3 Rope climb","10 Toes to bar","21 lunges","Run 400 meters","For time"],
         
-    ]
-
+        ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentedControlBar.setTitle(wodCollectionOne, forSegmentAtIndex: 0)
         segmentedControlBar.setTitle(wodCollectionTwo, forSegmentAtIndex: 1)
         segmentSelected = wodCollectionOne // The first segmentSelected should be wodCollectionOne
-
+        
         navigationbarcolor()
         
     }
     
     func navigationbarcolor() {
-    
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(hue: 0, saturation: 0, brightness: 0.2, alpha: 1.0) /* #333333 */
         
-    
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -108,7 +108,7 @@ class WodsCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillDisappear(animated: Bool) {
-     
+        
         
         transparentNavigationBar()
     }
@@ -130,16 +130,16 @@ class WodsCollectionViewController: UICollectionViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(hue: 0, saturation: 0, brightness: 0.2, alpha: 1.0) /* #333333 */
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      
+        
         if segue.identifier == "showWodDescription"
         {
             
@@ -150,14 +150,33 @@ class WodsCollectionViewController: UICollectionViewController {
             
             if segmentSelected == wodCollectionOne {
                 
-            vc.wodName = theGirlsWodsCollection[indexPath.row][0]
-            vc.timeComponent = theGirlsWodsCollection[indexPath.row][1]
-            vc.firstExercise = theGirlsWodsCollection[indexPath.row][2]
-            vc.secondExercise = theGirlsWodsCollection[indexPath.row][3]
-            vc.thirdExercise = theGirlsWodsCollection[indexPath.row][4]
-            vc.fourthExercise = theGirlsWodsCollection[indexPath.row][5]
-            vc.timeComponentType = theGirlsWodsCollection[indexPath.row][6]
-            vc.color = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
+                vc.wodName = theGirlsWodsCollection[indexPath.row][0]
+                vc.timeComponent = theGirlsWodsCollection[indexPath.row][1]
+                vc.firstExercise = theGirlsWodsCollection[indexPath.row][2]
+                vc.secondExercise = theGirlsWodsCollection[indexPath.row][3]
+                vc.thirdExercise = theGirlsWodsCollection[indexPath.row][4]
+                vc.fourthExercise = theGirlsWodsCollection[indexPath.row][5]
+                vc.timeComponentType = theGirlsWodsCollection[indexPath.row][6]
+                vc.color = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
+                
+                switch(theGirlsWodsCollection[indexPath.row][7]){
+                
+                case "blue":
+                    vc.color = UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+                    
+                case "purple":
+                    vc.color = UIColor(red:0.25, green:0.51, blue:0.84, alpha:1.0) // purple
+                    
+                case "yellow":
+                    vc.color = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // yellow
+                    
+                case "orange":
+                    vc.color = UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+                    
+                default:
+                    vc.color = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
+                    
+                }
             }
             
             if segmentSelected == wodCollectionTwo {
@@ -169,7 +188,7 @@ class WodsCollectionViewController: UICollectionViewController {
                 vc.thirdExercise = heroWodsCollection[indexPath.row][4]
                 vc.fourthExercise = heroWodsCollection[indexPath.row][5]
                 vc.timeComponentType = heroWodsCollection[indexPath.row][6]
-                vc.color = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
+                vc.color = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
             }
             
         }
@@ -189,31 +208,31 @@ class WodsCollectionViewController: UICollectionViewController {
         
         self.collectionView?.reloadData()
     }
-
+    
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-
+        
         return 1
     }
-
-
+    
+    
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if segmentSelected == wodCollectionOne {
             return self.theGirlsWodsCollection.count
             
         }
         if segmentSelected == wodCollectionTwo {
-        
+            
             return self.heroWodsCollection.count
             
         } else {
             
             return 1
         }
-      
+        
     }
-
+    
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! WodsResumeCollectionViewCell
         
@@ -224,7 +243,26 @@ class WodsCollectionViewController: UICollectionViewController {
             cell.secondExercise.text = theGirlsWodsCollection[indexPath.row][3]
             cell.thirdExercise.text = theGirlsWodsCollection[indexPath.row][4]
             cell.fourthExercise.text = theGirlsWodsCollection[indexPath.row][5]
-            cell.backgroundColor = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
+            
+            switch(theGirlsWodsCollection[indexPath.row][7]){
+                
+            case "blue":
+                cell.backgroundColor = UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+            case "purple":
+                cell.backgroundColor = UIColor(red:0.25, green:0.51, blue:0.84, alpha:1.0) // purple
+                
+            case "yellow":
+                cell.backgroundColor = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // yellow
+                
+            case "orange":
+                cell.backgroundColor = UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+                
+            default:
+                cell.backgroundColor = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
+                
+            }
+            
+            
             
             return cell
             
@@ -237,17 +275,17 @@ class WodsCollectionViewController: UICollectionViewController {
             cell.secondExercise.text = heroWodsCollection[indexPath.row][3]
             cell.thirdExercise.text = heroWodsCollection[indexPath.row][4]
             cell.fourthExercise.text = heroWodsCollection[indexPath.row][5]
-            cell.backgroundColor = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
+            cell.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
             
             return cell
             
         }
-        
+            
         else {
             
             return cell
         }
-     
+        
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

@@ -286,7 +286,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             for res in results {
                 AmrapRounds = res.rounds
                 date = res.date
-                history.append(AmrapRounds!)
+                history.append("\(AmrapRounds!) Rounds")
                 dateArray.append(date!)
             }
             

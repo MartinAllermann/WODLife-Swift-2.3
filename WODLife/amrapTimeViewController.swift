@@ -156,9 +156,6 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             components.second = dateComponents.second
             newDate = calendar.dateFromComponents(components)!
             
-            print(currentDate)
-            print(newDate)
-            
             setTimeLeft()
             
             // Start timer
@@ -232,7 +229,6 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let alertAction = UIAlertAction(title: "Done", style: .Default) {
             
             (action) -> Void in
-            print("Done Btn")
         }
         alertController!.addAction(alertAction)
         self.presentViewController(alertController!, animated: true, completion: nil)

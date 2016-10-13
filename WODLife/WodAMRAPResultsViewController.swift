@@ -75,7 +75,6 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
         newDate = calendar.dateFromComponents(components)!
         let timeString = String(format:"%02d-%02d-%02d",components.day,components.month,components.year)
-        print(timeString)
         
         Wod.name = wodName
         Wod.rounds = roundsTextField.text!

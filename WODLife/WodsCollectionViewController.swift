@@ -27,9 +27,9 @@ class WodsCollectionViewController: UICollectionViewController {
         
         ["Candy","5 rounds for time","20 pull-ups","40 push-ups","60 squats","","For time","blue"],
         
-        ["Chelsea","Every minute on the minute for 30 minutes","5 pull-ups","10 push-ups","15 squats","","EMON","blue"],
+        ["Chelsea","Every minute on the minute for 30 min","5 pull-ups","10 push-ups","15 squats","","EMON","blue"],
         
-        ["Cindy","As many rounds as possible in 20 minutes","5 pull-ups","10 push-ups","15 squats","","AMRAP","blue"],
+        ["Cindy","As many rounds as possible in 20 min","5 pull-ups","10 push-ups","15 squats","","AMRAP","blue"],
         
         ["Diane","21-15-9 reps for time","225-lb. deadlifts","Handstand push-ups","","","For time","orange"],
         
@@ -57,11 +57,11 @@ class WodsCollectionViewController: UICollectionViewController {
         
         ["Maggie","5 rounds for time","20 handstand push-ups","40 pull-ups","60 one-legged squats","","For time","blue"],
         
-        ["Mary","As many rounds as possible in 20 minutes","5 handstand push-ups","10 1-legged squats","15 pull-ups","","AMRAP","blue"],
+        ["Mary","As many rounds as possible in 20 min","5 handstand push-ups","10 1-legged squats","15 pull-ups","","AMRAP","blue"],
         
         ["Nancy","5 rounds for time","Run 400 meters","95-lb. overhead squats, 15 reps","","","For time","purple"],
     
-        ["Nicole","As many rounds as possible in 20 minutes.","Run 400 meters","Max-reps pull-ups","","","AMRAP","blue"],
+        ["Nicole","As many rounds as possible in 20 min","Run 400 meters","Max-reps pull-ups","","","AMRAP","blue"],
         
         ]
     
@@ -95,7 +95,7 @@ class WodsCollectionViewController: UICollectionViewController {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.translucent = true
         self.navigationController?.navigationBar.barTintColor = UIColor(hue: 0, saturation: 0, brightness: 0.2, alpha: 1.0) /* #333333 */
         
         
@@ -248,6 +248,7 @@ class WodsCollectionViewController: UICollectionViewController {
                 
             case "blue":
                 cell.backgroundColor = UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+                
             case "purple":
                 cell.backgroundColor = UIColor(red:0.25, green:0.51, blue:0.84, alpha:1.0) // purple
                 
@@ -293,16 +294,13 @@ class WodsCollectionViewController: UICollectionViewController {
         print(size)
         
         if (size <= 320) {
-            print("iPhone 5")
             return CGSize(width: (300), height: (175))
             
         }
         if (size <= 375) {
-            print("iPhone 6/7")
             return CGSize(width: (350), height: (175))
         }
         if (size <= 414) {
-            print("iPhone 6 plus")
             return CGSize(width: (400), height: (175))
         }
         

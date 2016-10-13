@@ -79,7 +79,6 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         newDate = calendar.dateFromComponents(components)!
         let timeString = String(format:"%02d-%02d-%02d",components.day,components.month,components.year)
-        print(timeString)
         
         Wod.name = wodName
         Wod.time = timeTextField.text
@@ -114,6 +113,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         
         pickerView.delegate = self
+        pickerView.backgroundColor = UIColor.whiteColor()
         
         //Populate array with 59 minutes
         for x in 0...59 {
@@ -125,8 +125,8 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         }
         
         let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.Default
-        toolBar.translucent = true
+        toolBar.backgroundColor = UIColor.whiteColor()
+        toolBar.translucent = false
         toolBar.sizeToFit()
         
         let spaceButton1 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
@@ -143,7 +143,6 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     }
     
     func donePicker() {
-        print("done")
         timeTextField.resignFirstResponder()
         
     }

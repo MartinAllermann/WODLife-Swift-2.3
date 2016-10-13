@@ -175,14 +175,11 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
         case 2:
             
-            if timeComponentType?.rangeOfString("AMRAP") != nil {
-                cell.textLabel?.text = titles[indexPath.section][indexPath.row] + " Rounds"
-            } else {
-                cell.textLabel?.text = titles[indexPath.section][indexPath.row]
-            }
-            cell.detailTextLabel?.text = details[0][indexPath.row]
+            cell.detailTextLabel?.text = titles[indexPath.section][indexPath.row]
+            cell.detailTextLabel?.textColor = color
+            cell.textLabel?.text = details[0][indexPath.row]
             cell.accessoryType = UITableViewCellAccessoryType.None
-            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             
         default:
             cell.textLabel?.text = titles[indexPath.section][indexPath.row]
@@ -195,7 +192,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         if timeComponentType?.rangeOfString("For") != nil  {
             
-            print("For Time")
             if indexPath.section == 0 {
                 self.performSegueWithIdentifier("For Time", sender: indexPath);
             } else if indexPath.section == 1 {
@@ -206,7 +202,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         if timeComponentType?.rangeOfString("AMRAP") != nil {
             
-            print("AMRAP")
             if indexPath.section == 0 {
                 self.performSegueWithIdentifier("AMRAP", sender: indexPath);
             } else if indexPath.section == 1 {
@@ -217,7 +212,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         if timeComponentType?.rangeOfString("EMON") != nil {
             
-            print("EMON")
             if indexPath.section == 0 {
                 self.performSegueWithIdentifier("For Time", sender: indexPath);
             } else if indexPath.section == 1 {
@@ -277,7 +271,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func getWodAmrapResult() {
         
-        print("Get Previous Time")
         let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         let con: NSManagedObjectContext = appDel.managedObjectContext
         

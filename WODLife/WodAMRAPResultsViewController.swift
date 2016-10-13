@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate{
     
    
     @IBOutlet weak var roundsTextField: UITextField!
@@ -26,6 +26,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
         wodNameLabel.text = wodName
         textFieldPlaceholder()
+        roundsTextField.delegate = self
         
         if timerUsed == true {
         
@@ -43,6 +44,16 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
         saveResult()
         
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,
+                   replacementString string: String) -> Bool
+    {
+        let maxLength = 4
+        let currentString: NSString = textField.text!
+        let newString: NSString =
+            currentString.stringByReplacingCharactersInRange(range, withString: string)
+        return newString.length <= maxLength
     }
     
     

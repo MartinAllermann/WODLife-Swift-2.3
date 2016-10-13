@@ -169,6 +169,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
         if component == 0 {
         return pickOption[row] + " min"
         } else {
@@ -189,7 +190,6 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         configTextField()
     }
-    
     
     func configTextField(){
         

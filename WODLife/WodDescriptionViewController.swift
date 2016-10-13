@@ -174,7 +174,12 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             
         case 2:
-            cell.textLabel?.text = titles[indexPath.section][indexPath.row] + " Rounds"
+            
+            if timeComponentType?.rangeOfString("AMRAP") != nil {
+                cell.textLabel?.text = titles[indexPath.section][indexPath.row] + " Rounds"
+            } else {
+                cell.textLabel?.text = titles[indexPath.section][indexPath.row]
+            }
             cell.detailTextLabel?.text = details[0][indexPath.row]
             cell.accessoryType = UITableViewCellAccessoryType.None
             
@@ -315,17 +320,17 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             let fetchRequest = NSFetchRequest(entityName: "WodResult")
             
             if timeComponentType?.rangeOfString("For") != nil {
-                let predicate = NSPredicate(format: "name == %@ && time == %@", wodName!, titles[indexPath.section][indexPath.row])
+                let predicate = NSPredicate(format: "name == %@ && time == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], details[0][indexPath.row])
                 fetchRequest.predicate = predicate
             }
             
             if timeComponentType?.rangeOfString("AMRAP") != nil {
-                let predicate = NSPredicate(format: "name == %@ && rounds == %@", wodName!, titles[indexPath.section][indexPath.row])
+                let predicate = NSPredicate(format: "name == %@ && rounds == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], details[0][indexPath.row])
                 fetchRequest.predicate = predicate
             }
             
             if timeComponentType?.rangeOfString("EMON") != nil {
-                let predicate = NSPredicate(format: "name == %@ && time == %@", wodName!, titles[indexPath.section][indexPath.row])
+                let predicate = NSPredicate(format: "name == %@ && time == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], details[0][indexPath.row])
                 fetchRequest.predicate = predicate
             }
             

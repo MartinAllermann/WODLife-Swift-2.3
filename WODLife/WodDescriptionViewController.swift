@@ -174,7 +174,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             
         case 2:
-            cell.textLabel?.text = titles[indexPath.section][indexPath.row]
+            cell.textLabel?.text = titles[indexPath.section][indexPath.row] + " Rounds"
             cell.detailTextLabel?.text = details[0][indexPath.row]
             cell.accessoryType = UITableViewCellAccessoryType.None
             
@@ -286,13 +286,58 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             for res in results {
                 AmrapRounds = res.rounds
                 date = res.date
-                history.append("\(AmrapRounds!) Rounds")
+                history.append(AmrapRounds!)
                 dateArray.append(date!)
             }
             
         } catch {
             print("Unresolved error")
             abort()
+        }
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        switch (indexPath.section) {
+        case 2:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            
+            let appDel = UIApplication.sharedApplication().delegate as! AppDelegate
+            let con = appDel.managedObjectContext
+            let coord = appDel.persistentStoreCoordinator
+            
+            let fetchRequest = NSFetchRequest(entityName: "WodResult")
+            
+            if timeComponentType?.rangeOfString("For") != nil {
+                let predicate = NSPredicate(format: "name == %@ && time == %@", wodName!, titles[indexPath.section][indexPath.row])
+                fetchRequest.predicate = predicate
+            }
+            
+            if timeComponentType?.rangeOfString("AMRAP") != nil {
+                let predicate = NSPredicate(format: "name == %@ && rounds == %@", wodName!, titles[indexPath.section][indexPath.row])
+                fetchRequest.predicate = predicate
+            }
+            
+            if timeComponentType?.rangeOfString("EMON") != nil {
+                let predicate = NSPredicate(format: "name == %@ && time == %@", wodName!, titles[indexPath.section][indexPath.row])
+                fetchRequest.predicate = predicate
+            }
+            
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            
+            do {
+                try coord.executeRequest(deleteRequest, withContext: con)
+            } catch let error as NSError {
+                debugPrint(error)
+            }
+            
+            viewWillAppear(true)
         }
     }
     

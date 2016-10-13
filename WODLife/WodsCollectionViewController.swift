@@ -23,7 +23,7 @@ class WodsCollectionViewController: UICollectionViewController {
         
         ["Annie","50-40-30-20-10 reps for time","Double-unders","Sit-ups","","","For time","blue"],
         
-        ["Barbara","5 rounds, each for time","20 pull-ups","30 push-ups","40 sit-ups","50 squats","For time","blue"],
+        ["Barbara","5 rounds for time","20 pull-ups","30 push-ups","40 sit-ups","50 squats","For time","blue"],
         
         ["Candy","5 rounds for time","20 pull-ups","40 push-ups","60 squats","","For time","blue"],
         

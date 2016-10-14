@@ -126,7 +126,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "198"
             endingLineNumber = "198"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            landmarkName = "tableView(tableView:didSelectRowAtIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

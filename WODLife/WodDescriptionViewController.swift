@@ -180,7 +180,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             cell.detailLabel?.text = titles[indexPath.section][indexPath.row]
             cell.detailLabel?.backgroundColor = color
             cell.detailLabel?.layer.masksToBounds = true
-            cell.detailLabel?.layer.cornerRadius = 8
+            cell.detailLabel?.layer.cornerRadius = 12
             
             cell.titleLabel?.text = details[0][indexPath.row]
             cell.accessoryType = UITableViewCellAccessoryType.None

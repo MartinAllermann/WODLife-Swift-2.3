@@ -62,7 +62,6 @@ class WodsCollectionViewController: UICollectionViewController {
         ["Nancy","5 rounds for time","Run 400 meters","95-lb. overhead squats, 15 reps","","","For time","purple"],
     
         ["Nicole","As many rounds as possible in 20 min","Run 400 meters","Max-reps pull-ups","","","AMRAP","blue"],
-        
         ]
     
     var heroWodsCollection:[[String]] = [
@@ -70,14 +69,26 @@ class WodsCollectionViewController: UICollectionViewController {
         ["Bull","2 Rounds For Time","200 Double-unders","50 Overhead Squat","50 Pull-ups","Run 1 mile","For time"],
         
         ["DT","5 Rounds For Time","12 Deadlift","9 Hang Power Clean","6 Push Jerk","","For time"],
-    
+        
         ["Luce","3 Rounds For Time","1k Run","10 Muscle Ups","100 Squats","","For time"],
         
         ["Murph","For Time","1 mile Run","100 Pull-ups","200 push-ups","300 Squats","For time"],
         
         ["Randy","AMRAP","75 Power Snatch","","","","AMRAP"],
         
+        ["JT","21, 15, 9 reps for time","Handstand push-ups","Ring dips","Push-ups","","For time"],
+        
         ["White","5 Rounds For Time","3 Rope climb","10 Toes to bar","21 lunges","Run 400 meters","For time"],
+        
+        ["Michael","3 Rounds For Time","Rune 800 meters","50 back extensions","50 sit-ups","","For time"],
+        
+        ["Badger","3 Rounds for time","30 95-lb. squats cleans","30 pull-ups","Run 800 meters","","For time"],
+        
+        ["Joshie","3 Rounds For Time","21 40-lb. db snatches","21 L-pull-ups","21 40-lb. dumbbell snatches","21 L-pull-ups","For time"],
+        
+        ["Mr. Joshua","5 Rounds For Time","Run 400 meters","30 GHD sit-ups","15 250-lb. deadlifts","","For time"],
+        
+        ["Danny","As many rounds as possible in 20 min","30 box jumps","20 115-lb. push presses","30 pull-ups","","AMRAP"],
         
         ]
     

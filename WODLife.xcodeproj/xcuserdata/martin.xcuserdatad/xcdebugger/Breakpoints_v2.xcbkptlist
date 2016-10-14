@@ -22,26 +22,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "WODLife.WodDescriptionViewController.wodName.getter : Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "WODLife"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Martin/Documents/Projects/WODlife-master/WODLife/WodDescriptionViewController.swift"
-                  timestampString = "498064074.184866"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "80">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
                   symbolName = "WODLife.WodDescriptionViewController.wodName.setter : Swift.Optional&lt;Swift.String&gt;"
                   moduleName = "WODLife"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Martin/Documents/Projects/WODlife-master/WODLife/WodDescriptionViewController.swift"
-                  timestampString = "498064074.187"
+                  timestampString = "498139261.14371"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -56,7 +41,7 @@
                   moduleName = "WODLife"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Martin/Documents/Projects/WODlife-master/WODLife/WodDescriptionViewController.swift"
-                  timestampString = "498064074.189578"
+                  timestampString = "498139261.145833"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -71,7 +56,7 @@
                   moduleName = "WODLife"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Martin/Documents/Projects/WODlife-master/WODLife/WodDescriptionViewController.swift"
-                  timestampString = "498064074.19182"
+                  timestampString = "498139261.148496"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -136,12 +121,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WODLife/WodDescriptionViewController.swift"
-            timestampString = "498083497.179269"
+            timestampString = "498139260.050483"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "tableView(tableView:didSelectRowAtIndexPath:)"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -152,13 +137,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WODLife/WodDescriptionViewController.swift"
-            timestampString = "498083497.179269"
+            timestampString = "498139260.050483"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "getWodResult()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WODLife/WodDescriptionViewController.swift"
+            timestampString = "498138410.050017"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "tableView(tableView:cellForRowAtIndexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WODLife/WodDescriptionTableViewCell.swift"
+            timestampString = "498139260.050483"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "WodDescriptionTableViewCell"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -22,7 +22,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     var thirdExercise: String?
     var fourthExercise: String?
     var timeComponentType: String?
-    var wodLogTitle = ["Add Result"]
+    var wodLogTitle = ["Add Score"]
     var timerTitle = ["Timer"]
     var history: [String] = []
     var titles = [[String]]()
@@ -157,32 +157,37 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! WodDescriptionTableViewCell
         
         // Configure Cell
         
         switch (indexPath.section) {
             
         case 0:
-            cell.textLabel?.text = titles[indexPath.section][indexPath.row]
-            cell.detailTextLabel?.text = ""
+            cell.titleLabel?.text = titles[indexPath.section][indexPath.row]
+            cell.detailLabel?.text = ""
+            cell.detailLabel?.backgroundColor = UIColor.clearColor()
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             
         case 1:
-            cell.textLabel?.text = titles[indexPath.section][indexPath.row]
-            cell.detailTextLabel?.text = ""
+            cell.titleLabel?.text = titles[indexPath.section][indexPath.row]
+            cell.detailLabel?.text = ""
+            cell.detailLabel?.backgroundColor = UIColor.clearColor()
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             
         case 2:
             
-            cell.detailTextLabel?.text = titles[indexPath.section][indexPath.row]
-            cell.detailTextLabel?.textColor = color
-            cell.textLabel?.text = details[0][indexPath.row]
+            cell.detailLabel?.text = titles[indexPath.section][indexPath.row]
+            cell.detailLabel?.backgroundColor = color
+            cell.detailLabel?.layer.masksToBounds = true
+            cell.detailLabel?.layer.cornerRadius = 8
+            
+            cell.titleLabel?.text = details[0][indexPath.row]
             cell.accessoryType = UITableViewCellAccessoryType.None
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
         default:
-            cell.textLabel?.text = titles[indexPath.section][indexPath.row]
+            cell.titleLabel.text = titles[indexPath.section][indexPath.row]
         }
         
         return cell

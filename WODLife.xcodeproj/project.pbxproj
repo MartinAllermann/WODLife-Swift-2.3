@@ -21,6 +21,7 @@
 		5B6512A41D4A31ED00824B6C /* WodsResumeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512A31D4A31ED00824B6C /* WodsResumeCollectionViewCell.swift */; };
 		5B6512A71D4A4E3000824B6C /* WodDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512A61D4A4E3000824B6C /* WodDescriptionViewController.swift */; };
 		5B6512A91D4A6C3800824B6C /* WodResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512A81D4A6C3800824B6C /* WodResultTableViewController.swift */; };
+		5B8F607C1DB0FBE400268445 /* WodDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8F607B1DB0FBE400268445 /* WodDescriptionTableViewCell.swift */; };
 		5BAC71FD1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC71FC1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		5B6512A31D4A31ED00824B6C /* WodsResumeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodsResumeCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B6512A61D4A4E3000824B6C /* WodDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodDescriptionViewController.swift; sourceTree = "<group>"; };
 		5B6512A81D4A6C3800824B6C /* WodResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodResultTableViewController.swift; sourceTree = "<group>"; };
+		5B8F607B1DB0FBE400268445 /* WodDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		5BAC71FC1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodAMRAPResultsViewController.swift; sourceTree = "<group>"; };
 		5BC5C3BF1D99A45700F3A179 /* WODLife.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WODLife.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 				5B6512A11D4A2EAC00824B6C /* WodsCollectionViewController.swift */,
 				5B6512A31D4A31ED00824B6C /* WodsResumeCollectionViewCell.swift */,
 				5B6512A61D4A4E3000824B6C /* WodDescriptionViewController.swift */,
+				5B8F607B1DB0FBE400268445 /* WodDescriptionTableViewCell.swift */,
 				5B6512A81D4A6C3800824B6C /* WodResultTableViewController.swift */,
 				5BAC71FC1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift */,
 				5B22793E1D605DB60020C0C1 /* forTimeViewController.swift */,
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B8F607C1DB0FBE400268445 /* WodDescriptionTableViewCell.swift in Sources */,
 				5BAC71FD1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift in Sources */,
 				5B22793F1D605DB60020C0C1 /* forTimeViewController.swift in Sources */,
 				5B65128F1D4A2E5000824B6C /* ViewController.swift in Sources */,

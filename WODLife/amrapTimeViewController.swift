@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -176,7 +177,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             startTimerLabel.setTitle("START", forState: UIControlState.Normal)
             startTimerLabel.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
             startTimer = true
-            timeLeftLabel.text = "00:00:OO"
+            timeLeftLabel.text = "00:00:00"
             hourPicker.hidden = false
             minutePicker.hidden = false
             timeLeftLabel.hidden = true
@@ -218,11 +219,11 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         timeLeftLabel.hidden = true
         
         alert()
+        playSound()
         
     }
     
     func alert(){
-        
         //Construct alert view
         alertController = UIAlertController(title: "Time is up", message: "", preferredStyle: .Alert)
         // add an action
@@ -233,8 +234,14 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         alertController!.addAction(alertAction)
         self.presentViewController(alertController!, animated: true, completion: nil)
         
+    }
+    
+    func playSound(){
         
-        
+        // create a sound ID, in this case its the tweet sound.
+        let systemSoundID: SystemSoundID = 1005
+        // to play sound
+        AudioServicesPlaySystemSound (systemSoundID)
     }
     
     // Go back on "save"

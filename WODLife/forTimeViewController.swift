@@ -93,6 +93,8 @@ class forTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Prevent Iphone from going idle
+        UIApplication.sharedApplication().idleTimerDisabled = true
         saveBtnLabel.enabled = false
          startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
         

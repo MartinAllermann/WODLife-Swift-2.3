@@ -33,7 +33,9 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // Prevent Iphone from going idle
+        UIApplication.sharedApplication().idleTimerDisabled = true
         startTimerLabel.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
         
         timeLeftLabel.hidden = true

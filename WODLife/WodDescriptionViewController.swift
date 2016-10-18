@@ -14,8 +14,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     var wodName: String?
     var forTime: String?
     var AmrapTime: String?
-    var AmrapRounds: String?
-    var AmrapReps: String?
+    var AmrapRounds: NSNumber?
+    var AmrapReps: NSNumber?
     var timeComponent: String?
     var firstExercise: String?
     var secondExercise: String?
@@ -218,9 +218,9 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         if timeComponentType?.rangeOfString("EMON") != nil {
             
             if indexPath.section == 0 {
-                self.performSegueWithIdentifier("For Time", sender: indexPath);
+                self.performSegueWithIdentifier("AMRAP", sender: indexPath);
             } else if indexPath.section == 1 {
-                self.performSegueWithIdentifier("For Time Timer", sender: indexPath);
+                self.performSegueWithIdentifier("AMRAP Timer", sender: indexPath);
             }
             
         }
@@ -243,7 +243,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         if timeComponentType?.rangeOfString("EMON") != nil {
             
-            getWodResult()
+            getWodAmrapResult()
             
         }
     
@@ -289,7 +289,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             for res in results {
                 AmrapRounds = res.rounds
                 date = res.date
-                history.append(AmrapRounds!)
+                history.append("\(AmrapRounds!)")
                 dateArray.append(date!)
             }
             

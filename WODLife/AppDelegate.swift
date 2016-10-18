@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         debugPrint(url)
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true])
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()

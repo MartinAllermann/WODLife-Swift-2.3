@@ -44,6 +44,7 @@
 		5B6512A81D4A6C3800824B6C /* WodResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodResultTableViewController.swift; sourceTree = "<group>"; };
 		5B8F607B1DB0FBE400268445 /* WodDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		5BAC71FC1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodAMRAPResultsViewController.swift; sourceTree = "<group>"; };
+		5BB46FDF1DB619280009B2F5 /* WODLife 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WODLife 2.xcdatamodel"; sourceTree = "<group>"; };
 		5BC5C3BF1D99A45700F3A179 /* WODLife.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WODLife.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -362,9 +363,10 @@
 		5B6512931D4A2E5000824B6C /* WODLife.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5BB46FDF1DB619280009B2F5 /* WODLife 2.xcdatamodel */,
 				5B6512941D4A2E5000824B6C /* WODLife.xcdatamodel */,
 			);
-			currentVersion = 5B6512941D4A2E5000824B6C /* WODLife.xcdatamodel */;
+			currentVersion = 5BB46FDF1DB619280009B2F5 /* WODLife 2.xcdatamodel */;
 			path = WODLife.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

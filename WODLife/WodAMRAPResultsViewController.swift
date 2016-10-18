@@ -77,7 +77,9 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         let timeString = String(format:"%02d-%02d-%02d",components.day,components.month,components.year)
         
         Wod.name = wodName
-        Wod.rounds = roundsTextField.text!
+        
+        let roundsInt:NSNumber? = Int(roundsTextField.text!)
+        Wod.rounds = roundsInt!
         Wod.date = timeString
  
         

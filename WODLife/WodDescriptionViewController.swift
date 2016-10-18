@@ -328,7 +328,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             }
             
             if timeComponentType?.rangeOfString("EMON") != nil {
-                let predicate = NSPredicate(format: "name == %@ && time == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], details[0][indexPath.row])
+                let predicate = NSPredicate(format: "name == %@ && rounds == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], details[0][indexPath.row])
                 fetchRequest.predicate = predicate
             }
             

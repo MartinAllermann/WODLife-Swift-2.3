@@ -480,8 +480,8 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="LrO-4W-h2n">
                             <connections>
-                                <action selector="saveBtn:" destination="P6x-ZL-rBI" id="9P6-fD-rjB"/>
-                                <segue destination="wWK-Me-Ocz" kind="push" id="5e1-cq-d2Q"/>
+                                <action selector="saveBtn:" destination="P6x-ZL-rBI" id="9uC-oF-d8q"/>
+                                <segue destination="wWK-Me-Ocz" kind="push" identifier="doneBtn" id="5e1-cq-d2Q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -77,7 +77,6 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         roundCount += 1
         roundCountBtnLabel.setTitle("\(roundCount)", forState: UIControlState.Normal)
         roundCountBtnLabel.titleLabel?.font =  UIFont(name: "Helvetica", size: 60)
-        saveBtnLabel.enabled = true
         
     }
     
@@ -87,7 +86,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         vc.wodName = wodName
         vc.roundsFromTimer = roundCount
         vc.timerUsed = true
-        
+
     }
     
     
@@ -144,7 +143,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         if startTimer == true {
             
-            
+            saveBtnLabel.enabled = false
             let currentDate = NSDate()
             let calendar = NSCalendar.currentCalendar()
             let dateComponents = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: currentDate)
@@ -175,6 +174,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             
         } else if startTimer == false {
             
+            saveBtnLabel.enabled = true
             timer?.invalidate()
             startTimerLabel.setTitle("START", forState: UIControlState.Normal)
             startTimerLabel.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)

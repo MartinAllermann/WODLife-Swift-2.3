@@ -19,17 +19,40 @@ class forTimeViewController: UIViewController {
     @IBOutlet weak var reset: UIButton!
     
     @IBAction func cancelBtn(sender: AnyObject) {
-        timer?.invalidate()
+        killTimer()
         dismissVC()
     }
     
     
-    
-
     @IBAction func saveBtn(sender: AnyObject) {
         
+        print("Done")
         
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Prevent Iphone from going idle
+        UIApplication.sharedApplication().idleTimerDisabled = true
+        saveBtnLabel.enabled = false
+        startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    func killTimer(){
+          timer?.invalidate()
+    }
+    
+    func resetBtn(){
+        
+        startStopWatch = true
+        startAndStop.setTitle("START", forState: UIControlState.Normal)
+        startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+    
+    }
+    
     
     // Go back on "save"
     func dismissVC(){
@@ -53,19 +76,18 @@ class forTimeViewController: UIViewController {
      startTime = nil
      accumulatedTime = 0
      currentTime.text = "00:00.00"
+        
+    resetBtn()
      
-     startStopWatch = true
-     startAndStop.setTitle("START", forState: UIControlState.Normal)
-     startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
      }
     
     @IBAction func startBtn(sender: AnyObject) {
         
-        saveBtnLabel.enabled = true
+        saveBtnLabel.enabled = false
         
         if startStopWatch == true {
             
-            
+            saveBtnLabel.enabled = false
             self.startTime = NSDate.timeIntervalSinceReferenceDate()
             
             self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(forTimeViewController.updateTime), userInfo: nil, repeats: true)
@@ -78,7 +100,7 @@ class forTimeViewController: UIViewController {
         } else {
             
             
-            
+            saveBtnLabel.enabled = true
             self.timer!.invalidate()
             self.timer = nil
             
@@ -88,18 +110,6 @@ class forTimeViewController: UIViewController {
             
         }
         
-    }
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Prevent Iphone from going idle
-        UIApplication.sharedApplication().idleTimerDisabled = true
-        saveBtnLabel.enabled = false
-         startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {

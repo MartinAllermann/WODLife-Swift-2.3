@@ -17,7 +17,7 @@ class WodsCollectionViewController: UICollectionViewController {
     var segmentSelected: String?
     var theGirlsWodsCollection:[[String]] = [
         
-        ["Amanda","9-7-5 reps for time","Muscle-ups","135-lb. snatches","","","For time","orange"],
+        ["Amanda","9-7-5 reps for time","Muscle-ups","Snatches (135 lbs)","","","For time","orange"],
         
         ["Angie","For time","100 pull-ups","100 push-ups","100 sit-ups","100 squats","For time","blue"],
         
@@ -31,35 +31,35 @@ class WodsCollectionViewController: UICollectionViewController {
         
         ["Cindy","As many rounds as possible in 20 min","5 pull-ups","10 push-ups","15 squats","","AMRAP","blue"],
         
-        ["Diane","21-15-9 reps for time","225-lb. deadlifts","Handstand push-ups","","","For time","orange"],
+        ["Diane","21-15-9 reps for time","Deadlifts (225 lbs)","Handstand push-ups","","","For time","orange"],
         
-        ["Elizabeth","21-15-9 reps for time","135-lb. cleans","Ring dips","","","For time","orange"],
+        ["Elizabeth","21-15-9 reps for time","Cleans (135 lbs)","Ring dips","","","For time","orange"],
         
         ["Eva","5 rounds for time","Run 800 meters","30 kettlebell swings","30 pull-ups","","For time","purple"],
         
-        ["Fran","21-15-9 reps for time","95-lb. thrusters","Pull-ups","","","For time","orange"],
+        ["Fran","21-15-9 reps for time","Thrusters (95 lbs)","Pull-ups","","","For time","orange"],
         
-        ["Grace","30 reps for time","21 Thrusters","pull-ups","","","For time","yellow"],
+        ["Grace","30 reps for time","Clean-and-Jerks (135 lbs)","","","","For time","yellow"],
         
         ["Helen","3 rounds for time","Run 400 meters","21 kettlebell swings","12 pull-ups","","For time","purple"],
         
-        ["Isabel","30 reps for time","135-lb. snatches","","","","For time","yellow"],
+        ["Isabel","30 reps for time","Snatches (135 lbs)","","","","For time","yellow"],
         
-        ["Jackie","For time","Row 1,000 meters","50 45-lb. thrusters","30 pull-ups","","For time","orange"],
+        ["Jackie","For time","Row 1,000 meters","50 Thrusters (45 lbs)","30 pull-ups","","For time","orange"],
         
         ["Karen","For time","150 wall-ball shots","","","","For time","purple"],
         
         ["Kelly","5 rounds for time","Run 400 meters","30 box jumps","30 wall-ball shots","","For time","purple"],
         
-        ["Linda","10-9-8-7-6-5-4-3-2-1 reps for time","1 1/2 BW deadlifts","BW bench presses","3/4 BW cleans","","For time","yellow"],
+        ["Linda","10-9-8-7-6-5-4-3-2-1 reps for time","Deadlifts (1.5 BW)","Bench presses (BW)","Cleans (3/4 BW)","","For time","yellow"],
         
-        ["Lynne","5 rounds for max reps","BW bench press","pull-ups","","","For time","orange"],
+        ["Lynne","5 rounds for max reps","Bench press (BW)","pull-ups","","","For time","orange"],
         
         ["Maggie","5 rounds for time","20 handstand push-ups","40 pull-ups","60 one-legged squats","","For time","blue"],
         
         ["Mary","As many rounds as possible in 20 min","5 handstand push-ups","10 1-legged squats","15 pull-ups","","AMRAP","blue"],
         
-        ["Nancy","5 rounds for time","Run 400 meters","95-lb. overhead squats, 15 reps","","","For time","purple"],
+        ["Nancy","5 rounds for time","Run 400 meters","15 Overhead squats (95 lbs)","","","For time","purple"],
     
         ["Nicole","As many rounds as possible in 20 min","Run 400 meters","Max-reps pull-ups","","","AMRAP","blue"],
         ]
@@ -82,13 +82,13 @@ class WodsCollectionViewController: UICollectionViewController {
         
         ["Michael","3 Rounds For Time","Rune 800 meters","50 back extensions","50 sit-ups","","For time"],
         
-        ["Badger","3 Rounds for time","30 95-lb. squats cleans","30 pull-ups","Run 800 meters","","For time"],
+        ["Badger","3 Rounds for time","30 Squats cleans (95 lbs)","30 pull-ups","Run 800 meters","","For time"],
         
-        ["Joshie","3 Rounds For Time","21 40-lb. db snatches","21 L-pull-ups","21 40-lb. dumbbell snatches","21 L-pull-ups","For time"],
+        ["Joshie","3 Rounds For Time","21 dumbbell snatches (40 lbs)","21 L-pull-ups","21 dumbbell snatches (40 lbs)","21 L-pull-ups","For time"],
         
-        ["Mr. Joshua","5 Rounds For Time","Run 400 meters","30 GHD sit-ups","15 250-lb. deadlifts","","For time"],
+        ["Mr. Joshua","5 Rounds For Time","Run 400 meters","30 GHD sit-ups","15 Deadlifts (250 lbs)","","For time"],
         
-        ["Danny","As many rounds as possible in 20 min","30 box jumps","20 115-lb. push presses","30 pull-ups","","AMRAP"],
+        ["Danny","As many rounds as possible in 20 min","30 box jumps","20 Push presses (115 lbs)","30 pull-ups","","AMRAP"],
         
         ]
     

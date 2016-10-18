@@ -46,6 +46,9 @@ class forTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         setWod()
         
         // Prevent Iphone from going idle

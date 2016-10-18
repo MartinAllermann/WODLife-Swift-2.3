@@ -111,6 +111,11 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             let vc = segue.destinationViewController as! forTimeViewController
             vc.wodName = wodName
+            vc.timeComponent = timeComponent
+            vc.firstExercise = firstExercise
+            vc.secondExercise = secondExercise
+            vc.thirdExercise = thirdExercise
+            vc.fourthExercise = fourthExercise
             
         }
         if segue.identifier == "AMRAP Timer"
@@ -118,6 +123,11 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             let vc = segue.destinationViewController as! amrapTimeViewController
             vc.wodName = wodName
+            vc.timeComponent = timeComponent
+            vc.firstExercise = firstExercise
+            vc.secondExercise = secondExercise
+            vc.thirdExercise = thirdExercise
+            vc.fourthExercise = fourthExercise
             
         }
 

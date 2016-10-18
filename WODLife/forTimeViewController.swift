@@ -4,6 +4,11 @@ import CoreData
 class forTimeViewController: UIViewController {
     
     var wodName: String?
+    var timeComponent: String?
+    var firstExercise: String?
+    var secondExercise: String?
+    var thirdExercise: String?
+    var fourthExercise: String?
     var wodResult: String?
     var timer : NSTimer?
     var startTime : NSTimeInterval?
@@ -12,11 +17,20 @@ class forTimeViewController: UIViewController {
     var previousTimeIsEmpty: Bool = true
     var previousTime: String?
     var wodResultString: String?
+    
 
     @IBOutlet weak var currentTime: UILabel!
     @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
     @IBOutlet weak var startAndStop: UIButton!
     @IBOutlet weak var reset: UIButton!
+    
+    @IBOutlet weak var wodNameLabel: UILabel!
+    @IBOutlet weak var timeComponentLabel: UILabel!
+    @IBOutlet weak var firstExerciseLabel: UILabel!
+    @IBOutlet weak var secondExerciseLabel: UILabel!
+    @IBOutlet weak var thirdExerciseLabel: UILabel!
+    @IBOutlet weak var fourthExerciseLabel: UILabel!
+    
     
     @IBAction func cancelBtn(sender: AnyObject) {
         killTimer()
@@ -32,6 +46,8 @@ class forTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setWod()
+        
         // Prevent Iphone from going idle
         UIApplication.sharedApplication().idleTimerDisabled = true
         saveBtnLabel.enabled = false
@@ -40,6 +56,17 @@ class forTimeViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    func setWod() {
+        
+        wodNameLabel.text = wodName
+        timeComponentLabel.text = timeComponent
+        firstExerciseLabel.text = firstExercise
+        secondExerciseLabel.text = secondExercise
+        thirdExerciseLabel.text = thirdExercise
+        fourthExerciseLabel.text = fourthExercise
+    }
+
     
     func killTimer(){
           timer?.invalidate()

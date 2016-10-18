@@ -18,7 +18,19 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var hourPicker: UIPickerView!
     @IBOutlet weak var minutePicker: UIPickerView!
     
+    @IBOutlet weak var wodNameLabel: UILabel!
+    @IBOutlet weak var timeComponentLabel: UILabel!
+    @IBOutlet weak var firstExerciseLabel: UILabel!
+    @IBOutlet weak var secondExerciseLabel: UILabel!
+    @IBOutlet weak var thirdExerciseLabel: UILabel!
+    @IBOutlet weak var fourthExerciseLabel: UILabel!
+    
     var wodName: String?
+    var timeComponent: String?
+    var firstExercise: String?
+    var secondExercise: String?
+    var thirdExercise: String?
+    var fourthExercise: String?
     var newDate = NSDate()
     var timer : NSTimer?
     var hour = 0
@@ -33,6 +45,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setWod()
 
         // Prevent Iphone from going idle
         UIApplication.sharedApplication().idleTimerDisabled = true
@@ -78,6 +91,16 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         roundCountBtnLabel.setTitle("\(roundCount)", forState: UIControlState.Normal)
         roundCountBtnLabel.titleLabel?.font =  UIFont(name: "Helvetica", size: 60)
         
+    }
+    
+    func setWod() {
+        
+        wodNameLabel.text = wodName
+        timeComponentLabel.text = timeComponent
+        firstExerciseLabel.text = firstExercise
+        secondExerciseLabel.text = secondExercise
+        thirdExerciseLabel.text = thirdExercise
+        fourthExerciseLabel.text = fourthExercise
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

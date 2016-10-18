@@ -68,21 +68,10 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         let Wod = WodResult(entity: ent!, insertIntoManagedObjectContext: context)
         
         let currentDate = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let dateComponents = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: currentDate)
-        
-        let components = NSDateComponents()
-        components.year = dateComponents.year
-        components.month = dateComponents.month
-        components.day = dateComponents.day
-        components.minute = dateComponents.minute
-        
-        newDate = calendar.dateFromComponents(components)!
-        let timeString = String(format:"%02d-%02d-%02d",components.day,components.month,components.year)
         
         Wod.name = wodName
         Wod.time = timeTextField.text
-        Wod.date = timeString
+        Wod.date = currentDate
         
         do {
             

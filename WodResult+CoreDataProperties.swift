@@ -18,6 +18,6 @@ extension WodResult {
     @NSManaged var time: String?
     @NSManaged var rounds: NSNumber?
     @NSManaged var reps: NSNumber?
-    @NSManaged var date: String?
+    @NSManaged var date: NSDate?
 
 }

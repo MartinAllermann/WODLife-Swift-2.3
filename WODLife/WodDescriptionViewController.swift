@@ -27,8 +27,10 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     var history: [String] = []
     var titles = [[String]]()
     var details = [[String]]()
-    var dateArray: [String] = []
-    var date: String?
+    var dateArray: [NSDate] = []
+    var dateArrayReverse: [[NSDate]] = []
+    var date: NSDate?
+    let dateFormatter = NSDateFormatter()
     
     var color: UIColor?
     var test: String?
@@ -46,6 +48,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         super.viewDidLoad()
         
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        
         setWod()
         
         timeComponentCheck()
@@ -54,22 +58,22 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         titles.append(wodLogTitle)
         titles.append(timerTitle)
         titles.append(history.reverse())
-        details.append(dateArray.reverse())
+        dateArrayReverse.append(dateArray.reverse())
     
     }
     
     override func viewWillAppear(animated: Bool) {
         
         titles.removeAll()
-        details.removeAll()
         history.removeAll()
         dateArray.removeAll()
+        dateArrayReverse.removeAll()
         
         timeComponentCheck()
         titles.append(wodLogTitle)
         titles.append(timerTitle)
         titles.append(history.reverse())
-        details.append(dateArray.reverse())
+        dateArrayReverse.append(dateArray.reverse())
         tableView.reloadData()
         
     }
@@ -192,7 +196,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             cell.detailLabel?.layer.masksToBounds = true
             cell.detailLabel?.layer.cornerRadius = 12
             
-            cell.titleLabel?.text = details[0][indexPath.row]
+            let convertedDate = dateFormatter.stringFromDate(dateArrayReverse[0][indexPath.row])
+            cell.titleLabel?.text = convertedDate
             cell.accessoryType = UITableViewCellAccessoryType.None
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
@@ -328,17 +333,17 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             let fetchRequest = NSFetchRequest(entityName: "WodResult")
             
             if timeComponentType?.rangeOfString("For") != nil {
-                let predicate = NSPredicate(format: "name == %@ && time == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], details[0][indexPath.row])
+                let predicate = NSPredicate(format: "name == %@ && time == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], dateArrayReverse[0][indexPath.row])
                 fetchRequest.predicate = predicate
             }
             
             if timeComponentType?.rangeOfString("AMRAP") != nil {
-                let predicate = NSPredicate(format: "name == %@ && rounds == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], details[0][indexPath.row])
+                let predicate = NSPredicate(format: "name == %@ && rounds == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], dateArrayReverse[0][indexPath.row])
                 fetchRequest.predicate = predicate
             }
             
             if timeComponentType?.rangeOfString("EMON") != nil {
-                let predicate = NSPredicate(format: "name == %@ && rounds == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], details[0][indexPath.row])
+                let predicate = NSPredicate(format: "name == %@ && rounds == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], dateArrayReverse[0][indexPath.row])
                 fetchRequest.predicate = predicate
             }
             

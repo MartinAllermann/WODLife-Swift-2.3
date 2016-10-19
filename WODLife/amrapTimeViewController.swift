@@ -217,8 +217,9 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let calendar2 = NSCalendar.currentCalendar()
         let components2 = calendar2.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: currentDate, toDate: newDate, options: [])
         print(components2.second)
+        print(components2.minute)
         
-        if (components2.second > 0) {
+        if (components2.second > 0 || components2.minute > 0 || components2.hour > 0) {
             
             let timeString = String(format:"%02d:%02d:%02d",components2.hour,components2.minute,components2.second)
             timeLeftLabel.text = timeString
@@ -234,17 +235,17 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     // Need commit
     func timeIsUp(){
         
+        alert()
+        playSound()
+        
+        timeLeftLabel.hidden = true
+        hourPicker.hidden = false
+        minutePicker.hidden = false
+        
         timer?.invalidate()
         startTimerLabel.setTitle("Start", forState: UIControlState.Normal)
         startTimerLabel.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
         startTimer = true
-        
-        hourPicker.hidden = false
-        minutePicker.hidden = false
-        timeLeftLabel.hidden = true
-        
-        alert()
-        playSound()
         
     }
     

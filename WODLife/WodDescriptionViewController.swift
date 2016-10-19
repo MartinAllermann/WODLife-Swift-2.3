@@ -45,7 +45,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var thirdExerciseLabel: UILabel!
     @IBOutlet weak var fourthExerciseLabel: UILabel!
     @IBOutlet weak var backgroundColor: UIView!
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         setWod()
         backgroundColor.backgroundColor = color
-
+        
         
         timeComponentCheck()
         
@@ -62,7 +62,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         titles.append(history.reverse())
         dateArrayReverse.append(dateArray.reverse())
         deleteHistoryReverse.append(deleteHistory.reverse())
-    
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -83,7 +83,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         tableView.reloadData()
         
     }
-
+    
     func setWod() {
         
         wodNameLabel.text = wodName
@@ -93,7 +93,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         thirdExerciseLabel.text = thirdExercise
         fourthExerciseLabel.text = fourthExercise
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -107,7 +107,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             let vc = segue.destinationViewController as! WodResultTableViewController
             vc.wodName = wodName
-
+            
         }
         if segue.identifier == "AMRAP"
         {
@@ -140,28 +140,28 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             vc.fourthExercise = fourthExercise
             
         }
-
+        
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         switch(section){
-        
+            
         case 2:
             
             if (history.isEmpty == true) {
                 
-            return ""
-            
+                return ""
+                
             } else {
-            
-            return "HISTORY"
+                
+                return "HISTORY"
                 
             }
-
+            
         default:
             
-        return ""
+            return ""
             
         }
         
@@ -253,7 +253,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         if timeComponentType?.rangeOfString("For") != nil {
             
             getWodResult()
-        
+            
         }
         
         if timeComponentType?.rangeOfString("AMRAP") != nil {
@@ -267,7 +267,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             getWodAmrapResult()
             
         }
-    
+        
     }
     
     func getWodResult() {

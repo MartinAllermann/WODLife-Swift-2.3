@@ -238,6 +238,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         alert()
         playSound()
         
+        saveBtnLabel.enabled = true
         timeLeftLabel.hidden = true
         hourPicker.hidden = false
         minutePicker.hidden = false

@@ -18,7 +18,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     @IBOutlet weak var wodNameLabel: UILabel!
     
     var wodName: String?
-    var wodResult: String?
+    var wodResult: Int?
     var pickOption:[String] = []
     var pickOption2:[String] = []
     var minutes: Int?
@@ -26,6 +26,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     var newDate = NSDate()
     let pickerView = UIPickerView()
     var timerUsed: Bool = false
+    var elapsedTimeInSeconds: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,9 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         if timerUsed == true {
             
-            timeTextField.text = wodResult
+            elapsedTimeInSeconds = wodResult
+            
+             timeTextField.text = secondsToHoursMinutesSeconds(wodResult!)
             
         }
         
@@ -52,7 +55,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         if timeTextField.text!.isEmpty {
             
-            timeTextField.text = "0:00"
+            elapsedTimeInSeconds = 0
         
         }
     
@@ -70,7 +73,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         let currentDate = NSDate()
         
         Wod.name = wodName
-        Wod.time = timeTextField.text
+        Wod.time = elapsedTimeInSeconds
         Wod.date = currentDate
         
         do {
@@ -193,7 +196,28 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         }
         
-    
+        elapsedTimeInSeconds = (minutes! * 60) + (seconds)!
+        
     }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (String) {
+        let min: Int?
+        let sec: Int?
+        
+        min = (seconds % 3600) / 60
+        sec = (seconds % 3600) % 60
+        
+        if sec <= 9 {
+
+            return "\(min!)" + ":" + "0\(sec!)"
+        }
+            
+        else {
+            
+            return "\(min!)" + ":" + "\(sec!)"
+            
+        }
+    }
+    
     
 }

@@ -12,7 +12,7 @@ import CoreData
 class WodDescriptionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
     var wodName: String?
-    var forTime: String?
+    var forTime: NSNumber?
     var AmrapTime: String?
     var AmrapRounds: NSNumber?
     var AmrapReps: NSNumber?
@@ -31,6 +31,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     var dateArrayReverse: [[NSDate]] = []
     var date: NSDate?
     let dateFormatter = NSDateFormatter()
+    var deleteHistory: [String] = []
+    var deleteHistoryReverse: [[String]] = []
     
     var color: UIColor?
     var test: String?
@@ -49,16 +51,17 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
         
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        
         setWod()
-        
-        timeComponentCheck()
         backgroundColor.backgroundColor = color
 
+        
+        timeComponentCheck()
+        
         titles.append(wodLogTitle)
         titles.append(timerTitle)
         titles.append(history.reverse())
         dateArrayReverse.append(dateArray.reverse())
+        deleteHistoryReverse.append(deleteHistory.reverse())
     
     }
     
@@ -68,12 +71,15 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         history.removeAll()
         dateArray.removeAll()
         dateArrayReverse.removeAll()
+        deleteHistory.removeAll()
+        deleteHistoryReverse.removeAll()
         
         timeComponentCheck()
         titles.append(wodLogTitle)
         titles.append(timerTitle)
         titles.append(history.reverse())
         dateArrayReverse.append(dateArray.reverse())
+        deleteHistoryReverse.append(deleteHistory.reverse())
         tableView.reloadData()
         
     }
@@ -279,8 +285,9 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             for res in results {
                 forTime = res.time
                 date = res.date
-                history.append(forTime!)
+                history.append(secondsToHoursMinutesSeconds(forTime!))
                 dateArray.append(date!)
+                deleteHistory.append("\(forTime!)")
             }
             
         } catch {
@@ -333,7 +340,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             let fetchRequest = NSFetchRequest(entityName: "WodResult")
             
             if timeComponentType?.rangeOfString("For") != nil {
-                let predicate = NSPredicate(format: "name == %@ && time == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], dateArrayReverse[0][indexPath.row])
+                let predicate = NSPredicate(format: "name == %@ && time == %@ && date == %@", wodName!, deleteHistoryReverse[0][indexPath.row], dateArrayReverse[0][indexPath.row])
                 fetchRequest.predicate = predicate
             }
             
@@ -356,6 +363,26 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             }
             
             viewWillAppear(true)
+        }
+    }
+    
+    func secondsToHoursMinutesSeconds (seconds : NSNumber) -> (String) {
+        
+        let min: Int?
+        let sec: Int?
+        
+        min = (seconds.integerValue % 3600) / 60
+        sec = (seconds.integerValue % 3600) % 60
+        
+        if sec <= 9 {
+            
+            return "\(min!)" + ":" + "0\(sec!)"
+        }
+            
+        else {
+            
+            return "\(min!)" + ":" + "\(sec!)"
+            
         }
     }
     

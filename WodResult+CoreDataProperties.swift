@@ -15,7 +15,7 @@ import CoreData
 extension WodResult {
 
     @NSManaged var name: String?
-    @NSManaged var time: String?
+    @NSManaged var time: NSNumber?
     @NSManaged var rounds: NSNumber?
     @NSManaged var reps: NSNumber?
     @NSManaged var date: NSDate?

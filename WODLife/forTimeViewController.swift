@@ -9,7 +9,7 @@ class forTimeViewController: UIViewController {
     var secondExercise: String?
     var thirdExercise: String?
     var fourthExercise: String?
-    var wodResult: String?
+    var wodResult: Int?
     var timer : NSTimer?
     var startTime : NSTimeInterval?
     var accumulatedTime = NSTimeInterval()
@@ -157,13 +157,13 @@ class forTimeViewController: UIViewController {
         var elapsedTime = self.accumulatedTime
         
         
-        let minutes = UInt8(elapsedTime / 60)
+        let minutes = Int(elapsedTime / 60)
         elapsedTime -= (NSTimeInterval(minutes) * 60)
         
-        let seconds = UInt8(elapsedTime)
+        let seconds = Int(elapsedTime)
         elapsedTime -= NSTimeInterval(seconds)
         
-        let fraction = UInt8(elapsedTime * 100)
+        let fraction = Int(elapsedTime * 100)
         
         let timeString = String(format:"%02d:%02d.%02d",minutes,seconds,fraction)
         currentTime.text = timeString
@@ -173,9 +173,8 @@ class forTimeViewController: UIViewController {
         } else {
             wodResultString = "\(minutes)" + ":" + "\(seconds)"
         }
-        wodResult = wodResultString
         
-        print(timeString)
+        wodResult = (minutes * 60) + seconds
         
     }
     

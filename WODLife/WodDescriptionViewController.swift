@@ -52,8 +52,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         setWod()
-        backgroundColor.backgroundColor = color
-        
+        setBackgroundColor()
         
         timeComponentCheck()
         
@@ -82,6 +81,12 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         deleteHistoryReverse.append(deleteHistory.reverse())
         tableView.reloadData()
         
+    }
+    
+    func setBackgroundColor(){
+ 
+        backgroundColor.backgroundColor = color
+ 
     }
     
     func setWod() {
@@ -188,12 +193,14 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             cell.detailLabel?.text = ""
             cell.detailLabel?.backgroundColor = UIColor.clearColor()
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell.leftIcon.image = UIImage(named: "Compose")
             
         case 1:
             cell.titleLabel?.text = titles[indexPath.section][indexPath.row]
             cell.detailLabel?.text = ""
             cell.detailLabel?.backgroundColor = UIColor.clearColor()
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell.leftIcon.image = UIImage(named: "Stopwatch")
             
         case 2:
             
@@ -206,9 +213,12 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             cell.titleLabel?.text = convertedDate
             cell.accessoryType = UITableViewCellAccessoryType.None
             cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.leftIcon.image = UIImage(named: "Calendar")
+            
             
         default:
             cell.titleLabel.text = titles[indexPath.section][indexPath.row]
+            cell.leftIcon.image = UIImage(named: "Calendar")
         }
         
         return cell

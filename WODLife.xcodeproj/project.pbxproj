@@ -12,7 +12,6 @@
 		5B22793F1D605DB60020C0C1 /* forTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22793E1D605DB60020C0C1 /* forTimeViewController.swift */; };
 		5B2279411D605DD40020C0C1 /* amrapTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2279401D605DD40020C0C1 /* amrapTimeViewController.swift */; };
 		5B65128D1D4A2E5000824B6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65128C1D4A2E5000824B6C /* AppDelegate.swift */; };
-		5B65128F1D4A2E5000824B6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65128E1D4A2E5000824B6C /* ViewController.swift */; };
 		5B6512921D4A2E5000824B6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6512901D4A2E5000824B6C /* Main.storyboard */; };
 		5B6512951D4A2E5000824B6C /* WODLife.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512931D4A2E5000824B6C /* WODLife.xcdatamodeld */; };
 		5B6512971D4A2E5000824B6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6512961D4A2E5000824B6C /* Assets.xcassets */; };
@@ -32,7 +31,6 @@
 		5B2279401D605DD40020C0C1 /* amrapTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = amrapTimeViewController.swift; sourceTree = "<group>"; };
 		5B6512891D4A2E5000824B6C /* WODLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WODLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B65128C1D4A2E5000824B6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5B65128E1D4A2E5000824B6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B6512911D4A2E5000824B6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B6512941D4A2E5000824B6C /* WODLife.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WODLife.xcdatamodel; sourceTree = "<group>"; };
 		5B6512961D4A2E5000824B6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 			children = (
 				5BC5C3BF1D99A45700F3A179 /* WODLife.entitlements */,
 				5B65128C1D4A2E5000824B6C /* AppDelegate.swift */,
-				5B65128E1D4A2E5000824B6C /* ViewController.swift */,
 				5B6512901D4A2E5000824B6C /* Main.storyboard */,
 				5B6512961D4A2E5000824B6C /* Assets.xcassets */,
 				5B6512981D4A2E5000824B6C /* LaunchScreen.storyboard */,
@@ -184,7 +181,6 @@
 				5B8F607C1DB0FBE400268445 /* WodDescriptionTableViewCell.swift in Sources */,
 				5BAC71FD1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift in Sources */,
 				5B22793F1D605DB60020C0C1 /* forTimeViewController.swift in Sources */,
-				5B65128F1D4A2E5000824B6C /* ViewController.swift in Sources */,
 				5B6512A21D4A2EAC00824B6C /* WodsCollectionViewController.swift in Sources */,
 				5B20A6801D4B797E006F42C9 /* WodResult.swift in Sources */,
 				5B6512A41D4A31ED00824B6C /* WodsResumeCollectionViewCell.swift in Sources */,

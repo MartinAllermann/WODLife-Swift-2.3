@@ -95,7 +95,7 @@ class forTimeViewController: UIViewController {
             let vc = segue.destinationViewController as! WodResultTableViewController
             vc.wodName = wodName
             vc.timerUsed = true
-            vc.wodResult = wodResult!
+            vc.wodResult = wodResult
     }
     
     

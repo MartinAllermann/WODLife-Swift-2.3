@@ -34,7 +34,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var newDate = NSDate()
     var timer : NSTimer?
     var hour = 0
-    var minute = 0
+    var minute = 1
     var startTimer: Bool = true
     var roundCount = 0
     var previousRoundsIsEmpty: Bool = true
@@ -63,7 +63,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             hourArray.append("\(i)")
         }
         
-        for i in 0...59 {
+        for i in 1...59 {
             minArray.append("\(i)")
         }
         
@@ -89,7 +89,8 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         roundCount += 1
         roundCountBtnLabel.setTitle("\(roundCount)", forState: UIControlState.Normal)
-        roundCountBtnLabel.titleLabel?.font =  UIFont(name: "Helvetica", size: 60)
+        roundCountBtnLabel.titleLabel?.font =  UIFont(name: "Helvetica", size: 85)
+        saveBtnLabel.enabled = true
         
     }
     
@@ -140,7 +141,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if (pickerView.tag == 1){
             hour = row
         }else{
-            minute = row
+            minute = row + 1
         }
     }
     

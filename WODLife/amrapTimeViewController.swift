@@ -89,14 +89,14 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         roundCount += 1
         roundCountBtnLabel.setTitle("\(roundCount)", forState: UIControlState.Normal)
-        roundCountBtnLabel.titleLabel?.font =  UIFont(name: "Helvetica", size: 85)
+        roundCountBtnLabel.titleLabel?.font =  UIFont(name: "Helvetica", size: 75)
         saveBtnLabel.enabled = true
         
     }
     
     func setWod() {
         
-        wodNameLabel.text = wodName
+        wodNameLabel.text? = wodName!
         timeComponentLabel.text = timeComponent
         firstExerciseLabel.text = firstExercise
         secondExerciseLabel.text = secondExercise

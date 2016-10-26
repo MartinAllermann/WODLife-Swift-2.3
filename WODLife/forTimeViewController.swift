@@ -62,6 +62,8 @@ class forTimeViewController: UIViewController {
     
     func setWod() {
         
+        
+        
         wodNameLabel.text = wodName
         timeComponentLabel.text = timeComponent
         firstExerciseLabel.text = firstExercise

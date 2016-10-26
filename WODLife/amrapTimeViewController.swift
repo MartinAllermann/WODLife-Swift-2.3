@@ -90,8 +90,12 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         roundCount += 1
         roundCountBtnLabel.setTitle("\(roundCount)", forState: UIControlState.Normal)
         roundCountBtnLabel.titleLabel?.font =  UIFont(name: "Helvetica", size: 75)
-        saveBtnLabel.enabled = true
         
+        if (timeLeftLabel.hidden == true){
+            saveBtnLabel.enabled = true
+        } else {
+            saveBtnLabel.enabled = false
+        }
     }
     
     func setWod() {
@@ -224,6 +228,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             
             let timeString = String(format:"%02d:%02d:%02d",components2.hour,components2.minute,components2.second)
             timeLeftLabel.text = timeString
+            saveBtnLabel.enabled = false
             
         } else {
             

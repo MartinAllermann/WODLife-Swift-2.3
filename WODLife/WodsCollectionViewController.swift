@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
-class WodsCollectionViewController: UICollectionViewController {
+class WodsCollectionViewController: UICollectionViewController, NSFetchedResultsControllerDelegate{
     
     @IBOutlet weak var segmentedControlBar: UISegmentedControl!
     
     var wodCollectionOne = "Girls"
     var wodCollectionTwo = "Heroes"
     var segmentSelected: String?
+    var wodsWithDataArray: [String] = []
     var theGirlsWodsCollection:[[String]] = [
         
         ["Amanda","9-7-5 reps for time","Muscle-ups","Snatches (135 lbs)","","","For time","orange"],
@@ -186,6 +188,8 @@ class WodsCollectionViewController: UICollectionViewController {
         
         navigationbarcolor()
         
+        getWod()
+        
     }
     
     func navigationbarcolor() {
@@ -201,6 +205,9 @@ class WodsCollectionViewController: UICollectionViewController {
     override func viewWillAppear(animated: Bool) {
         
         transparentNavigationBarFalse()
+        wodsWithDataArray.removeAll()
+        getWod()
+        collectionView?.reloadData()
         
     }
     
@@ -341,6 +348,12 @@ class WodsCollectionViewController: UICollectionViewController {
             cell.thirdExercise.text = theGirlsWodsCollection[indexPath.row][4]
             cell.fourthExercise.text = theGirlsWodsCollection[indexPath.row][5]
             
+            if (wodsWithDataArray.contains(theGirlsWodsCollection[indexPath.row][0])) {
+                cell.imageIcon.hidden = false
+            } else {
+                cell.imageIcon.hidden = true
+            }
+            
             switch(theGirlsWodsCollection[indexPath.row][7]){
                 
             case "blue":
@@ -375,6 +388,13 @@ class WodsCollectionViewController: UICollectionViewController {
             cell.fourthExercise.text = heroWodsCollection[indexPath.row][5]
             cell.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
             
+            if (wodsWithDataArray.contains(heroWodsCollection[indexPath.row][0])) {
+                cell.imageIcon.hidden = false
+            } else {
+                cell.imageIcon.hidden = true
+            }
+            
+            
             return cell
             
         }
@@ -403,4 +423,27 @@ class WodsCollectionViewController: UICollectionViewController {
         
         return CGSize(width: 300, height: 175)
     }
+    
+    func getWod() {
+        
+        let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        let con: NSManagedObjectContext = appDel.managedObjectContext
+        
+        let request = NSFetchRequest(entityName: "WodResult")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            
+            let results = try con.executeFetchRequest(request) as! [WodResult]
+            for res in results {
+                wodsWithDataArray.append(res.name!)
+            }
+            
+        } catch {
+            print("Unresolved error")
+            abort()
+        }
+    }
+    
+    
 }

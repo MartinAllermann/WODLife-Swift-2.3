@@ -57,7 +57,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fourth Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbk-4r-LfP">
-                                            <frame key="frameInset" minX="11.5" minY="139.5" maxX="12" maxY="14.5"/>
+                                            <frame key="frameInset" minX="12" minY="140" maxX="48" maxY="14"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" button="YES" staticText="YES"/>
@@ -73,12 +73,17 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="T7Z-Zf-6MR">
+                                            <frame key="frameInset" width="22" height="22" maxX="8" maxY="8"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="firstExercise" destination="kmU-qn-ETT" id="Si0-rY-exR"/>
                                     <outlet property="fourthExercise" destination="Pbk-4r-LfP" id="iis-o4-Hm0"/>
+                                    <outlet property="imageIcon" destination="T7Z-Zf-6MR" id="Jyf-9h-Gq6"/>
                                     <outlet property="name" destination="Wfy-P2-JCZ" id="lXH-VM-ogF"/>
                                     <outlet property="secondExercise" destination="j7R-q9-Efj" id="A2F-qr-Up4"/>
                                     <outlet property="thirdExercise" destination="ybA-WS-340" id="Mal-gB-FEm"/>
@@ -113,7 +118,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NH6-7X-fcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="811" y="346"/>
+            <point key="canvasLocation" x="810.5" y="345.5"/>
         </scene>
         <!--Wod Description View Controller-->
         <scene sceneID="ZpT-4v-c5p">
@@ -199,7 +204,7 @@
                                                     <frame key="frameInset" minY="14" width="66" maxX="15" maxY="13"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -380,7 +385,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k2L-o6-bEk">
-                                                    <frame key="frameInset" minX="81.5" minY="12" height="30" maxX="15.5"/>
+                                                    <frame key="frameInset" minX="81" minY="12" height="30" maxX="16"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <accessibility key="accessibilityConfiguration" label="jk"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

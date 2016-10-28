@@ -51,8 +51,9 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
         
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        setWod()
+        
         setBackgroundColor()
+        setWod()
         
         timeComponentCheck()
         
@@ -84,8 +85,9 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func setBackgroundColor(){
- 
+        
         backgroundColor.backgroundColor = color
+        
  
     }
     

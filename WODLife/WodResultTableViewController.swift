@@ -48,8 +48,6 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
             
         }
         
-        self.timeTextField.becomeFirstResponder()
-        
     }
     @IBAction func saveBtn(sender: AnyObject) {
         
@@ -219,5 +217,8 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         }
     }
     
+   override func viewDidAppear(animated: Bool) {
+        self.timeTextField.becomeFirstResponder()
+    }
     
 }

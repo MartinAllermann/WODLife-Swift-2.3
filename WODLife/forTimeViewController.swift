@@ -64,8 +64,8 @@ class forTimeViewController: UIViewController {
         
         
         
-        wodNameLabel.text = wodName
-        timeComponentLabel.text = timeComponent
+        wodNameLabel.text = wodName?.uppercaseString
+        timeComponentLabel.text = timeComponent?.uppercaseString
         firstExerciseLabel.text = firstExercise
         secondExerciseLabel.text = secondExercise
         thirdExerciseLabel.text = thirdExercise
@@ -80,7 +80,7 @@ class forTimeViewController: UIViewController {
     func resetBtn(){
         
         startStopWatch = true
-        startAndStop.setTitle("START", forState: UIControlState.Normal)
+        startAndStop.setTitle("Start", forState: UIControlState.Normal)
         startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
     
     }
@@ -125,7 +125,7 @@ class forTimeViewController: UIViewController {
             self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(forTimeViewController.updateTime), userInfo: nil, repeats: true)
             
             startStopWatch = false
-            startAndStop.setTitle("STOP", forState: UIControlState.Normal)
+            startAndStop.setTitle("Stop", forState: UIControlState.Normal)
             startAndStop.backgroundColor = UIColor(hue: 0.9833, saturation: 0.68, brightness: 0.85, alpha: 1.0)
             
             
@@ -137,7 +137,7 @@ class forTimeViewController: UIViewController {
             self.timer = nil
             
             startStopWatch = true
-            startAndStop.setTitle("START", forState: UIControlState.Normal)
+            startAndStop.setTitle("Start", forState: UIControlState.Normal)
             startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
             
         }

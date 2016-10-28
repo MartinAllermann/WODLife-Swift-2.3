@@ -100,8 +100,8 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func setWod() {
         
-        wodNameLabel.text? = wodName!
-        timeComponentLabel.text = timeComponent
+        wodNameLabel.text? = (wodName?.uppercaseString)!
+        timeComponentLabel.text = timeComponent?.uppercaseString
         firstExerciseLabel.text = firstExercise
         secondExerciseLabel.text = secondExercise
         thirdExerciseLabel.text = thirdExercise
@@ -191,7 +191,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             // Start timer
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.setTimeLeft), userInfo: nil, repeats: true)
             
-            startTimerLabel.setTitle("STOP", forState: UIControlState.Normal)
+            startTimerLabel.setTitle("Stop", forState: UIControlState.Normal)
             startTimerLabel.backgroundColor = UIColor(hue: 0.9833, saturation: 0.68, brightness: 0.85, alpha: 1.0)
             startTimer = false
             
@@ -204,7 +204,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             
             saveBtnLabel.enabled = true
             timer?.invalidate()
-            startTimerLabel.setTitle("START", forState: UIControlState.Normal)
+            startTimerLabel.setTitle("Start", forState: UIControlState.Normal)
             startTimerLabel.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
             startTimer = true
             timeLeftLabel.text = "00:00:00"

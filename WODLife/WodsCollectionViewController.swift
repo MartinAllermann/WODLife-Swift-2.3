@@ -13,8 +13,8 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
     
     @IBOutlet weak var segmentedControlBar: UISegmentedControl!
     
-    var wodCollectionOne = "Girls"
-    var wodCollectionTwo = "Heroes"
+    var wodCollectionOne = "GIRLS"
+    var wodCollectionTwo = "HEROES"
     var segmentSelected: String?
     var wodsWithDataArray: [String] = []
     var theGirlsWodsCollection:[[String]] = [
@@ -68,19 +68,19 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
     
     var heroWodsCollection:[[String]] = [
         
-        ["Badger","3 Rounds for time","30 Squats cleans (95 lbs)","30 pull-ups","Run 800 meters","","For time"],
+        ["Badger","3 Rounds for time","30 squats cleans (95 lbs)","30 pull-ups","Run 800 meters","","For time"],
         
         ["Bradshaw","10 rounds for time","3 handstand push-ups","6 deadlifts (225 lbs)","12 pull-ups","24 double-unders","For time"],
         
         ["Bulger","10 rounds for time","Run 150 meters","7 chest-to-bar pull-ups","7 front squats (135 lbs)","7 handstand push-ups","For time"],
         
-        ["Bull","2 Rounds For Time","200 Double-unders","50 Overhead Squat","50 Pull-ups","Run 1 mile","For time"],
+        ["Bull","2 Rounds for time","200 double-unders","50 overhead Squat","50 pull-ups","Run 1 mile","For time"],
         
         ["Coe","10 rounds for time","10 thrusters (95 lbs)","10 ring push-ups","","","For time"],
         
         ["Collin","6 rounds for time","Carry sandbag 400 meters","12 push presses","12 box jumps","12 sumo deadlift high pulls (95 lbs)","For time"],
         
-        ["Danny","As many rounds as possible in 20 min","30 box jumps","20 Push presses (115 lbs)","30 pull-ups","","AMRAP"],
+        ["Danny","As many rounds as possible in 20 min","30 box jumps","20 push presses (115 lbs)","30 pull-ups","","AMRAP"],
         
         ["Desforges","5 rounds for time","12 deadlift (225 lbs)","20 pull-ups","12 clean and jerks (135 lbs)","20 knees-to-elbows","For time"],
         
@@ -90,7 +90,7 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         
         ["Erin","5 rounds for time","15 dumbbell split cleans (40 lbs)","21 pull-ups","","","For time"],
         
-        ["Forrest","3 rounds for time","20 L-pull-ups","30 toes-to-bars","40 burpess","Rune 800 meters","For time"],
+        ["Forrest","3 rounds for time","20 L-pull-ups","30 toes-to-bars","40 burpess","Run 800 meters","For time"],
         
         ["Gator","8 rounds for time","5 front squats (185 lbs)","26 ring push-ups","","","For time"],
         
@@ -108,7 +108,7 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         
         ["JBO","As many rounds as possible in 28 min","9 overhead squats (115 lbs)","1 legless rope climb","12 Bench presses (115 lbs)","","AMRAP"],
         
-        ["Jerry","For time","Rune 1 mile","Row 2.000 meters","Run 1 mile","","For time"],
+        ["Jerry","For time","Run 1 mile","Row 2.000 meters","Run 1 mile","","For time"],
         
         ["JT","21, 15, 9 reps for time","Handstand push-ups","Ring dips","Push-ups","","For time"],
         
@@ -122,13 +122,13 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         
         ["Luce","3 Rounds For Time","1k Run","10 Muscle Ups","100 Squats","","For time"],
         
-        ["Manion","7 rounds for time","Rune 400 meters","29 back squats (135 lbs)","","","For time"],
+        ["Manion","7 rounds for time","Run 400 meters","29 back squats (135 lbs)","","","For time"],
         
         ["McGhee","As many rounds as possible in 30 min","5 deadlifts (275 lbs)","13 push-ups","9 box jumps (24 inch)","","AMRAP"],
         
         ["Mccluskey","3 rounds for time","9 muscle-ups","15 burpee pull-ups","21 pull ups","Run 800 meters","For time"],
         
-        ["Michael","3 Rounds For Time","Rune 800 meters","50 back extensions","50 sit-ups","","For time"],
+        ["Michael","3 Rounds For Time","Run 800 meters","50 back extensions","50 sit-ups","","For time"],
         
         ["Moore","As many rounds as possible in 20 min","Rope climb","Run 400 meters","Max-reps handstand push-ups","","AMRAP"],
         
@@ -136,21 +136,21 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         
         ["Mr. Joshua","5 Rounds For Time","Run 400 meters","30 GHD sit-ups","15 Deadlifts (250 lbs)","","For time"],
         
-        ["Murph","For Time","1 mile Run","100 Pull-ups","200 push-ups","300 Squats","For time"],
+        ["Murph","For Time","2x1 mile Run","100 pull-ups","200 push-ups","300 Squats","For time"],
         
-        ["Nate","As many rounds as possible in 20 min","2 Muscle-ups","4 Handstand push-ups","8 Kettlebell swings","","AMRAP"],
+        ["Nate","As many rounds as possible in 20 min","2 muscle-ups","4 handstand push-ups","8 kettlebell swings","","AMRAP"],
         
-        ["Paul","5 rounds for time","50 double-unders","35 knees-to-elbows","Overhead walk (20 yards)","","For time"],
+        ["Paul","5 rounds for time","50 double-unders","35 knees-to-elbows","overhead walk (20 yards)","","For time"],
         
         ["Rahoi","As many rounds as possible in 12 min","12 box jumps","6 thrusters (95 lbs)","6 burpees","","AMRAP"],
         
-        ["Randy","AMRAP","75 Power Snatch","","","","AMRAP"],
+        ["Randy","AMRAP","75 power Snatch","","","","AMRAP"],
         
         ["Rankel","As many rounds as possible in 20 min","6 deadlifts (225 lbs)","7 burpee pull-ups","10 kettlebell swings","Run 200 meters","AMRAP"],
         
         ["Ricky","As many rounds as possible in 20 min","10 pull-ups","5 dumbbell deadlifts (75 lbs)","8 push press (135 lbs)","","AMRAP"],
         
-        ["RJ","5 rounds for time","Rune 800 meters","5 ropeclimbs","50 push-ups","","For time"],
+        ["RJ","5 rounds for time","Run 800 meters","5 ropeclimbs","50 push-ups","","For time"],
         
         ["Roy","5 rounds for time","15 deadlifts (225 lbs)","20 box jumps","25 pull-ups","","For time"],
         
@@ -170,7 +170,7 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         
         ["War Frank","3 rounds for time","25 muscle-ups","100 squats","35 GHD sit-ups","","For time"],
         
-        ["White","5 Rounds For Time","3 Rope climb","10 Toes to bar","21 lunges","Run 400 meters","For time"],
+        ["White","5 rounds For Time","3 rope climb","10 toes to bar","21 lunges","Run 400 meters","For time"],
         
         ["Wilmot","6 rounds for time","50 squats","25 ring dips","","","For time"],
         
@@ -341,8 +341,10 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! WodsResumeCollectionViewCell
         
         if segmentSelected == wodCollectionOne {
-            cell.name.text = theGirlsWodsCollection[indexPath.row][0]
-            cell.timeComponent.text = theGirlsWodsCollection[indexPath.row][1]
+            let name = theGirlsWodsCollection[indexPath.row][0]
+            cell.name.text = name.uppercaseString
+            let timeComponent = theGirlsWodsCollection[indexPath.row][1]
+            cell.timeComponent.text = timeComponent.uppercaseString
             cell.firstExercise.text = theGirlsWodsCollection[indexPath.row][2]
             cell.secondExercise.text = theGirlsWodsCollection[indexPath.row][3]
             cell.thirdExercise.text = theGirlsWodsCollection[indexPath.row][4]
@@ -380,8 +382,10 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         }
         
         if segmentSelected == wodCollectionTwo {
-            cell.name.text = heroWodsCollection[indexPath.row][0]
-            cell.timeComponent.text = heroWodsCollection[indexPath.row][1]
+            let name = heroWodsCollection[indexPath.row][0]
+            cell.name.text = name.uppercaseString
+            let timeComponent = heroWodsCollection[indexPath.row][1]
+            cell.timeComponent.text = timeComponent.uppercaseString
             cell.firstExercise.text = heroWodsCollection[indexPath.row][2]
             cell.secondExercise.text = heroWodsCollection[indexPath.row][3]
             cell.thirdExercise.text = heroWodsCollection[indexPath.row][4]

@@ -91,12 +91,13 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func setWod() {
         
-        wodNameLabel.text = wodName
-        timeComponentLabel.text = timeComponent
+        wodNameLabel.text = wodName?.uppercaseString
+        timeComponentLabel.text = timeComponent?.uppercaseString
         firstExerciseLabel.text = firstExercise
         secondExerciseLabel.text = secondExercise
         thirdExerciseLabel.text = thirdExercise
         fourthExerciseLabel.text = fourthExercise
+
     }
     
     override func didReceiveMemoryWarning() {

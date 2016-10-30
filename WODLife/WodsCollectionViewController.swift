@@ -14,7 +14,7 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
     @IBOutlet weak var segmentedControlBar: UISegmentedControl!
     
     var wodCollectionOne = "GIRLS"
-    var wodCollectionTwo = "HEROES"
+    var wodCollectionTwo = "HERO"
     var segmentSelected: String?
     var wodsWithDataArray: [String] = []
     var theGirlsWodsCollection:[[String]] = [

@@ -2,7 +2,7 @@
 //  WodAMRAPResultTableViewController.swift
 //  WODLife
 //
-//  Created by Martin on 28/07/2016.
+//  Created by Martin on 28/07/2016. Swift 3
 //  Copyright © 2016 Martin. All rights reserved.
 //
 

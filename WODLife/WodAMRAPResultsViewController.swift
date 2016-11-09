@@ -18,7 +18,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
     
     var wodName: String?
     var roundsFromTimer: Int?
-    var newDate = NSDate()
+    var newDate = Date()
     var timerUsed: Bool = false
     
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         self.roundsTextField.becomeFirstResponder()
     }
     
-    @IBAction func saveB(sender: AnyObject) {
+    @IBAction func saveB(_ sender: AnyObject) {
         
         if roundsTextField.text!.isEmpty {
         roundsTextField.text = "0"
@@ -46,29 +46,29 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool
     {
         let maxLength = 4
-        let currentString: NSString = textField.text!
+        let currentString: NSString = textField.text! as NSString
         let newString: NSString =
-            currentString.stringByReplacingCharactersInRange(range, withString: string)
+            currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
     
     
     func saveResult(){
         
-        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
-        let ent = NSEntityDescription.entityForName("WodResult", inManagedObjectContext: context)
-        let Wod = WodResult(entity: ent!, insertIntoManagedObjectContext: context)
+        let ent = NSEntityDescription.entity(forEntityName: "WodResult", in: context)
+        let Wod = WodResult(entity: ent!, insertInto: context)
         
-        let currentDate = NSDate()
+        let currentDate = Date()
       
         Wod.name = wodName
         
-        let roundsInt:NSNumber? = Int(roundsTextField.text!)
+        let roundsInt:NSNumber? = Int(roundsTextField.text!) as NSNumber?
         Wod.rounds = roundsInt!
         Wod.date = currentDate
  
@@ -85,8 +85,8 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
     
     
     func dismissVC(){
-        let controller = self.navigationController?.viewControllers[1] // it is at index 1. index start from 0, 1 .. N
-        self.navigationController?.popToViewController(controller!, animated: true)
+        let controller = navigationController?.viewControllers[1] // it is at index 1. index start from 0, 1 .. N
+        let _ = navigationController?.popToViewController(controller!, animated: true)
     }
     
     func textFieldPlaceholder(){

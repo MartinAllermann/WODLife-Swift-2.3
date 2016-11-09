@@ -8,6 +8,30 @@
 
 import UIKit
 import CoreData
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
 
 class WodDescriptionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
@@ -27,10 +51,10 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     var history: [String] = []
     var titles = [[String]]()
     var details = [[String]]()
-    var dateArray: [NSDate] = []
-    var dateArrayReverse: [[NSDate]] = []
-    var date: NSDate?
-    let dateFormatter = NSDateFormatter()
+    var dateArray: [Date] = []
+    var dateArrayReverse: [[Date]] = []
+    var date: Date?
+    let dateFormatter = DateFormatter()
     var deleteHistory: [String] = []
     var deleteHistoryReverse: [[String]] = []
     
@@ -50,7 +74,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         super.viewDidLoad()
         
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.dateStyle = DateFormatter.Style.medium
         
         setBackgroundColor()
         setWod()
@@ -59,13 +83,13 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         titles.append(wodLogTitle)
         titles.append(timerTitle)
-        titles.append(history.reverse())
-        dateArrayReverse.append(dateArray.reverse())
-        deleteHistoryReverse.append(deleteHistory.reverse())
+        titles.append(history.reversed())
+        dateArrayReverse.append(dateArray.reversed())
+        deleteHistoryReverse.append(deleteHistory.reversed())
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         titles.removeAll()
         history.removeAll()
@@ -77,9 +101,9 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         timeComponentCheck()
         titles.append(wodLogTitle)
         titles.append(timerTitle)
-        titles.append(history.reverse())
-        dateArrayReverse.append(dateArray.reverse())
-        deleteHistoryReverse.append(deleteHistory.reverse())
+        titles.append(history.reversed())
+        dateArrayReverse.append(dateArray.reversed())
+        deleteHistoryReverse.append(deleteHistory.reversed())
         tableView.reloadData()
         
     }
@@ -93,8 +117,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func setWod() {
         
-        wodNameLabel.text = wodName?.uppercaseString
-        timeComponentLabel.text = timeComponent?.uppercaseString
+        wodNameLabel.text = wodName?.uppercased()
+        timeComponentLabel.text = timeComponent?.uppercased()
         firstExerciseLabel.text = firstExercise
         secondExerciseLabel.text = secondExercise
         thirdExerciseLabel.text = thirdExercise
@@ -108,26 +132,26 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "For Time"
         {
             
-            let vc = segue.destinationViewController as! WodResultTableViewController
+            let vc = segue.destination as! WodResultTableViewController
             vc.wodName = wodName
             
         }
         if segue.identifier == "AMRAP"
         {
             
-            let vc = segue.destinationViewController as! WodAMRAPResultsTableViewController
+            let vc = segue.destination as! WodAMRAPResultsTableViewController
             vc.wodName = wodName
             
         }
         if segue.identifier == "For Time Timer"
         {
             
-            let vc = segue.destinationViewController as! forTimeViewController
+            let vc = segue.destination as! forTimeViewController
             vc.wodName = wodName
             vc.timeComponent = timeComponent
             vc.firstExercise = firstExercise
@@ -139,7 +163,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         if segue.identifier == "AMRAP Timer"
         {
             
-            let vc = segue.destinationViewController as! amrapTimeViewController
+            let vc = segue.destination as! amrapTimeViewController
             vc.wodName = wodName
             vc.timeComponent = timeComponent
             vc.firstExercise = firstExercise
@@ -151,7 +175,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         switch(section){
             
@@ -175,17 +199,17 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return titles.count
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return titles[section].count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! WodDescriptionTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WodDescriptionTableViewCell
         
         // Configure Cell
         
@@ -194,15 +218,15 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         case 0:
             cell.titleLabel?.text = titles[indexPath.section][indexPath.row]
             cell.detailLabel?.text = ""
-            cell.detailLabel?.backgroundColor = UIColor.clearColor()
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell.detailLabel?.backgroundColor = UIColor.clear
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             cell.leftIcon.image = UIImage(named: "Compose")
             
         case 1:
             cell.titleLabel?.text = titles[indexPath.section][indexPath.row]
             cell.detailLabel?.text = ""
-            cell.detailLabel?.backgroundColor = UIColor.clearColor()
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell.detailLabel?.backgroundColor = UIColor.clear
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             cell.leftIcon.image = UIImage(named: "Stopwatch")
             
         case 2:
@@ -212,10 +236,10 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             cell.detailLabel?.layer.masksToBounds = true
             cell.detailLabel?.layer.cornerRadius = 12
             
-            let convertedDate = dateFormatter.stringFromDate(dateArrayReverse[0][indexPath.row])
+            let convertedDate = dateFormatter.string(from: dateArrayReverse[0][indexPath.row])
             cell.titleLabel?.text = convertedDate
-            cell.accessoryType = UITableViewCellAccessoryType.None
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.accessoryType = UITableViewCellAccessoryType.none
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             cell.leftIcon.image = UIImage(named: "Calendar")
             
             
@@ -227,34 +251,34 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if timeComponentType?.rangeOfString("For") != nil  {
+        if timeComponentType?.range(of: "For") != nil  {
             
             if indexPath.section == 0 {
-                self.performSegueWithIdentifier("For Time", sender: indexPath);
+                self.performSegue(withIdentifier: "For Time", sender: indexPath);
             } else if indexPath.section == 1 {
-                self.performSegueWithIdentifier("For Time Timer", sender: indexPath);
+                self.performSegue(withIdentifier: "For Time Timer", sender: indexPath);
             }
             
         }
         
-        if timeComponentType?.rangeOfString("AMRAP") != nil {
+        if timeComponentType?.range(of: "AMRAP") != nil {
             
             if indexPath.section == 0 {
-                self.performSegueWithIdentifier("AMRAP", sender: indexPath);
+                self.performSegue(withIdentifier: "AMRAP", sender: indexPath);
             } else if indexPath.section == 1 {
-                self.performSegueWithIdentifier("AMRAP Timer", sender: indexPath);
+                self.performSegue(withIdentifier: "AMRAP Timer", sender: indexPath);
             }
             
         }
         
-        if timeComponentType?.rangeOfString("EMON") != nil {
+        if timeComponentType?.range(of: "EMON") != nil {
             
             if indexPath.section == 0 {
-                self.performSegueWithIdentifier("AMRAP", sender: indexPath);
+                self.performSegue(withIdentifier: "AMRAP", sender: indexPath);
             } else if indexPath.section == 1 {
-                self.performSegueWithIdentifier("AMRAP Timer", sender: indexPath);
+                self.performSegue(withIdentifier: "AMRAP Timer", sender: indexPath);
             }
             
         }
@@ -263,19 +287,19 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func timeComponentCheck() {
         
-        if timeComponentType?.rangeOfString("For") != nil {
+        if timeComponentType?.range(of: "For") != nil {
             
             getWodResult()
             
         }
         
-        if timeComponentType?.rangeOfString("AMRAP") != nil {
+        if timeComponentType?.range(of: "AMRAP") != nil {
             
             getWodAmrapResult()
             
         }
         
-        if timeComponentType?.rangeOfString("EMON") != nil {
+        if timeComponentType?.range(of: "EMON") != nil {
             
             getWodAmrapResult()
             
@@ -285,19 +309,19 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func getWodResult() {
         
-        let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
         let con: NSManagedObjectContext = appDel.managedObjectContext
         
-        let request = NSFetchRequest(entityName: "WodResult")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
         request.predicate = NSPredicate(format: "name = %@", wodName!)
         request.returnsObjectsAsFaults = false
         
         do {
             
-            let results = try con.executeFetchRequest(request) as! [WodResult]
+            let results = try con.fetch(request) as! [WodResult]
             for res in results {
                 forTime = res.time
-                date = res.date
+                date = res.date as Date?
                 history.append(secondsToHoursMinutesSeconds(forTime!))
                 dateArray.append(date!)
                 deleteHistory.append("\(forTime!)")
@@ -311,19 +335,19 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func getWodAmrapResult() {
         
-        let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
         let con: NSManagedObjectContext = appDel.managedObjectContext
         
-        let request = NSFetchRequest(entityName: "WodResult")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
         request.predicate = NSPredicate(format: "name = %@", wodName!)
         request.returnsObjectsAsFaults = false
         
         do {
             
-            let results = try con.executeFetchRequest(request) as! [WodResult]
+            let results = try con.fetch(request) as! [WodResult]
             for res in results {
                 AmrapRounds = res.rounds
-                date = res.date
+                date = res.date as Date?
                 history.append("\(AmrapRounds!)")
                 dateArray.append(date!)
             }
@@ -334,7 +358,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         switch (indexPath.section) {
         case 2:
             return true
@@ -343,34 +367,34 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             
-            let appDel = UIApplication.sharedApplication().delegate as! AppDelegate
+            let appDel = UIApplication.shared.delegate as! AppDelegate
             let con = appDel.managedObjectContext
             let coord = appDel.persistentStoreCoordinator
             
-            let fetchRequest = NSFetchRequest(entityName: "WodResult")
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
             
-            if timeComponentType?.rangeOfString("For") != nil {
-                let predicate = NSPredicate(format: "name == %@ && time == %@ && date == %@", wodName!, deleteHistoryReverse[0][indexPath.row], dateArrayReverse[0][indexPath.row])
+            if timeComponentType?.range(of: "For") != nil {
+                let predicate = NSPredicate(format: "name == %@ && time == %@ && date == %@", wodName!, deleteHistoryReverse[0][indexPath.row], dateArrayReverse[0][indexPath.row] as CVarArg)
                 fetchRequest.predicate = predicate
             }
             
-            if timeComponentType?.rangeOfString("AMRAP") != nil {
-                let predicate = NSPredicate(format: "name == %@ && rounds == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], dateArrayReverse[0][indexPath.row])
+            if timeComponentType?.range(of: "AMRAP") != nil {
+                let predicate = NSPredicate(format: "name == %@ && rounds == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], dateArrayReverse[0][indexPath.row] as CVarArg)
                 fetchRequest.predicate = predicate
             }
             
-            if timeComponentType?.rangeOfString("EMON") != nil {
-                let predicate = NSPredicate(format: "name == %@ && rounds == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], dateArrayReverse[0][indexPath.row])
+            if timeComponentType?.range(of: "EMON") != nil {
+                let predicate = NSPredicate(format: "name == %@ && rounds == %@ && date == %@", wodName!, titles[indexPath.section][indexPath.row], dateArrayReverse[0][indexPath.row] as CVarArg)
                 fetchRequest.predicate = predicate
             }
             
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
             
             do {
-                try coord.executeRequest(deleteRequest, withContext: con)
+                try coord.execute(deleteRequest, with: con)
             } catch let error as NSError {
                 debugPrint(error)
             }
@@ -379,13 +403,13 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
-    func secondsToHoursMinutesSeconds (seconds : NSNumber) -> (String) {
+    func secondsToHoursMinutesSeconds (_ seconds : NSNumber) -> (String) {
         
         let min: Int?
         let sec: Int?
         
-        min = (seconds.integerValue % 3600) / 60
-        sec = (seconds.integerValue % 3600) % 60
+        min = (seconds.intValue % 3600) / 60
+        sec = (seconds.intValue % 3600) % 60
         
         if sec <= 9 {
             

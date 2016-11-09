@@ -182,8 +182,8 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        segmentedControlBar.setTitle(wodCollectionOne, forSegmentAtIndex: 0)
-        segmentedControlBar.setTitle(wodCollectionTwo, forSegmentAtIndex: 1)
+        segmentedControlBar.setTitle(wodCollectionOne, forSegmentAt: 0)
+        segmentedControlBar.setTitle(wodCollectionTwo, forSegmentAt: 1)
         segmentSelected = wodCollectionOne // The first segmentSelected should be wodCollectionOne
         
         navigationbarcolor()
@@ -194,15 +194,15 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
     
     func navigationbarcolor() {
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barTintColor = UIColor(hue: 0, saturation: 0, brightness: 0.2, alpha: 1.0) /* #333333 */
         
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         transparentNavigationBarFalse()
         wodsWithDataArray.removeAll()
@@ -211,7 +211,7 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         
         
         transparentNavigationBar()
@@ -220,17 +220,17 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
     
     func transparentNavigationBar(){
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.isTranslucent = true
         
     }
     
     func transparentNavigationBarFalse(){
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(hue: 0, saturation: 0, brightness: 0.2, alpha: 1.0) /* #333333 */
         
     }
@@ -242,15 +242,15 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showWodDescription"
         {
             
-            let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
-            let indexPath = indexPaths[0] as NSIndexPath
+            let indexPaths = self.collectionView!.indexPathsForSelectedItems!
+            let indexPath = indexPaths[0] as IndexPath
             
-            let vc = segue.destinationViewController as! WodDescriptionViewController
+            let vc = segue.destination as! WodDescriptionViewController
             
             if segmentSelected == wodCollectionOne {
                 
@@ -299,7 +299,7 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         
     }
     
-    @IBAction func segmentedControl(sender: AnyObject) {
+    @IBAction func segmentedControl(_ sender: AnyObject) {
         
         if(segmentedControlBar.selectedSegmentIndex == 0)
         {
@@ -315,13 +315,13 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
     
     // MARK: UICollectionViewDataSource
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         return 1
     }
     
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if segmentSelected == wodCollectionOne {
             return self.theGirlsWodsCollection.count
             
@@ -337,23 +337,23 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! WodsResumeCollectionViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WodsResumeCollectionViewCell
         
         if segmentSelected == wodCollectionOne {
             let name = theGirlsWodsCollection[indexPath.row][0]
-            cell.name.text = name.uppercaseString
+            cell.name.text = name.uppercased()
             let timeComponent = theGirlsWodsCollection[indexPath.row][1]
-            cell.timeComponent.text = timeComponent.uppercaseString
+            cell.timeComponent.text = timeComponent.uppercased()
             cell.firstExercise.text = theGirlsWodsCollection[indexPath.row][2]
             cell.secondExercise.text = theGirlsWodsCollection[indexPath.row][3]
             cell.thirdExercise.text = theGirlsWodsCollection[indexPath.row][4]
             cell.fourthExercise.text = theGirlsWodsCollection[indexPath.row][5]
             
             if (wodsWithDataArray.contains(theGirlsWodsCollection[indexPath.row][0])) {
-                cell.imageIcon.hidden = false
+                cell.imageIcon.isHidden = false
             } else {
-                cell.imageIcon.hidden = true
+                cell.imageIcon.isHidden = true
             }
             
             switch(theGirlsWodsCollection[indexPath.row][7]){
@@ -383,9 +383,9 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         
         if segmentSelected == wodCollectionTwo {
             let name = heroWodsCollection[indexPath.row][0]
-            cell.name.text = name.uppercaseString
+            cell.name.text = name.uppercased()
             let timeComponent = heroWodsCollection[indexPath.row][1]
-            cell.timeComponent.text = timeComponent.uppercaseString
+            cell.timeComponent.text = timeComponent.uppercased()
             cell.firstExercise.text = heroWodsCollection[indexPath.row][2]
             cell.secondExercise.text = heroWodsCollection[indexPath.row][3]
             cell.thirdExercise.text = heroWodsCollection[indexPath.row][4]
@@ -393,9 +393,9 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
             cell.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
             
             if (wodsWithDataArray.contains(heroWodsCollection[indexPath.row][0])) {
-                cell.imageIcon.hidden = false
+                cell.imageIcon.isHidden = false
             } else {
-                cell.imageIcon.hidden = true
+                cell.imageIcon.isHidden = true
             }
             
             
@@ -410,7 +410,7 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let size = collectionView.frame.width
 
         if (size <= 320) {
@@ -430,15 +430,15 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
     
     func getWod() {
         
-        let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
         let con: NSManagedObjectContext = appDel.managedObjectContext
         
-        let request = NSFetchRequest(entityName: "WodResult")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
         request.returnsObjectsAsFaults = false
         
         do {
             
-            let results = try con.executeFetchRequest(request) as! [WodResult]
+            let results = try con.fetch(request) as! [WodResult]
             for res in results {
                 wodsWithDataArray.append(res.name!)
             }

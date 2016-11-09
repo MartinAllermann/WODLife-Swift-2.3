@@ -8,6 +8,30 @@
 
 import UIKit
 import CoreData
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
 
 class WodResultTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, NSFetchedResultsControllerDelegate{
 
@@ -23,7 +47,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     var pickOption2:[String] = []
     var minutes: Int?
     var seconds: Int?
-    var newDate = NSDate()
+    var newDate = Date()
     let pickerView = UIPickerView()
     var timerUsed: Bool = false
     var elapsedTimeInSeconds: Int?
@@ -49,7 +73,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         }
         
     }
-    @IBAction func saveBtn(sender: AnyObject) {
+    @IBAction func saveBtn(_ sender: AnyObject) {
         
         if timeTextField.text!.isEmpty {
             
@@ -63,15 +87,15 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     
     func saveResult(){
     
-        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
-        let ent = NSEntityDescription.entityForName("WodResult", inManagedObjectContext: context)
-        let Wod = WodResult(entity: ent!, insertIntoManagedObjectContext: context)
+        let ent = NSEntityDescription.entity(forEntityName: "WodResult", in: context)
+        let Wod = WodResult(entity: ent!, insertInto: context)
         
-        let currentDate = NSDate()
+        let currentDate = Date()
         
         Wod.name = wodName
-        Wod.time = elapsedTimeInSeconds
+        Wod.time = elapsedTimeInSeconds as NSNumber?
         Wod.date = currentDate
         
         do {
@@ -86,8 +110,8 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     
     func dismissVC(){
         
-        let controller = self.navigationController?.viewControllers[1] // it is at index 1. index start from 0, 1 .. N
-        self.navigationController?.popToViewController(controller!, animated: true)
+        let controller = navigationController?.viewControllers[1] // it is at index 1. index start from 0, 1 .. N
+      let _ = navigationController?.popToViewController(controller!, animated: true)
         /*
         navigationController?.popViewControllerAnimated(true)
         */
@@ -103,7 +127,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         
         pickerView.delegate = self
-        pickerView.backgroundColor = UIColor.whiteColor()
+        pickerView.backgroundColor = UIColor.white
         
         //Populate array with 59 minutes
         for x in 0...59 {
@@ -115,17 +139,17 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         }
         
         let toolBar = UIToolbar()
-        toolBar.backgroundColor = UIColor.whiteColor()
-        toolBar.translucent = false
+        toolBar.backgroundColor = UIColor.white
+        toolBar.isTranslucent = false
         toolBar.sizeToFit()
         
-        let spaceButton1 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let spaceButton2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(WodResultTableViewController.donePicker))
-        doneButton.tintColor = UIColor.blackColor()
+        let spaceButton1 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let spaceButton2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(WodResultTableViewController.donePicker))
+        doneButton.tintColor = UIColor.black
       
         toolBar.setItems([spaceButton1,spaceButton2, doneButton], animated: false)
-        toolBar.userInteractionEnabled = true
+        toolBar.isUserInteractionEnabled = true
         
         timeTextField.inputAccessoryView = toolBar
         timeTextField.inputView = pickerView
@@ -143,11 +167,11 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if component == 0 {
             return pickOption.count
@@ -157,7 +181,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         }
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if component == 0 {
         return pickOption[row] + " min"
@@ -168,7 +192,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if component == 0 {
             minutes = row
@@ -198,7 +222,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
     }
     
-    func secondsToHoursMinutesSeconds (seconds : Int) -> (String) {
+    func secondsToHoursMinutesSeconds (_ seconds : Int) -> (String) {
         let min: Int?
         let sec: Int?
         
@@ -217,7 +241,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         }
     }
     
-   override func viewDidAppear(animated: Bool) {
+   override func viewDidAppear(_ animated: Bool) {
         self.timeTextField.becomeFirstResponder()
     }
     

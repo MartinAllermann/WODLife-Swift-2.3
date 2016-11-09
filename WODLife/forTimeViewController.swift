@@ -10,9 +10,9 @@ class forTimeViewController: UIViewController {
     var thirdExercise: String?
     var fourthExercise: String?
     var wodResult: Int?
-    var timer : NSTimer?
-    var startTime : NSTimeInterval?
-    var accumulatedTime = NSTimeInterval()
+    var timer : Timer?
+    var startTime : TimeInterval?
+    var accumulatedTime = TimeInterval()
     var startStopWatch: Bool = true
     var previousTimeIsEmpty: Bool = true
     var previousTime: String?
@@ -32,13 +32,13 @@ class forTimeViewController: UIViewController {
     @IBOutlet weak var fourthExerciseLabel: UILabel!
     
     
-    @IBAction func cancelBtn(sender: AnyObject) {
+    @IBAction func cancelBtn(_ sender: AnyObject) {
         killTimer()
         dismissVC()
     }
     
     
-    @IBAction func saveBtn(sender: AnyObject) {
+    @IBAction func saveBtn(_ sender: AnyObject) {
         
         print("Done")
         
@@ -52,8 +52,8 @@ class forTimeViewController: UIViewController {
         setWod()
         
         // Prevent Iphone from going idle
-        UIApplication.sharedApplication().idleTimerDisabled = true
-        saveBtnLabel.enabled = false
+        UIApplication.shared.isIdleTimerDisabled = true
+        saveBtnLabel.isEnabled = false
         startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
         
         
@@ -64,8 +64,8 @@ class forTimeViewController: UIViewController {
         
         
         
-        wodNameLabel.text = wodName?.uppercaseString
-        timeComponentLabel.text = timeComponent?.uppercaseString
+        wodNameLabel.text = wodName?.uppercased()
+        timeComponentLabel.text = timeComponent?.uppercased()
         firstExerciseLabel.text = firstExercise
         secondExerciseLabel.text = secondExercise
         thirdExerciseLabel.text = thirdExercise
@@ -80,7 +80,7 @@ class forTimeViewController: UIViewController {
     func resetBtn(){
         
         startStopWatch = true
-        startAndStop.setTitle("Start", forState: UIControlState.Normal)
+        startAndStop.setTitle("Start", for: UIControlState())
         startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
     
     }
@@ -88,20 +88,20 @@ class forTimeViewController: UIViewController {
     
     // Go back on "save"
     func dismissVC(){
-        navigationController?.popViewControllerAnimated(true)
+        let _ = navigationController?.popViewController(animated: true)
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-            let vc = segue.destinationViewController as! WodResultTableViewController
+            let vc = segue.destination as! WodResultTableViewController
             vc.wodName = wodName
             vc.timerUsed = true
             vc.wodResult = wodResult
     }
     
     
-     @IBAction func resetBtn(sender: AnyObject) {
+     @IBAction func resetBtn(_ sender: AnyObject) {
      
      timer?.invalidate()
      
@@ -113,31 +113,31 @@ class forTimeViewController: UIViewController {
      
      }
     
-    @IBAction func startBtn(sender: AnyObject) {
+    @IBAction func startBtn(_ sender: AnyObject) {
         
-        saveBtnLabel.enabled = false
+        saveBtnLabel.isEnabled = false
         
         if startStopWatch == true {
             
-            saveBtnLabel.enabled = false
-            self.startTime = NSDate.timeIntervalSinceReferenceDate()
+            saveBtnLabel.isEnabled = false
+            self.startTime = Date.timeIntervalSinceReferenceDate
             
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(forTimeViewController.updateTime), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(forTimeViewController.updateTime), userInfo: nil, repeats: true)
             
             startStopWatch = false
-            startAndStop.setTitle("Stop", forState: UIControlState.Normal)
+            startAndStop.setTitle("Stop", for: UIControlState())
             startAndStop.backgroundColor = UIColor(hue: 0.9833, saturation: 0.68, brightness: 0.85, alpha: 1.0)
             
             
         } else {
             
             
-            saveBtnLabel.enabled = true
+            saveBtnLabel.isEnabled = true
             self.timer!.invalidate()
             self.timer = nil
             
             startStopWatch = true
-            startAndStop.setTitle("Start", forState: UIControlState.Normal)
+            startAndStop.setTitle("Start", for: UIControlState())
             startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
             
         }
@@ -151,7 +151,7 @@ class forTimeViewController: UIViewController {
     
     func updateTime() {
         
-        let currentTimeStamp = NSDate.timeIntervalSinceReferenceDate()
+        let currentTimeStamp = Date.timeIntervalSinceReferenceDate
         let intervalTime = currentTimeStamp - startTime!
         self.startTime = currentTimeStamp
         self.accumulatedTime += intervalTime
@@ -160,10 +160,10 @@ class forTimeViewController: UIViewController {
         
         
         let minutes = Int(elapsedTime / 60)
-        elapsedTime -= (NSTimeInterval(minutes) * 60)
+        elapsedTime -= (TimeInterval(minutes) * 60)
         
         let seconds = Int(elapsedTime)
-        elapsedTime -= NSTimeInterval(seconds)
+        elapsedTime -= TimeInterval(seconds)
         
         let fraction = Int(elapsedTime * 100)
         

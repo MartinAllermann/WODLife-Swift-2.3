@@ -130,7 +130,7 @@
 					5B6512881D4A2E5000824B6C = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = ER36A8F5UP;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -314,7 +314,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Martin.WodLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -331,7 +331,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Martin.WodLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -25,9 +25,4 @@ class WodResult: NSManagedObject {
         }
     }
     
-    func getColor() -> UIColor {
-        
-        return UIColor(hue: 0, saturation: 0, brightness: 0.1, alpha: 1.0)
-    }
-
 }

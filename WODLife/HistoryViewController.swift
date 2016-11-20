@@ -10,21 +10,28 @@ import UIKit
 import CoreData
 
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+    @IBOutlet weak var completedThisMonth: UILabel!
 
+    @IBOutlet weak var completedLastMonth: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var fetchedResultsController:NSFetchedResultsController<NSFetchRequestResult>!
     let dateFormatter = DateFormatter()
+    var completedWodsThisMonth: Int?
+    var completedWodsLastMonth: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dateFormatter.dateFormat = "EEEE, MMM d"
-        
         getWodResult()
-
+        
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+         getCompletedWods()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,7 +64,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Configure the cell...
         
-        cell.title.text = workout.name
+        cell.title.text = workout.name?.uppercased()
         
         let convertedDate = dateFormatter.string(from: workout.date!)
         cell.subtitle.text = convertedDate
@@ -72,11 +79,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             
         }
         
-        cell.value.backgroundColor = workout.getColor()
-        cell.value.layer.masksToBounds = true
-        cell.value.layer.cornerRadius = 12
-    
-       
         
         return cell
     }
@@ -125,6 +127,27 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             return "\(min!)" + ":" + "\(sec!)"
             
         }
+    }
+    
+    func getCompletedWods() {
+
+        completedWodsThisMonth = 0
+        completedWodsLastMonth = 0
+        
+        if ((fetchedResultsController.sections?.count)! > 0) {
+            
+            completedWodsThisMonth = (fetchedResultsController.sections?[0].numberOfObjects)!
+            
+            if ((fetchedResultsController.sections?.count)! > 1) {
+                
+                completedWodsLastMonth = (fetchedResultsController.sections?[1].numberOfObjects)!
+            }
+            
+        }
+
+        completedThisMonth.text = "\(completedWodsThisMonth!)" + " WODS"
+        completedLastMonth.text = "\(completedWodsLastMonth!)" + " previous month"
+        
     }
 
     /*

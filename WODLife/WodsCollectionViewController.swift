@@ -199,7 +199,7 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barTintColor = UIColor(hue: 0, saturation: 0, brightness: 0.2, alpha: 1.0) /* #333333 */
         
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -448,6 +448,5 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
             abort()
         }
     }
-    
     
 }

@@ -145,7 +145,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             
         }
 
-        completedThisMonth.text = "\(completedWodsThisMonth!)" + " WODS"
+        completedThisMonth.text = "\(completedWodsThisMonth!)" + " WODs"
         completedLastMonth.text = "\(completedWodsLastMonth!)" + " previous month"
         
     }

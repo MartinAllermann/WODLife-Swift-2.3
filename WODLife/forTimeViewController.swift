@@ -48,7 +48,6 @@ class forTimeViewController: UIViewController {
         super.viewDidLoad()
         
         
-        
         setWod()
         
         // Prevent Iphone from going idle
@@ -61,8 +60,6 @@ class forTimeViewController: UIViewController {
     }
     
     func setWod() {
-        
-        
         
         wodNameLabel.text = wodName?.uppercased()
         timeComponentLabel.text = timeComponent?.uppercased()

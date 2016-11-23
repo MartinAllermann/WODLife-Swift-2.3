@@ -120,6 +120,17 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     func textFieldPlaceholder(){
         
         timeTextField.placeholder = "0:00"
+        var placeHolder = NSMutableAttributedString()
+        let Name  = "0:00"
+        
+        // Set the Font
+        placeHolder = NSMutableAttributedString(string:Name, attributes: [NSFontAttributeName:UIFont(name: "Helvetica", size: 17.0)!])
+        
+        // Set the color
+        placeHolder.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGray, range:NSRange(location:0,length:Name.characters.count))
+        
+        // Add attribute
+        timeTextField.attributedPlaceholder = placeHolder
     
     }
     

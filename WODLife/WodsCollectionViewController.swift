@@ -190,6 +190,8 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         
         getWod()
         
+        self.collectionView?.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.09, alpha: 1.0) /* #191919 */
+        
     }
     
     func navigationbarcolor() {

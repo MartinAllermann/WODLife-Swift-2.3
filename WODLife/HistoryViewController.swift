@@ -10,8 +10,8 @@ import UIKit
 import CoreData
 
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+    
     @IBOutlet weak var completedThisMonth: UILabel!
-
     @IBOutlet weak var completedLastMonth: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var fetchedResultsController:NSFetchedResultsController<NSFetchRequestResult>!
@@ -71,7 +71,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if (workout.time == 0) {
         
-         cell.value.text = "\(workout.rounds!)"
+         cell.value.text = "\(workout.rounds!)" // Fix this
             
         } else {
         
@@ -100,7 +100,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         do {
             try fetchedResultsController.performFetch()
-            print(fetchedResultsController)
             
         } catch {
             let error = error as NSError
@@ -131,24 +130,59 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func getCompletedWods() {
 
+        
         completedWodsThisMonth = 0
         completedWodsLastMonth = 0
         
-        if ((fetchedResultsController.sections?.count)! > 0) {
+        getCompletedWodsThisMonth()
+        
+    }
+    
+    
+    func getCompletedWodsThisMonth() {
+        
+        var monthArray: [String] = []
+    
+        let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        let con: NSManagedObjectContext = appDel.managedObjectContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
+        request.returnsObjectsAsFaults = false
+        
+        do {
             
-            completedWodsThisMonth = (fetchedResultsController.sections?[0].numberOfObjects)!
-            
-            if ((fetchedResultsController.sections?.count)! > 1) {
+            let results = try con.fetch(request) as! [WodResult]
+            for res in results {
+            let dates = res.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM-yyyy"
+            monthArray.append(dateFormatter.string(from: dates! as Date))
                 
-                completedWodsLastMonth = (fetchedResultsController.sections?[1].numberOfObjects)!
             }
             
+        } catch {
+            print("Unresolved error")
+            abort()
         }
-
+        
+        let currentDate = NSDate()
+        let currentDateDateFormatter = DateFormatter()
+        currentDateDateFormatter.dateFormat = "MM-yyyy"
+        let currentMonth = currentDateDateFormatter.string(from: currentDate as Date)
+    
+        let previousDate = NSCalendar.current.date(byAdding: .month, value: -1, to: Date())
+        let previousDateFormatter = DateFormatter()
+        previousDateFormatter.dateFormat = "MM-yyyy"
+        let previousMonth = currentDateDateFormatter.string(from: previousDate! as Date)
+        
+        
+        completedWodsThisMonth = monthArray.filter{$0 == currentMonth}.count
+        completedWodsLastMonth = monthArray.filter{$0 == previousMonth}.count
         completedThisMonth.text = "\(completedWodsThisMonth!)" + " WODs"
         completedLastMonth.text = "\(completedWodsLastMonth!)" + " previous month"
         
     }
+    
 
     /*
     // MARK: - Navigation

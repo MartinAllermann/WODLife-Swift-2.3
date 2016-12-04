@@ -130,7 +130,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func getCompletedWods() {
 
-        
         completedWodsThisMonth = 0
         completedWodsLastMonth = 0
         
@@ -174,7 +173,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let previousDateFormatter = DateFormatter()
         previousDateFormatter.dateFormat = "MM-yyyy"
         let previousMonth = currentDateDateFormatter.string(from: previousDate! as Date)
-        
         
         completedWodsThisMonth = monthArray.filter{$0 == currentMonth}.count
         completedWodsLastMonth = monthArray.filter{$0 == previousMonth}.count

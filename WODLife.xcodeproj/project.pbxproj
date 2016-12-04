@@ -14,7 +14,7 @@
 		5B22793F1D605DB60020C0C1 /* forTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22793E1D605DB60020C0C1 /* forTimeViewController.swift */; };
 		5B2279411D605DD40020C0C1 /* amrapTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2279401D605DD40020C0C1 /* amrapTimeViewController.swift */; };
 		5B65128D1D4A2E5000824B6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65128C1D4A2E5000824B6C /* AppDelegate.swift */; };
-		5B6512921D4A2E5000824B6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6512901D4A2E5000824B6C /* Main.storyboard */; };
+		5B6512921D4A2E5000824B6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6512901D4A2E5000824B6C /* Main.storyboard */; settings = {ASSET_TAGS = (Header, ); }; };
 		5B6512951D4A2E5000824B6C /* WODLife.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512931D4A2E5000824B6C /* WODLife.xcdatamodeld */; };
 		5B6512971D4A2E5000824B6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6512961D4A2E5000824B6C /* Assets.xcassets */; };
 		5B65129A1D4A2E5000824B6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6512981D4A2E5000824B6C /* LaunchScreen.storyboard */; };
@@ -129,6 +129,9 @@
 		5B6512811D4A2E5000824B6C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					Header,
+				);
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Martin;

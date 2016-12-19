@@ -41,6 +41,8 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     
     @IBOutlet weak var wodNameLabel: UILabel!
     
+    @IBOutlet weak var notesTextView: UITextView!
+    
     var wodName: String?
     var wodResult: Int?
     var pickOption:[String] = []
@@ -52,8 +54,15 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     var timerUsed: Bool = false
     var elapsedTimeInSeconds: Int?
     
+    var editMode: Bool = false
+    var timeToEdit: Int?
+    var notesToEdit: String?
+    var dateToEdit: Date?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(editMode)
         
         wodNameLabel.text = wodName
    
@@ -72,6 +81,16 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
             
         }
         
+        if editMode == true {
+        
+            elapsedTimeInSeconds = timeToEdit
+            
+            timeTextField.text = secondsToHoursMinutesSeconds(timeToEdit!)
+            
+            notesTextView.text = notesToEdit
+        
+        }
+        
     }
     @IBAction func saveBtn(_ sender: AnyObject) {
         
@@ -81,7 +100,16 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         }
     
-        saveResult()
+        if editMode == false {
+            
+            saveResult()
+        
+        } else {
+            
+            updateResult()
+        
+        }
+        
     }
     
     
@@ -106,6 +134,34 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
             return
         }
         
+    }
+    
+    func updateResult() {
+        
+        let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        let con: NSManagedObjectContext = appDel.managedObjectContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
+        request.predicate = NSPredicate(format: "name = %@ && date == %@", wodName!, dateToEdit! as CVarArg)
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            
+            let results = try con.fetch(request) as! [WodResult]
+            for res in results {
+                let time = elapsedTimeInSeconds as NSNumber?
+                res.setValue(time, forKey: "time")
+                res.setValue(notesTextView.text, forKey: "notes")
+                
+                
+                try con.save()
+                dismissVC()
+            }
+            
+        } catch {
+            print("Unresolved error")
+            abort()
+        }
     }
     
     func dismissVC(){

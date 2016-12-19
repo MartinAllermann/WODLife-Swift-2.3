@@ -15,14 +15,22 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
     @IBOutlet weak var roundsTextField: UITextField!
     @IBOutlet weak var wodNameLabel: UILabel!
     @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
+    @IBOutlet weak var notesTextView: UITextView!
     
     var wodName: String?
     var roundsFromTimer: Int?
     var newDate = Date()
     var timerUsed: Bool = false
     
+    var editMode: Bool = false
+    var roundsToEdit: Int?
+    var notesToEdit: String?
+    var dateToEdit: Date?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(editMode)
         
         wodNameLabel.text = wodName
         textFieldPlaceholder()
@@ -33,6 +41,14 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
             roundsTextField.text = "\(roundsFromTimer!)"
         
         }
+        
+        if (editMode == true){
+        
+            roundsTextField.text = "\(roundsToEdit!)"
+            notesTextView.text = notesToEdit!
+        
+        }
+        
         self.roundsTextField.becomeFirstResponder()
     }
     
@@ -42,8 +58,23 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         roundsTextField.text = "0"
         }
         
-        saveResult()
+    
+        if notesTextView.text!.isEmpty {
         
+        notesTextView.text = "None"
+            
+        }
+        
+        if editMode == false {
+            
+            saveResult()
+        
+        } else {
+            
+            updateResult()
+        
+        }
+
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
@@ -71,6 +102,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         let roundsInt:NSNumber? = Int(roundsTextField.text!) as NSNumber?
         Wod.rounds = roundsInt!
         Wod.date = currentDate
+        Wod.notes = notesTextView.text
  
         
         do {
@@ -82,6 +114,36 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         }
         
     }
+    
+    func updateResult() {
+        
+        let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        let con: NSManagedObjectContext = appDel.managedObjectContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
+        request.predicate = NSPredicate(format: "name = %@ && date == %@", wodName!, dateToEdit! as CVarArg)
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            
+            let results = try con.fetch(request) as! [WodResult]
+            for res in results {
+                
+                let roundsInt:NSNumber? = Int(roundsTextField.text!) as NSNumber?
+                res.setValue(roundsInt, forKey: "rounds")
+                res.setValue(notesTextView.text, forKey: "notes")
+                
+                
+                 try con.save()
+                dismissVC()
+            }
+            
+        } catch {
+            print("Unresolved error")
+            abort()
+        }
+    }
+    
     
     
     func dismissVC(){

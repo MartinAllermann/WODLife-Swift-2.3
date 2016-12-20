@@ -33,7 +33,7 @@ fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-class WodResultTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, NSFetchedResultsControllerDelegate{
+class WodResultTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, NSFetchedResultsControllerDelegate, UITextViewDelegate{
 
     @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
     
@@ -65,6 +65,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         print(editMode)
         
         wodNameLabel.text = wodName
+        notesTextView.delegate = self
    
         minutes = 0
         seconds = 0
@@ -125,6 +126,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         Wod.name = wodName
         Wod.time = elapsedTimeInSeconds as NSNumber?
         Wod.date = currentDate
+        Wod.notes = notesTextView.text
         
         do {
             
@@ -310,6 +312,12 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     
    override func viewDidAppear(_ animated: Bool) {
         self.timeTextField.becomeFirstResponder()
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = newText.characters.count // for Swift use count(newText)
+        return numberOfChars < 200;
     }
     
 }

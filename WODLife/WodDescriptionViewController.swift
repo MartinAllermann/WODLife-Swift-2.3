@@ -20,9 +20,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     var fourthExercise: String?
     var timeComponentType: String?
     var color: UIColor?
-    var wodLogTitle = ["Add Score"]
-    var timerTitle = ["Timer"]
-    var titles = [[String]]()
+    var titles = [["Add Score"],["Timer"]]
     
     let dateFormatter = DateFormatter()
     var fetchedResultsController:NSFetchedResultsController<NSFetchRequestResult>!
@@ -47,8 +45,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
         setWodInstructions()
         getWodResults()
-        titles.append(wodLogTitle)
-        titles.append(timerTitle)
         
     }
     
@@ -144,10 +140,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             cell.detailLabel?.backgroundColor = color
             cell.detailLabel?.layer.masksToBounds = true
-            cell.detailLabel?.layer.cornerRadius = 12
-            
-            cell.accessoryType = UITableViewCellAccessoryType.none
-            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            cell.detailLabel?.layer.cornerRadius = 10
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             cell.leftIcon.image = UIImage(named: "Calendar")
             
             if (workout.time == 0) {

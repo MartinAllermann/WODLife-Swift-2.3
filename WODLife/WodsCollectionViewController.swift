@@ -186,8 +186,6 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         segmentedControlBar.setTitle(wodCollectionTwo, forSegmentAt: 1)
         segmentSelected = wodCollectionOne // The first segmentSelected should be wodCollectionOne
         
-        navigationbarcolor()
-        
         getWod()
         
         self.collectionView?.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.09, alpha: 1.0) /* #191919 */
@@ -206,36 +204,12 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
     
     override func viewWillAppear(_ animated: Bool) {
         
-        transparentNavigationBarFalse()
         wodsWithDataArray.removeAll()
         getWod()
         collectionView?.reloadData()
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        
-        transparentNavigationBar()
-    }
-    
-    
-    func transparentNavigationBar(){
-        
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        
-    }
-    
-    func transparentNavigationBarFalse(){
-        
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.barTintColor = UIColor(hue: 0, saturation: 0, brightness: 0.2, alpha: 1.0) /* #333333 */
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -9,14 +9,15 @@
 import UIKit
 import CoreData
 
-class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate{
+class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate, UITextViewDelegate{
     
    
     @IBOutlet weak var roundsTextField: UITextField!
     @IBOutlet weak var wodNameLabel: UILabel!
     @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
-    @IBOutlet weak var notesTextView: UITextView!
-    
+   
+    @IBOutlet weak var notesView: UITextView!
+
     var wodName: String?
     var roundsFromTimer: Int?
     var newDate = Date()
@@ -34,7 +35,11 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
         wodNameLabel.text = wodName
         textFieldPlaceholder()
+ 
         roundsTextField.delegate = self
+        notesView.delegate = self
+
+ 
         
         if timerUsed == true {
         
@@ -45,11 +50,14 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         if (editMode == true){
         
             roundsTextField.text = "\(roundsToEdit!)"
-            notesTextView.text = notesToEdit!
+        
+            notesView.text = notesToEdit!
+ 
         
         }
-        
+    
         self.roundsTextField.becomeFirstResponder()
+ 
     }
     
     @IBAction func saveB(_ sender: AnyObject) {
@@ -58,10 +66,9 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         roundsTextField.text = "0"
         }
         
-    
-        if notesTextView.text!.isEmpty {
+        if notesView.text!.isEmpty {
         
-        notesTextView.text = "None"
+        notesView.text = "None"
             
         }
         
@@ -77,17 +84,6 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
 
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool
-    {
-        let maxLength = 4
-        let currentString: NSString = textField.text! as NSString
-        let newString: NSString =
-            currentString.replacingCharacters(in: range, with: string) as NSString
-        return newString.length <= maxLength
-    }
-    
-    
     func saveResult(){
         
         let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
@@ -102,8 +98,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         let roundsInt:NSNumber? = Int(roundsTextField.text!) as NSNumber?
         Wod.rounds = roundsInt!
         Wod.date = currentDate
-        Wod.notes = notesTextView.text
- 
+        Wod.notes = notesView.text
         
         do {
             
@@ -131,9 +126,8 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
                 
                 let roundsInt:NSNumber? = Int(roundsTextField.text!) as NSNumber?
                 res.setValue(roundsInt, forKey: "rounds")
-                res.setValue(notesTextView.text, forKey: "notes")
-                
-                
+                res.setValue(notesView.text, forKey: "notes")
+        
                  try con.save()
                 dismissVC()
             }
@@ -173,5 +167,22 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = newText.characters.count // for Swift use count(newText)
+        return numberOfChars < 200;
+    }
+
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool
+    {
+        let maxLength = 4
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
     }
 }

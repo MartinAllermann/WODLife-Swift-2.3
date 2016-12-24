@@ -48,6 +48,12 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let index = self.tableView.indexPathForSelectedRow{
+            self.tableView.deselectRow(at: index, animated: true)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -180,6 +186,20 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             return "\(min!)" + ":" + "\(sec!)"
             
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        switch section {
+        case 1:
+            if fetchedResultsController.fetchedObjects?.isEmpty == true {
+                return nil
+            } else {
+                return "History"
+            }
+        default:
+            return nil
         }
     }
     
@@ -321,8 +341,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("delete")
-            
+
             let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
             let con: NSManagedObjectContext = appDel.managedObjectContext
             

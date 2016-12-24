@@ -176,20 +176,17 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         completedWodsThisMonth = monthArray.filter{$0 == currentMonth}.count
         completedWodsLastMonth = monthArray.filter{$0 == previousMonth}.count
+        
+        if completedWodsThisMonth! < 2 {
+            
+        completedThisMonth.text = "\(completedWodsThisMonth!)" + " WOD"
+        
+        } else {
+        
         completedThisMonth.text = "\(completedWodsThisMonth!)" + " WODs"
-        completedLastMonth.text = "\(completedWodsLastMonth!)" + " previous month"
+            
+        }
+        completedLastMonth.text = "\(completedWodsLastMonth!)" + " completed last month"
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

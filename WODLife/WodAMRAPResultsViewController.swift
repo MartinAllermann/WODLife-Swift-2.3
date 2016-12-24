@@ -31,8 +31,6 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(editMode)
-        
         wodNameLabel.text = wodName
         textFieldPlaceholder()
  
@@ -51,12 +49,13 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
             roundsTextField.text = "\(roundsToEdit!)"
         
-            notesView.text = notesToEdit!
+            notesView.text = notesToEdit
  
         
         }
     
         self.roundsTextField.becomeFirstResponder()
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
  
     }
     
@@ -185,4 +184,5 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
+
 }

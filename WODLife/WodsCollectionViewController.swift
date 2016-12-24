@@ -390,14 +390,14 @@ class WodsCollectionViewController: UICollectionViewController, NSFetchedResults
         let size = collectionView.frame.width
 
         if (size <= 320) {
-            return CGSize(width: (300), height: (175))
+            return CGSize(width: (320), height: (175))
             
         }
         if (size <= 375) {
-            return CGSize(width: (350), height: (175))
+            return CGSize(width: (375), height: (175))
         }
         if (size <= 414) {
-            return CGSize(width: (400), height: (175))
+            return CGSize(width: (414), height: (175))
         }
         
         

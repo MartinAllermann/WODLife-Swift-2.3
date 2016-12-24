@@ -62,8 +62,6 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(editMode)
-        
         wodNameLabel.text = wodName
         notesTextView.delegate = self
    
@@ -91,8 +89,10 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
             notesTextView.text = notesToEdit
         
         }
+         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
     }
+    
     @IBAction func saveBtn(_ sender: AnyObject) {
         
         if timeTextField.text!.isEmpty {
@@ -319,5 +319,6 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         let numberOfChars = newText.characters.count // for Swift use count(newText)
         return numberOfChars < 200;
     }
+    
     
 }

@@ -17,4 +17,5 @@ class WodsResumeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var thirdExercise: UILabel!
     @IBOutlet weak var fourthExercise: UILabel!
     @IBOutlet weak var imageIcon: UIImageView!
+    @IBOutlet weak var disclosureIndicatorImage: UIImageView!
 }

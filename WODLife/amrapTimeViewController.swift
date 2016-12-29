@@ -20,17 +20,12 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBOutlet weak var wodNameLabel: UILabel!
     @IBOutlet weak var timeComponentLabel: UILabel!
-    @IBOutlet weak var firstExerciseLabel: UILabel!
-    @IBOutlet weak var secondExerciseLabel: UILabel!
-    @IBOutlet weak var thirdExerciseLabel: UILabel!
-    @IBOutlet weak var fourthExerciseLabel: UILabel!
+
+    @IBOutlet weak var wodDescriptionView: UITextView!
     
     var wodName: String?
     var timeComponent: String?
-    var firstExercise: String?
-    var secondExercise: String?
-    var thirdExercise: String?
-    var fourthExercise: String?
+    var wodDescription: String?
     var newDate = Date()
     var timer : Timer?
     var hour = 0
@@ -66,8 +61,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         for i in 1...59 {
             minArray.append("\(i)")
         }
-        
-        // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,10 +96,8 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         wodNameLabel.text? = (wodName?.uppercased())!
         timeComponentLabel.text = timeComponent?.uppercased()
-        firstExerciseLabel.text = firstExercise
-        secondExerciseLabel.text = secondExercise
-        thirdExerciseLabel.text = thirdExercise
-        fourthExerciseLabel.text = fourthExercise
+        wodDescriptionView.text? = wodDescription!
+        wodDescriptionView.isUserInteractionEnabled = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -14,10 +14,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     var wodName: String?
     var timeComponent: String?
-    var firstExercise: String?
-    var secondExercise: String?
-    var thirdExercise: String?
-    var fourthExercise: String?
+    var wodDescription: String = ""
     var timeComponentType: String?
     var color: UIColor?
     var titles = [["Add Score"],["Timer"]]
@@ -34,10 +31,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var wodNameLabel: UILabel!
     @IBOutlet weak var timeComponentLabel: UILabel!
-    @IBOutlet weak var firstExerciseLabel: UILabel!
-    @IBOutlet weak var secondExerciseLabel: UILabel!
-    @IBOutlet weak var thirdExerciseLabel: UILabel!
-    @IBOutlet weak var fourthExerciseLabel: UILabel!
+    @IBOutlet weak var wodDescriptionView: UITextView!
+    
     @IBOutlet weak var backgroundColor: UIView!
     
 
@@ -61,13 +56,12 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func setWodInstructions() {
         
-        wodNameLabel.text = wodName?.uppercased()
-        timeComponentLabel.text = timeComponent?.uppercased()
-        firstExerciseLabel.text = firstExercise
-        secondExerciseLabel.text = secondExercise
-        thirdExerciseLabel.text = thirdExercise
-        fourthExerciseLabel.text = fourthExercise
-        backgroundColor.backgroundColor = color
+            wodNameLabel.text = wodName?.uppercased()
+            timeComponentLabel.text = timeComponent?.uppercased()
+            wodDescriptionView.text = wodDescription
+            wodDescriptionView.isUserInteractionEnabled = false
+            wodDescriptionView.backgroundColor = color
+            backgroundColor.backgroundColor = color
         
     }
     
@@ -243,11 +237,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             let vc = segue.destination as! forTimeViewController
             vc.wodName = wodName
             vc.timeComponent = timeComponent
-            vc.firstExercise = firstExercise
-            vc.secondExercise = secondExercise
-            vc.thirdExercise = thirdExercise
-            vc.fourthExercise = fourthExercise
-            
+            vc.wodDescription = wodDescription
+
         }
         if segue.identifier == "AMRAP Timer"
         {
@@ -255,10 +246,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             let vc = segue.destination as! amrapTimeViewController
             vc.wodName = wodName
             vc.timeComponent = timeComponent
-            vc.firstExercise = firstExercise
-            vc.secondExercise = secondExercise
-            vc.thirdExercise = thirdExercise
-            vc.fourthExercise = fourthExercise
+            vc.wodDescription = wodDescription
             
         }
     }

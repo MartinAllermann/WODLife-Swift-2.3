@@ -5,10 +5,7 @@ class forTimeViewController: UIViewController {
     
     var wodName: String?
     var timeComponent: String?
-    var firstExercise: String?
-    var secondExercise: String?
-    var thirdExercise: String?
-    var fourthExercise: String?
+    var wodDescription: String?
     var wodResult: Int?
     var timer : Timer?
     var startTime : TimeInterval?
@@ -26,11 +23,7 @@ class forTimeViewController: UIViewController {
     
     @IBOutlet weak var wodNameLabel: UILabel!
     @IBOutlet weak var timeComponentLabel: UILabel!
-    @IBOutlet weak var firstExerciseLabel: UILabel!
-    @IBOutlet weak var secondExerciseLabel: UILabel!
-    @IBOutlet weak var thirdExerciseLabel: UILabel!
-    @IBOutlet weak var fourthExerciseLabel: UILabel!
-    
+    @IBOutlet weak var wodDescriptionView: UITextView!
     
     @IBAction func cancelBtn(_ sender: AnyObject) {
         killTimer()
@@ -63,10 +56,8 @@ class forTimeViewController: UIViewController {
         
         wodNameLabel.text = wodName?.uppercased()
         timeComponentLabel.text = timeComponent?.uppercased()
-        firstExerciseLabel.text = firstExercise
-        secondExerciseLabel.text = secondExercise
-        thirdExerciseLabel.text = thirdExercise
-        fourthExerciseLabel.text = fourthExercise
+        wodDescriptionView.text = wodDescription
+        wodDescriptionView.isUserInteractionEnabled = false
     }
 
     

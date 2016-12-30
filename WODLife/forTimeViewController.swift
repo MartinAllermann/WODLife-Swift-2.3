@@ -57,7 +57,7 @@ class forTimeViewController: UIViewController {
         wodNameLabel.text = wodName?.uppercased()
         timeComponentLabel.text = timeComponent?.uppercased()
         wodDescriptionView.text = wodDescription
-        wodDescriptionView.isUserInteractionEnabled = false
+        wodDescriptionView.isEditable = false
     }
 
     

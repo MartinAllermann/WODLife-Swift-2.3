@@ -59,7 +59,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             wodNameLabel.text = wodName?.uppercased()
             timeComponentLabel.text = timeComponent?.uppercased()
             wodDescriptionView.text = wodDescription
-            wodDescriptionView.isUserInteractionEnabled = false
+            wodDescriptionView.isEditable = false
             wodDescriptionView.backgroundColor = color
             backgroundColor.backgroundColor = color
         

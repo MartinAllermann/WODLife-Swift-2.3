@@ -97,7 +97,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         wodNameLabel.text? = (wodName?.uppercased())!
         timeComponentLabel.text = timeComponent?.uppercased()
         wodDescriptionView.text? = wodDescription!
-        wodDescriptionView.isUserInteractionEnabled = false
+        wodDescriptionView.isEditable = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

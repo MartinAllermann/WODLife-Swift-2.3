@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WodTableViewCell: UITableViewCell {
+class WodTableViewCell: UITableViewCell, UITextViewDelegate{
 
     @IBOutlet weak var wodName: UILabel!
 
@@ -17,6 +17,9 @@ class WodTableViewCell: UITableViewCell {
     @IBOutlet weak var wodDescOne: UITextView!
 
     @IBOutlet weak var imageIcon: UIImageView!
+    
+    @IBOutlet weak var disclosureIndicator: UIImageView!
+    
     
 }
 

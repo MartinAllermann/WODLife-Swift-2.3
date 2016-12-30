@@ -30,7 +30,7 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Annie" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IG5-dW-5tt">
                                                     <rect key="frame" x="15" y="12" width="183" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
@@ -50,9 +50,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="21, 15, 9 reps for time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mLR-jA-w7N">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="21, 15, 9 reps for time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mLR-jA-w7N">
                                                     <rect key="frame" x="16" y="12" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
@@ -72,12 +72,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZKT-tk-mff">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="ZKT-tk-mff">
                                                     <rect key="frame" x="15" y="0.0" width="346" height="150"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
                                                 </textView>
                                             </subviews>
@@ -97,7 +97,7 @@
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rfS-Zz-F1b">
                                                     <rect key="frame" x="8" y="8" width="359" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <segments>
                                                         <segment title="For Time"/>
                                                         <segment title="AMRAP"/>
@@ -144,8 +144,8 @@
             <objects>
                 <viewController id="MOx-5S-2Lc" customClass="WodDescriptionViewController" customModule="WODLife" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mmS-rZ-nDG"/>
-                        <viewControllerLayoutGuide type="bottom" id="DAM-J2-YAm"/>
+                        <viewControllerLayoutGuide type="top" id="9tH-oW-2Ic"/>
+                        <viewControllerLayoutGuide type="bottom" id="kGq-yV-9pd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lUp-Rt-e2d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -185,7 +185,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GiK-Hj-tPj">
-                                            <rect key="frame" x="14" y="112" width="346" height="128"/>
+                                            <rect key="frame" x="14" y="112" width="346" height="148"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <attributedString key="attributedText">
@@ -263,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkL-Xq-sUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2195" y="510"/>
+            <point key="canvasLocation" x="2194.5" y="509.5"/>
         </scene>
         <!--Wod Result Table View Controller-->
         <scene sceneID="lqL-3Y-G7O">
@@ -332,7 +332,7 @@
                             <tableViewSection headerTitle="NOTES" id="l0X-Y6-cQy">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="150" id="Ckv-od-xWG">
-                                        <rect key="frame" x="0.0" y="193" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="194" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ckv-od-xWG" id="HGe-Ar-Rbk">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
@@ -445,7 +445,7 @@
                             <tableViewSection headerTitle="NOTES" id="v4S-XG-cPa">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="tZb-Kc-pnG">
-                                        <rect key="frame" x="0.0" y="193" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="194" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tZb-Kc-pnG" id="nLV-xs-PLr">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
@@ -494,8 +494,8 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="P6x-ZL-rBI" customClass="forTimeViewController" customModule="WODLife" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Jay-Hr-F6a"/>
-                        <viewControllerLayoutGuide type="bottom" id="qfa-Ce-JQO"/>
+                        <viewControllerLayoutGuide type="top" id="5ww-EQ-NtE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gbi-ZF-I0K"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1Gy-Xb-xSf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -544,8 +544,8 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="100 Squats" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rJs-ra-4GL">
-                                <rect key="frame" x="67" y="127" width="240" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="16" y="127" width="343" height="110"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -602,8 +602,8 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="mKH-AN-6B3" customClass="amrapTimeViewController" customModule="WODLife" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="10J-S4-eGa"/>
-                        <viewControllerLayoutGuide type="bottom" id="Bqq-gf-Lne"/>
+                        <viewControllerLayoutGuide type="top" id="7WO-uw-3zv"/>
+                        <viewControllerLayoutGuide type="bottom" id="bfY-H8-oZ6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dsq-Jv-xhl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -676,8 +676,8 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                             </pickerView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="100 air squats" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8ry-sG-2KW">
-                                <rect key="frame" x="67" y="129" width="240" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="16" y="129" width="343" height="110"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -720,8 +720,8 @@
             <objects>
                 <viewController id="Dlp-a7-HwU" customClass="HistoryViewController" customModule="WODLife" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uvP-fb-9RE"/>
-                        <viewControllerLayoutGuide type="bottom" id="DyR-T9-HAR"/>
+                        <viewControllerLayoutGuide type="top" id="bBq-P3-OrK"/>
+                        <viewControllerLayoutGuide type="bottom" id="YEe-Jp-O2V"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="teL-mo-pN9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -762,7 +762,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="55" id="cey-5i-yoc" customClass="HistoryCell" customModule="WODLife" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="117.5" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="118" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cey-5i-yoc" id="EDU-2N-Gxo">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
@@ -861,56 +861,71 @@
             <objects>
                 <viewController id="clr-XN-4RB" customClass="WodViewController" customModule="WODLife" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mqn-KF-Cuk"/>
-                        <viewControllerLayoutGuide type="bottom" id="7Jo-nI-jlI"/>
+                        <viewControllerLayoutGuide type="top" id="Ixj-Sc-bfD"/>
+                        <viewControllerLayoutGuide type="bottom" id="agL-jc-TTb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Q54-dE-ZTb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="185" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ryc-fm-NNn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="192" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ryc-fm-NNn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <color key="separatorColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="185" id="STG-o0-cL0" customClass="WodTableViewCell" customModule="WODLife" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="185"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="STG-o0-cL0" customClass="WodTableViewCell" customModule="WODLife" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="56" width="375" height="192"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="STG-o0-cL0" id="Tmx-eo-8iu">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="185"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Annie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sG3-Xb-DQO">
-                                                    <rect key="frame" x="15" y="12" width="323" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="21, 15, 9 reps for time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="486-6b-MAz">
-                                                    <rect key="frame" x="15" y="37" width="334" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="100 squats" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aGv-hE-ga9">
-                                                    <rect key="frame" x="10" y="58" width="332" height="110"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-EF-amj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Annie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sG3-Xb-DQO">
+                                                    <rect key="frame" x="15" y="14" width="329" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="21, 15, 9 reps for time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="486-6b-MAz">
+                                                    <rect key="frame" x="15" y="40" width="329" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="100 squats" translatesAutoresizingMaskIntoConstraints="NO" id="aGv-hE-ga9">
+                                                    <rect key="frame" x="10" y="58" width="334" height="124"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CalendarFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJD-Ko-o5A">
-                                                    <rect key="frame" x="345" y="13" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <rect key="frame" x="350" y="17" width="15" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5lk-t3-jWT">
+                                                    <rect key="frame" x="0.0" y="190" width="375" height="2"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DisclosureIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="qz4-3n-dY5">
+                                                    <rect key="frame" x="352" y="89" width="12" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="disclosureIndicator" destination="qz4-3n-dY5" id="Yu5-La-7ah"/>
                                             <outlet property="imageIcon" destination="UJD-Ko-o5A" id="ShJ-n4-m8t"/>
                                             <outlet property="wodDescOne" destination="aGv-hE-ga9" id="1Ht-qW-gR6"/>
                                             <outlet property="wodName" destination="sG3-Xb-DQO" id="qBq-VN-xjQ"/>
@@ -943,13 +958,14 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WiK-7u-H5e">
                             <connections>
-                                <segue destination="61Q-4A-phI" kind="push" id="bJV-0L-sV2"/>
+                                <action selector="createWodBtn:" destination="clr-XN-4RB" id="3sZ-7y-3Eb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="segmentedControl" destination="9oG-fq-caU" id="VMK-Yc-Qno"/>
                         <outlet property="tableView" destination="Ryc-fm-NNn" id="FMz-66-Dhd"/>
+                        <segue destination="61Q-4A-phI" kind="push" identifier="createNewWod" id="igg-f6-Y6g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6g-Qo-BX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -980,6 +996,7 @@
         <image name="Calendar" width="32" height="32"/>
         <image name="CalendarFill" width="32" height="32"/>
         <image name="Compose" width="32" height="32"/>
+        <image name="DisclosureIndicator" width="24" height="32"/>
         <image name="Stopwatch" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

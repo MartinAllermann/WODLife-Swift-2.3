@@ -28,12 +28,14 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         saveBtn.isEnabled = false
         wodNameText.delegate = self
         wodTypeText.delegate = self
+        wodDescriptionText.delegate = self
         wodNameText.addTarget(self, action: #selector(CreateWodTableViewController.txtEditing(textField:)), for: UIControlEvents.editingChanged)
         
         wodNameTextPlaceholder()
         wodTypeTextPlaceholder()
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
     }
     
     func txtEditing(textField: UITextField) {
@@ -117,8 +119,10 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.characters.count // for Swift use count(newText)
-        return numberOfChars < 200;
+        return numberOfChars < 300;
     }
+    
+
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool
@@ -161,5 +165,7 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         wodTypeText.attributedPlaceholder = placeHolder
         
     }
- 
+    
+    
+    
 }

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class WodViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class WodViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextViewDelegate {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
@@ -200,7 +200,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         wodsWithDataArray.removeAll()
         getWod()
-        tableView.reloadData()
+        self.tableView.reloadData()
         
     }
     
@@ -208,10 +208,16 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         super.didReceiveMemoryWarning()
     }
     
+
+    @IBAction func createWodBtn(_ sender: Any) {
+        performSegue(withIdentifier: "createNewWod", sender: sender)
+        segmentedControl.selectedSegmentIndex = 2
+        segmentSelected = wodCollectionThree
+    }
+    
+    
     // MARK: - Table view data source
     @IBAction func segmentedControlAction(_ sender: Any) {
-        
-        self.tableView.reloadData()
         
         if(segmentedControl.selectedSegmentIndex == 0)
         {
@@ -270,6 +276,9 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.wodType.text = timeComponent.uppercased()
             cell.wodDescOne.text = theGirlsWodsCollection[indexPath.row][2]
             
+            cell.wodDescOne.backgroundColor = colorPicker(colorName: theGirlsWodsCollection[indexPath.row][4])
+            cell.backgroundColor = colorPicker(colorName: theGirlsWodsCollection[indexPath.row][4])
+            
             if (wodsWithDataArray.contains(name)) {
                 cell.imageIcon.isHidden = false
             } else {
@@ -284,6 +293,8 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             let timeComponent = heroWodsCollection[indexPath.row][1]
             cell.wodType.text = timeComponent.uppercased()
             cell.wodDescOne.text = heroWodsCollection[indexPath.row][2]
+            cell.wodDescOne.backgroundColor = colorPicker(colorName: "green")
+            cell.backgroundColor = colorPicker(colorName: "green")
             
             if (wodsWithDataArray.contains(name)) {
                 cell.imageIcon.isHidden = false
@@ -295,9 +306,12 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         if segmentSelected == wodCollectionThree {
             
             let wod = fetchedResultsController.object(at: indexPath) as! Wod
-            cell.wodName.text = wod.name
-            cell.wodType.text = wod.typeDescription
+            cell.wodName.text = wod.name?.uppercased()
+            cell.wodType.text = wod.typeDescription?.uppercased()
             cell.wodDescOne.text = wod.wodDescription
+            cell.wodDescOne.backgroundColor = colorPicker(colorName: "yellow")
+            cell.backgroundColor = colorPicker(colorName: "yellow")
+            
             
             if (wodsWithDataArray.contains(wod.name!)) {
                 cell.imageIcon.isHidden = false
@@ -306,8 +320,9 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             }
             
         }
-
+        
         return cell
+        
     }
     
     
@@ -373,7 +388,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 vc.timeComponent = theGirlsWodsCollection[(indexPath?.row)!][1]
                 vc.wodDescription = theGirlsWodsCollection[(indexPath?.row)!][2]
                 vc.timeComponentType = theGirlsWodsCollection[(indexPath?.row)!][3]
-                vc.color = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+                vc.color = colorPicker(colorName: theGirlsWodsCollection[(indexPath?.row)!][4])
                 
             }
             if segmentSelected == wodCollectionTwo {
@@ -382,7 +397,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 vc.timeComponent = heroWodsCollection[(indexPath?.row)!][1]
                 vc.wodDescription = heroWodsCollection[(indexPath?.row)!][2]
                 vc.timeComponentType = heroWodsCollection[(indexPath?.row)!][3]
-                vc.color = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+                vc.color = colorPicker(colorName: "green")
                 
             }
             if segmentSelected == wodCollectionThree {
@@ -392,7 +407,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 vc.timeComponent = wod.typeDescription
                 vc.wodDescription = wod.wodDescription!
                 vc.timeComponentType = wod.type
-                vc.color = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+                vc.color = colorPicker(colorName: "yellow")
                 
             }
         
@@ -426,6 +441,29 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         }
     }
     
-    
+    func colorPicker(colorName: String?) -> UIColor {
+        
+        switch(colorName!){
+            
+        case "blue":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+            
+        case "purple":
+            return UIColor(red:0.25, green:0.51, blue:0.84, alpha:1.0) // purple
+            
+        case "yellow":
+            return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // yellow
+            
+        case "orange":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+            
+        case "green":
+            return UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0) // green
+            
+        default:
+            return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
+            
+        }
+    }
 
 }

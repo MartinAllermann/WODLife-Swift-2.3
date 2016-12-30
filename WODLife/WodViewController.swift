@@ -312,7 +312,6 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.wodDescOne.backgroundColor = colorPicker(colorName: "yellow")
             cell.backgroundColor = colorPicker(colorName: "yellow")
             
-            
             if (wodsWithDataArray.contains(wod.name!)) {
                 cell.imageIcon.isHidden = false
             } else {

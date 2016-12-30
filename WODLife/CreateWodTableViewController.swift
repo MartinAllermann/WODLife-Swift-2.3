@@ -36,6 +36,8 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
+        
+        
     }
     
     func txtEditing(textField: UITextField) {

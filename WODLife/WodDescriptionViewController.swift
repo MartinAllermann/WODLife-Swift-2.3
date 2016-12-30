@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 
-
 class WodDescriptionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
     var wodName: String?
@@ -32,7 +31,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var wodNameLabel: UILabel!
     @IBOutlet weak var timeComponentLabel: UILabel!
     @IBOutlet weak var wodDescriptionView: UITextView!
-    
     @IBOutlet weak var backgroundColor: UIView!
     
 
@@ -40,6 +38,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
         setWodInstructions()
         getWodResults()
+        
         
     }
     
@@ -63,6 +62,16 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             wodDescriptionView.backgroundColor = color
             backgroundColor.backgroundColor = color
         
+        
+        let contentSize = wodDescriptionView.sizeThatFits(wodDescriptionView.bounds.size)
+    
+        var frame = wodDescriptionView.frame
+        frame.size.height = contentSize.height + 150
+        wodDescriptionView.frame = frame
+        
+        var frame2 = backgroundColor.frame
+        frame2.size.height = contentSize.height + 200
+        backgroundColor.frame = frame2
     }
     
     func getWodResults() {

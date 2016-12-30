@@ -184,5 +184,12 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont(name: "Helvetica", size: 14)!
+        header.textLabel?.textColor = UIColor.white
+    }
 
 }

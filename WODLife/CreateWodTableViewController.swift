@@ -36,8 +36,7 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
-        
-        
+        tableView.delegate = self
     }
     
     func txtEditing(textField: UITextField) {
@@ -168,6 +167,11 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         
     }
     
-    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont(name: "Helvetica", size: 14)!
+        header.textLabel?.textColor = UIColor.white
+    }
     
 }

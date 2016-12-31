@@ -186,7 +186,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         completedThisMonth.text = "\(completedWodsThisMonth!)" + " WODs"
             
         }
-        completedLastMonth.text = "\(completedWodsLastMonth!)" + " COMPLETED LAST MONTH"
+        completedLastMonth.text = "\(completedWodsLastMonth!)" + " completed last month"
         
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont(name: "Helvetica", size: 12)!
+        header.textLabel?.textColor = UIColor.groupTableViewBackground
     }
 }

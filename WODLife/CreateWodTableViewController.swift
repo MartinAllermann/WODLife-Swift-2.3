@@ -170,8 +170,8 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = UIFont(name: "Helvetica", size: 14)!
-        header.textLabel?.textColor = UIColor.white
+        header.textLabel?.font = UIFont(name: "Helvetica", size: 12)!
+        header.textLabel?.textColor = UIColor.groupTableViewBackground
     }
     
 }

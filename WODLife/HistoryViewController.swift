@@ -177,14 +177,13 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         completedWodsThisMonth = monthArray.filter{$0 == currentMonth}.count
         completedWodsLastMonth = monthArray.filter{$0 == previousMonth}.count
         
-        if completedWodsThisMonth! < 2 {
-            
-        completedThisMonth.text = "\(completedWodsThisMonth!)" + " WOD"
-        
-        } else {
-        
-        completedThisMonth.text = "\(completedWodsThisMonth!)" + " WODs"
-            
+        switch completedWodsThisMonth! {
+        case 0:
+             completedThisMonth.text = "\(completedWodsThisMonth!)" + " WODs"
+        case 1:
+             completedThisMonth.text = "\(completedWodsThisMonth!)" + " WOD"
+        default:
+             completedThisMonth.text = "\(completedWodsThisMonth!)" + " WODs"
         }
         completedLastMonth.text = "\(completedWodsLastMonth!)" + " completed last month"
         

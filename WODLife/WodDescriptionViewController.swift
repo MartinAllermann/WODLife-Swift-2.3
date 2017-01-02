@@ -70,7 +70,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         wodDescriptionView.frame = frame
         
         var frame2 = backgroundColor.frame
-        frame2.size.height = contentSize.height + 200
+        frame2.size.height = contentSize.height + 175
         backgroundColor.frame = frame2
     }
     
@@ -286,7 +286,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
                 
             }
             
-            if timeComponentType?.range(of: "EMON") != nil {
+            if timeComponentType?.range(of: "EMOM") != nil {
                 
                 if indexPath.row == 0 {
                     self.performSegue(withIdentifier: "AMRAP", sender: indexPath);
@@ -316,7 +316,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
                 dateToEdit = workout.date
                 self.performSegue(withIdentifier: "AMRAP", sender: indexPath);
             }
-            if timeComponentType?.range(of: "EMON") != nil  {
+            if timeComponentType?.range(of: "EMOM") != nil  {
                 roundsToEdit = workout.rounds as Int?
                 notesToEdit = workout.notes
                 dateToEdit = workout.date

@@ -15,8 +15,6 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
 
     @IBOutlet weak var wodNameText: UITextField!
 
-    @IBOutlet weak var wodTypeText: UITextField!
-
     @IBOutlet weak var wodDescriptionText: UITextView!
 
     @IBOutlet weak var scoringInput: UISegmentedControl!
@@ -27,12 +25,9 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         super.viewDidLoad()
         saveBtn.isEnabled = false
         wodNameText.delegate = self
-        wodTypeText.delegate = self
         wodDescriptionText.delegate = self
         wodNameText.addTarget(self, action: #selector(CreateWodTableViewController.txtEditing(textField:)), for: UIControlEvents.editingChanged)
-        
         wodNameTextPlaceholder()
-        wodTypeTextPlaceholder()
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
@@ -62,7 +57,7 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         case 1:
             scoring = "AMRAP"
         case 2:
-            scoring = "EMON"
+            scoring = "EMOM"
         default:
             scoring = "For time"
         }
@@ -72,11 +67,6 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
  
     @IBAction func saveBtnAction(_ sender: Any) {
         
-        if wodTypeText.text!.isEmpty {
-        
-        wodTypeText.text = scoring
-        
-        }
         if wodDescriptionText.text.isEmpty {
         
         wodDescriptionText.text = "No Description"
@@ -97,8 +87,8 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         
         createWod.name = wodNameText.text
         createWod.date = currentDate
-        createWod.color = "yellow"
-        createWod.typeDescription = wodTypeText.text
+        createWod.color = "green"
+        createWod.typeDescription = scoring
         createWod.type = scoring
         createWod.wodDescription = wodDescriptionText.text
         
@@ -148,22 +138,6 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         
         // Add attribute
         wodNameText.attributedPlaceholder = placeHolder
-        
-    }
-   
-    func wodTypeTextPlaceholder(){
-        
-        var placeHolder = NSMutableAttributedString()
-        let Name  = "21, 15, 9 reps for time"
-        
-        // Set the Font
-        placeHolder = NSMutableAttributedString(string:Name, attributes: [NSFontAttributeName:UIFont(name: "Helvetica", size: 17.0)!])
-        
-        // Set the color
-        placeHolder.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range:NSRange(location:0,length:Name.characters.count))
-        
-        // Add attribute
-        wodTypeText.attributedPlaceholder = placeHolder
         
     }
     

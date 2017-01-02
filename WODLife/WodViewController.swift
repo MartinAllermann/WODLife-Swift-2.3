@@ -19,6 +19,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     var wodCollectionOne = "GIRLS"
     var wodCollectionTwo = "HERO"
     var wodCollectionThree = "My WODs"
+    let emptyLabel = UILabel()
     var segmentSelected: String?
     var wodsWithDataArray: [String] = []
     var theGirlsWodsCollection:[[String]] = [
@@ -33,7 +34,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         ["Candy","5 rounds for time","20 pull-ups\n40 push-ups\n60 squats","For time","blue"],
         
-        ["Chelsea","Every minute on the minute for 30 min","5 pull-ups\n10 push-ups\n15 squats","EMON","blue"],
+        ["Chelsea","Every minute on the minute for 30 min","5 pull-ups\n10 push-ups\n15 squats","EMOM","blue"],
         
         ["Cindy","As many rounds as possible in 20 min","5 pull-ups\n10 push-ups\n15 squats","AMRAP","blue"],
         
@@ -255,12 +256,27 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             
             return self.heroWodsCollection.count
             
-        } else {
-            
-            return (fetchedResultsController.sections?[0].numberOfObjects)!
         }
-        
-        
+        else {
+            
+            if (fetchedResultsController.sections?[0].numberOfObjects == 0){
+            
+                emptyLabel.text = "No WODs"
+                emptyLabel.textAlignment = NSTextAlignment.center
+                emptyLabel.textColor = UIColor.lightGray
+                tableView.backgroundView = emptyLabel
+                
+                return (fetchedResultsController.sections?[0].numberOfObjects)!
+                
+                
+            }
+            else {
+                
+                emptyLabel.text = ""
+                return (fetchedResultsController.sections?[0].numberOfObjects)!
+                
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -307,10 +323,10 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             
             let wod = fetchedResultsController.object(at: indexPath) as! Wod
             cell.wodName.text = wod.name?.uppercased()
-            cell.wodType.text = wod.typeDescription?.uppercased()
+            cell.wodType.text = wod.type
             cell.wodDescOne.text = wod.wodDescription
-            cell.wodDescOne.backgroundColor = colorPicker(colorName: "yellow")
-            cell.backgroundColor = colorPicker(colorName: "yellow")
+            cell.wodDescOne.backgroundColor = colorPicker(colorName: "green")
+            cell.backgroundColor = colorPicker(colorName: "green")
             
             if (wodsWithDataArray.contains(wod.name!)) {
                 cell.imageIcon.isHidden = false
@@ -403,10 +419,10 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 
                 let wod = fetchedResultsController.object(at: indexPath!) as! Wod
                 vc.wodName = wod.name
-                vc.timeComponent = wod.typeDescription
+                vc.timeComponent = wod.type
                 vc.wodDescription = wod.wodDescription!
                 vc.timeComponentType = wod.type
-                vc.color = colorPicker(colorName: "yellow")
+                vc.color = colorPicker(colorName: "green")
                 
             }
         
@@ -457,12 +473,12 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
             
         case "green":
-            return UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0) // green
+            return UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0) // green // #37ba99
             
         default:
             return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
             
         }
     }
-
+    
 }

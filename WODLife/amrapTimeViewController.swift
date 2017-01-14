@@ -61,7 +61,6 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         for i in 1...59 {
             minArray.append("\(i)")
         }
-
     }
 
     override func didReceiveMemoryWarning() {

@@ -19,6 +19,8 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     var wodCollectionOne = "GIRLS"
     var wodCollectionTwo = "HERO"
     var wodCollectionThree = "My WODs"
+    var numberOfCustomWods = 0
+    var createdNewWod = false
     let emptyLabel = UILabel()
     var segmentSelected: String?
     var wodsWithDataArray: [String] = []
@@ -73,7 +75,13 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     var heroWodsCollection:[[String]] = [
         
+        ["Arnie","For time","21 Turkish get-ups, right arm\n50 kettlebell swings\n21 overhead squats, left arm\n50 kettlebell swings\n21 overhead squats, right arm\n50 kettlebell swings\n21 Turkish get-ups, left arm","For time"],
+        
+        ["Adambrown","2 Rounds for time","295-lb. deadlifts, 24 reps\n24 box jumps, 24-inch box\n24 wall-ball shots, 20-lb. ball\n195-lb. bench presses, 24 reps\n24 box jumps, 24-inch box\n24 wall-ball shots, 20-lb. ball\n145-lb. cleans, 24 reps","For time"],
+        
         ["Badger","3 Rounds for time","30 squats cleans (95 lbs)\n30 pull-ups\nRun 800 meters","For time"],
+        
+        ["Blake","4 rounds for time","100-ft. walking lunge with 45-lb. plate held overhead\n30 box jumps, 24-inch box\n20 wall-ball shots, 20-lb. ball\n10 handstand push-ups","For time"],
         
         ["Bradshaw","10 rounds for time","3 handstand push-ups\n6 deadlifts (225 lbs)\n12 pull-ups\n24 double-unders","For time"],
         
@@ -81,11 +89,15 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         ["Bull","2 Rounds for time","200 double-unders\n50 overhead Squat\n50 pull-ups\nRun 1 mile","For time"],
         
+        ["Cameron","For time","50 walking-lunge steps\n25 chest-to-bar pull-ups\n50 box jumps, 24-inch box\n25 triple-unders\n50 back extensions\n25 ring dips\n50 knees-to-elbows\n25 wall-ball\n50 sit-ups\n15-ft. rope climbs, 5 ascents","For time"],
+        
         ["Coe","10 rounds for time","10 thrusters (95 lbs)\n10 ring push-ups","For time"],
         
         ["Collin","6 rounds for time","Carry sandbag 400 meters\n12 push presses\n12 box jumps\n12 sumo deadlift high pulls (95 lbs)","For time"],
         
         ["Danny","As many rounds as possible in 20 min","30 box jumps\n20 push presses (115 lbs)\n30 pull-ups","AMRAP"],
+        
+        ["Daniel","For time","50 pull-ups\n400-meter run\n95-lb. thrusters, 21 reps\n800-meter run\n95-lb. thrusters, 21 reps\n400-meter run\n50 pull-ups","For time"],
         
         ["Desforges","5 rounds for time","12 deadlift (225 lbs)\n20 pull-ups\n12 clean and jerks (135 lbs)\n20 knees-to-elbows","For time"],
         
@@ -101,6 +113,8 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         ["Garrett","3 rounds for time","75 squat\n25 ring handstand push-ups\n25 L-pull-ups","For time"],
         
+        ["Gaza","5 rounds for time","35 kettlebell swings, 1.5 pood\n30 push-ups\n25 pull-ups\n20 box jumps, 30-inch box\n1-mile run","For time"],
+        
         ["Hammer","5 rounds for time","5 power cleans (135 lbs)\n10 front squats (135 lbs)\n5 jerks (135 lbs)\n20 pull-ups","For time"],
         
         ["Hansen","5 rounds for time","30 kettlebell swings\n30 burpess\n30 GHD sit-ups","For time"],
@@ -111,15 +125,19 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         ["Jack","As many rounds as possible in 20 min","10 push presses (115 lbs)\n10 kettlebell swings\n10 box jumps","AMRAP"],
         
+        ["Jason","For time","100 squats\n5 muscle-ups\n75 squats\n10 muscle-ups\n50 squats\n15 muscle-ups\n25 squats\n20 muscle-ups","AMRAP"],
+        
         ["JBO","As many rounds as possible in 28 min","9 overhead squats (115 lbs)\n1 legless rope climb\n12 Bench presses (115 lbs)","AMRAP"],
         
         ["Jerry","For time","Run 1 mile\nRow 2.000 meters\nRun 1 mile","For time"],
         
-        ["JT","21, 15, 9 reps for time","Handstand push-ups\nRing dips\nPush-ups","For time"],
+        ["Josh","For time","95-lb. overhead squats, 21 reps\n42 pull-ups\n95-lb. overhead squats, 15 reps\n30 pull-ups\n95-lb. overhead squats, 9 reps\n18 pull-ups","For time"],
         
         ["Johnson","As many rounds as possible in 20 min","9 deadlifts (245 lbs)\n8 muscle-ups\n9 squat cleans (155 lbs)","AMRAP"],
         
         ["Joshie","3 Rounds For Time","21 dumbbell snatches (40 lbs)\n21 L-pull-ups\n21 dumbbell snatches (40 lbs)\n21 L-pull-ups","For time"],
+        
+        ["JT","21, 15, 9 reps for time","Handstand push-ups\nRing dips\nPush-ups","For time"],
         
         ["Justin","30-20-10 rounds","Back squats (BW)\nBench press (BW)\nStrict pull-ups","For time"],
         
@@ -134,56 +152,71 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         ["Mccluskey","3 rounds for time","9 muscle-ups\n15 burpee pull-ups\n21 pull ups\nRun 800 meters","For time"],
         
         ["Michael","3 Rounds For Time","Run 800 meters\n50 back extensions\n50 sit-ups","For time"],
-            
-            ["Moore","As many rounds as possible in 20 min","Rope climb\nRun 400 meters\nMax-reps handstand push-ups","AMRAP"],
-            
-            ["Morrison","50-40-30-20-10 reps","Wall-ball shots\nBox jumps\nKettlebell swings","For time"],
-            
-            ["Mr. Joshua","5 Rounds For Time","Run 400 meters\n30 GHD sit-ups\n15 Deadlifts (250 lbs)","For time"],
-            
-            ["Murph","For Time","1 mile Run\n100 pull-ups\n200 push-ups\n300 Squats\n1 mile Run","For time"],
-            
-            ["Nate","As many rounds as possible in 20 min","2 muscle-ups\n4 handstand push-ups\n8 kettlebell swings","AMRAP"],
-            
-            ["Paul","5 rounds for time","50 double-unders\n35 knees-to-elbows\noverhead walk (20 yards)","For time"],
-            
-            ["Rahoi","As many rounds as possible in 12 min","12 box jumps\n6 thrusters (95 lbs)\n6 burpees","AMRAP"],
-            
-            ["Randy","AMRAP","75 power Snatch","AMRAP"],
-            
-            ["Rankel","As many rounds as possible in 20 min","6 deadlifts (225 lbs)\n7 burpee pull-ups\n10 kettlebell swings\nRun 200 meters","AMRAP"],
-            
-            ["Ricky","As many rounds as possible in 20 min","10 pull-ups\n5 dumbbell deadlifts (75 lbs)\n8 push press (135 lbs)","AMRAP"],
-            
-            ["RJ","5 rounds for time","Run 800 meters\n5 ropeclimbs\n50 push-ups","For time"],
-            
-            ["Roy","5 rounds for time","15 deadlifts (225 lbs)\n20 box jumps\n25 pull-ups","For time"],
-            
-            ["Ryan","For Time","75 power snatches (75 lbs)","For time"],
-            
-            ["Santiago","7 rounds for time","18 dumbell squat cleans\n18 pull-ups\n10 power cleans (135 lbs)\n10 handstand push-ups","For time"],
-            
-            ["Severin","For time","50 strict pull-ups\n100 push-ups\nRun 5.000 meters","For time"],
-            
-            ["Small","3 rounds for time","Row 1.000 meters\n50 burpess\n50 box jumps\nRun 800 meters","For time"],
-            
-            ["Stephen","30-25-20-15-10-5 reps for time","GHD sit-ups\nBack extensions\nKnees-to-elbows\nStiff-legged deadlifts (95 lbs)","For time"],
-            
-            ["Thompson","10 rounds for time","Rope climb\n29 back squat (95 lbs)\nFarmers carry 10 meters","For time"],
-            
-            ["Tyler","5 rounds for time","7 muscle-ups\n21 sumo deadlift high pulls (95 lbs)","For time"],
-            
-            ["War Frank","3 rounds for time","25 muscle-ups\n100 squats\n35 GHD sit-ups","For time"],
-            
-            ["White","5 rounds For Time","3 rope climb\n10 toes to bar\n21 lunges\nRun 400 meters","For time"],
-            
-            ["Wilmot","6 rounds for time","50 squats\n25 ring dips","For time"],
-            
-            ["Wittman","7 rounds for time","15 kettlebell swings\n15 power cleans (95 lbs)\n15 box jumps","For time"],
-            
-            ["Zimmerman","As many rounds as possible in 25 min","11 chest-to-bar pull-ups\n2 deadlifts (315 lbs)\n10 handstand push-ups","AMRAP"],
-            
-    ]
+        
+        ["Moore","As many rounds as possible in 20 min","Rope climb\nRun 400 meters\nMax-reps handstand push-ups","AMRAP"],
+        
+        ["Morrison","50-40-30-20-10 reps","Wall-ball shots\nBox jumps\nKettlebell swings","For time"],
+        
+        ["Mr. Joshua","5 Rounds For Time","Run 400 meters\n30 GHD sit-ups\n15 Deadlifts (250 lbs)","For time"],
+        
+        ["Murph","For Time","1 mile Run\n100 pull-ups\n200 push-ups\n300 Squats\n1 mile Run","For time"],
+        
+        ["Nate","As many rounds as possible in 20 min","2 muscle-ups\n4 handstand push-ups\n8 kettlebell swings","AMRAP"],
+        
+        ["Nutts","For time","10 handstand push-ups\n250-lb. deadlifts, 15 reps\n25 box jumps, 30-inch box\n50 pull-ups\n100 wall-ball shots, 20-lb. ball\n200 double-unders\nRun 400 meters with a 45-lb. plate","For time"],
+        
+        ["Paul","5 rounds for time","50 double-unders\n35 knees-to-elbows\noverhead walk (20 yards)","For time"],
+        
+        ["Rahoi","As many rounds as possible in 12 min","12 box jumps\n6 thrusters (95 lbs)\n6 burpees","AMRAP"],
+        
+        ["Randy","AMRAP","75 power Snatch","AMRAP"],
+        
+        ["Rankel","As many rounds as possible in 20 min","6 deadlifts (225 lbs)\n7 burpee pull-ups\n10 kettlebell swings\nRun 200 meters","AMRAP"],
+        
+        ["Ricky","As many rounds as possible in 20 min","10 pull-ups\n5 dumbbell deadlifts (75 lbs)\n8 push press (135 lbs)","AMRAP"],
+        
+        ["RJ","5 rounds for time","Run 800 meters\n5 ropeclimbs\n50 push-ups","For time"],
+        
+        ["Roy","5 rounds for time","15 deadlifts (225 lbs)\n20 box jumps\n25 pull-ups","For time"],
+        
+        ["Ryan","For Time","75 power snatches (75 lbs)","For time"],
+        
+        ["Pheezy","3 rounds for Time","165-lb. front squats, 5 reps\n18 pull-ups\n225-lb. deadlifts, 5 reps\n18 toes-to-bars\n165-lb. push jerks, 5 reps\n18 hand-release push-ups","For time"],
+        
+        ["Pike","5 rounds for Time","75-lb. thrusters, 20 reps\n10 strict ring dips\n20 push-ups\n10 strict handstand push-ups\n50-meter bear crawl","For time"],
+        
+        ["Santiago","7 rounds for time","18 dumbell squat cleans\n18 pull-ups\n10 power cleans (135 lbs)\n10 handstand push-ups","For time"],
+        
+        ["Severin","For time","50 strict pull-ups\n100 push-ups\nRun 5.000 meters","For time"],
+        
+        ["Small","3 rounds for time","Row 1.000 meters\n50 burpess\n50 box jumps\nRun 800 meters","For time"],
+        
+        ["Stephen","30-25-20-15-10-5 reps for time","GHD sit-ups\nBack extensions\nKnees-to-elbows\nStiff-legged deadlifts (95 lbs)","For time"],
+        
+        ["The Seven","7 rounds for time","7 handstand push-ups\n135-lb. thrusters, 7 reps\n7 knees-to-elbows\n245-lb. deadlifts, 7 reps\n7 burpees\n2-pood kettlebell swings, 7 reps\n7 pull-ups","For time"],
+        
+        ["Thompson","10 rounds for time","Rope climb\n29 back squat (95 lbs)\nFarmers carry 10 meters","For time"],
+        
+        ["Tommy","For time","115-lb. thrusters, 21 reps\n15-ft. rope climbs, 12 ascents\n115-lb. thrusters, 15 reps\n15-ft. rope climbs, 9 ascents\n115-lb. thrusters, 9 reps\n15-ft. rope climbs, 6 ascents","For time"],
+        
+        ["Tyler","5 rounds for time","7 muscle-ups\n21 sumo deadlift high pulls (95 lbs)","For time"],
+        
+        ["War Frank","3 rounds for time","25 muscle-ups\n100 squats\n35 GHD sit-ups","For time"],
+        
+        ["Weaver","4 rounds for time","10 L-pull-ups\n15 push-ups\n15 chest-to-bar pull-ups\n15 push-ups\n20 pull-ups\n15 push-ups","For time"],
+        
+        ["White","5 rounds For Time","3 rope climb\n10 toes to bar\n21 lunges\nRun 400 meters","For time"],
+        
+        ["Wilmot","6 rounds for time","50 squats\n25 ring dips","For time"],
+        
+        ["Wittman","7 rounds for time","15 kettlebell swings\n15 power cleans (95 lbs)\n15 box jumps","For time"],
+        
+        ["ZEUS","3 rounds for time","30 wall-ball shots, 20-lb. ball\n75-lb. sumo deadlift high pulls, 30 reps\n30 box jumps, 20-inch box\n75-lb. push presses, 30 reps\nRow 30 calories\n30 push-ups\nBody-weight back squats, 10 reps","For time"],
+        
+        ["Zimmerman","As many rounds as possible in 25 min","11 chest-to-bar pull-ups\n2 deadlifts (315 lbs)\n10 handstand push-ups","AMRAP"],
+        
+        ]
+    
    
     
     override func viewDidLoad() {
@@ -203,6 +236,15 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         getWod()
         self.tableView.reloadData()
         
+        if (numberOfCustomWods < (fetchedResultsController.sections?[0].numberOfObjects)!) {
+            if  createdNewWod == true {
+                 segmentedControl.selectedSegmentIndex = 2
+                 segmentSelected = wodCollectionThree
+ 
+                createdNewWod = false
+            }
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -212,8 +254,8 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
 
     @IBAction func createWodBtn(_ sender: Any) {
         performSegue(withIdentifier: "createNewWod", sender: sender)
-        segmentedControl.selectedSegmentIndex = 2
-        segmentSelected = wodCollectionThree
+        createdNewWod = true
+        numberOfCustomWods = (fetchedResultsController.sections?[0].numberOfObjects)!
     }
     
     

@@ -107,6 +107,8 @@ class forTimeViewController: UIViewController {
         
         if startStopWatch == true {
             
+            reset.isEnabled = false
+            reset.isHidden = true
             saveBtnLabel.isEnabled = false
             self.startTime = Date.timeIntervalSinceReferenceDate
             
@@ -119,7 +121,8 @@ class forTimeViewController: UIViewController {
             
         } else {
             
-            
+            reset.isEnabled = true
+            reset.isHidden = false
             saveBtnLabel.isEnabled = true
             self.timer!.invalidate()
             self.timer = nil

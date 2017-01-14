@@ -72,7 +72,6 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         wodDescriptionText.text = "No Description"
         
         }
-        
         saveResult()
     }
     

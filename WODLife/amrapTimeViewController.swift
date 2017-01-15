@@ -29,7 +29,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var newDate = Date()
     var timer : Timer?
     var hour = 0
-    var minute = 1
+    var minute = 0
     var startTimer: Bool = true
     var roundCount = 0
     var previousRoundsIsEmpty: Bool = true
@@ -58,7 +58,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             hourArray.append("\(i)")
         }
         
-        for i in 1...59 {
+        for i in 0...59 {
             minArray.append("\(i)")
         }
     }
@@ -136,7 +136,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if (pickerView.tag == 1){
             hour = row
         }else{
-            minute = row + 1
+            minute = row
         }
     }
     

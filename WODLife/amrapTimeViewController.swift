@@ -103,6 +103,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         let vc = segue.destination as! WodAMRAPResultsTableViewController
         vc.wodName = wodName
+        vc.wodType = timeComponent
         vc.roundsFromTimer = roundCount
         vc.timerUsed = true
 

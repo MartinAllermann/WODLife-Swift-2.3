@@ -11,7 +11,7 @@ import CoreData
 
 class CreateWodTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
-    var scoring = "For Time"
+    var scoring = "For time"
 
     @IBOutlet weak var wodNameText: UITextField!
 
@@ -58,6 +58,8 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
             scoring = "AMRAP"
         case 2:
             scoring = "EMOM"
+        case 3:
+            scoring = "For load"
         default:
             scoring = "For time"
         }

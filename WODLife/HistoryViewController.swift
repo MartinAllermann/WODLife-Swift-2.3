@@ -18,6 +18,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     let dateFormatter = DateFormatter()
     var completedWodsThisMonth: Int?
     var completedWodsLastMonth: Int?
+    var totalForTimeWods: Int?
+    var currentMonth: String?
+    var previousMonth: String?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,16 +73,21 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let convertedDate = dateFormatter.string(from: workout.date!)
         cell.subtitle.text = convertedDate
         
-        if (workout.time == 0) {
-        
-         cell.value.text = "\(workout.rounds!)" // Fix this
+        if (workout.rounds != 0) {
             
-        } else {
-        
-         cell.value.text = "\(secondsToHoursMinutesSeconds(workout.time!))"
+            cell.value.text = "\(workout.rounds!)" // Fix this
             
         }
-        
+        if (workout.weight != 0) {
+            
+            cell.value.text = "\(workout.weight!)" // Fix this
+            
+        }
+        if (workout.time != 0){
+            
+            cell.value.text = "\(secondsToHoursMinutesSeconds(workout.time!))"
+            
+        }
         
         return cell
     }
@@ -133,15 +142,29 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         completedWodsThisMonth = 0
         completedWodsLastMonth = 0
         
+        getMonths()
         getCompletedWodsThisMonth()
         
     }
     
+    func getMonths(){
+    
+        let currentDate = NSDate()
+        let currentDateDateFormatter = DateFormatter()
+        currentDateDateFormatter.dateFormat = "MM-yyyy"
+        currentMonth = currentDateDateFormatter.string(from: currentDate as Date)
+        
+        let previousDate = NSCalendar.current.date(byAdding: .month, value: -1, to: Date())
+        let previousDateFormatter = DateFormatter()
+        previousDateFormatter.dateFormat = "MM-yyyy"
+        previousMonth = currentDateDateFormatter.string(from: previousDate! as Date)
+    
+    }
     
     func getCompletedWodsThisMonth() {
         
         var monthArray: [String] = []
-    
+
         let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
         let con: NSManagedObjectContext = appDel.managedObjectContext
         
@@ -156,23 +179,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM-yyyy"
             monthArray.append(dateFormatter.string(from: dates! as Date))
-                
             }
             
         } catch {
             print("Unresolved error")
             abort()
         }
-        
-        let currentDate = NSDate()
-        let currentDateDateFormatter = DateFormatter()
-        currentDateDateFormatter.dateFormat = "MM-yyyy"
-        let currentMonth = currentDateDateFormatter.string(from: currentDate as Date)
-    
-        let previousDate = NSCalendar.current.date(byAdding: .month, value: -1, to: Date())
-        let previousDateFormatter = DateFormatter()
-        previousDateFormatter.dateFormat = "MM-yyyy"
-        let previousMonth = currentDateDateFormatter.string(from: previousDate! as Date)
         
         completedWodsThisMonth = monthArray.filter{$0 == currentMonth}.count
         completedWodsLastMonth = monthArray.filter{$0 == previousMonth}.count
@@ -195,4 +207,5 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         header.textLabel?.font = UIFont(name: "Helvetica", size: 12)!
         header.textLabel?.textColor = UIColor.groupTableViewBackground
     }
+    
 }

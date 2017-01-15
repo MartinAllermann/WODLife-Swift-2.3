@@ -153,11 +153,17 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             cell.leftIcon.image = UIImage(named: "Calendar")
             
-            if (workout.time == 0) {
+            if (workout.rounds != 0) {
                 
                 cell.detailLabel.text = "\(workout.rounds!)" // Fix this
                 
-            } else {
+            }
+            if (workout.weight != 0) {
+                
+                cell.detailLabel.text = "\(workout.weight!)" // Fix this
+                
+            }
+            if (workout.time != 0){
                 
                 cell.detailLabel.text = "\(secondsToHoursMinutesSeconds(workout.time!))"
                 
@@ -231,6 +237,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             let vc = segue.destination as! WodAMRAPResultsTableViewController
             vc.wodName = wodName
+            vc.wodType = timeComponentType
             
             if editMode == true {
                 vc.editMode = true
@@ -266,7 +273,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             editMode = false
         
-            if timeComponentType?.range(of: "For") != nil  {
+            if timeComponentType?.range(of: "For time") != nil  {
                 
                 if indexPath.row == 0 {
                     self.performSegue(withIdentifier: "For Time", sender: indexPath);
@@ -295,6 +302,16 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
                 }
                 
             }
+            
+            if timeComponentType?.range(of: "For load") != nil {
+                
+                if indexPath.row == 0 {
+                    self.performSegue(withIdentifier: "AMRAP", sender: indexPath);
+                } else if indexPath.row == 1 {
+                    self.performSegue(withIdentifier: "AMRAP Timer", sender: indexPath);
+                }
+                
+            }
         }
         
         if indexPath.section == 1 {
@@ -304,7 +321,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             editMode = true
             
-            if timeComponentType?.range(of: "For") != nil  {
+            if timeComponentType?.range(of: "For time") != nil  {
                 timeToEdit = workout.time as Int?
                 notesToEdit = workout.notes
                 dateToEdit = workout.date
@@ -318,6 +335,12 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             }
             if timeComponentType?.range(of: "EMOM") != nil  {
                 roundsToEdit = workout.rounds as Int?
+                notesToEdit = workout.notes
+                dateToEdit = workout.date
+                self.performSegue(withIdentifier: "AMRAP", sender: indexPath);
+            }
+            if timeComponentType?.range(of: "For load") != nil  {
+                roundsToEdit = workout.weight as Int?
                 notesToEdit = workout.notes
                 dateToEdit = workout.date
                 self.performSegue(withIdentifier: "AMRAP", sender: indexPath);

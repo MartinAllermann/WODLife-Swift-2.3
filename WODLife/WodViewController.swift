@@ -234,7 +234,6 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         wodsWithDataArray.removeAll()
         getWod()
-        self.tableView.reloadData()
         
         if (numberOfCustomWods < (fetchedResultsController.sections?[0].numberOfObjects)!) {
             if  createdNewWod == true {
@@ -244,6 +243,8 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 createdNewWod = false
             }
         }
+        
+        self.tableView.reloadData()
         
     }
     
@@ -256,6 +257,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         performSegue(withIdentifier: "createNewWod", sender: sender)
         createdNewWod = true
         numberOfCustomWods = (fetchedResultsController.sections?[0].numberOfObjects)!
+        print(numberOfCustomWods)
     }
     
     
@@ -365,7 +367,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             
             let wod = fetchedResultsController.object(at: indexPath) as! Wod
             cell.wodName.text = wod.name?.uppercased()
-            cell.wodType.text = wod.type
+            cell.wodType.text = wod.type?.uppercased()
             cell.wodDescOne.text = wod.wodDescription
             cell.wodDescOne.backgroundColor = colorPicker(colorName: "green")
             cell.backgroundColor = colorPicker(colorName: "green")

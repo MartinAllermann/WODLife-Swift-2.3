@@ -28,7 +28,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Annie" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IG5-dW-5tt">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IG5-dW-5tt">
                                                     <rect key="frame" x="13.5" y="0.0" width="361.5" height="54"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,6 +57,7 @@
                                                         <segment title="For Time"/>
                                                         <segment title="AMRAP"/>
                                                         <segment title="EMOM"/>
+                                                        <segment title="For Load"/>
                                                     </segments>
                                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
@@ -150,18 +151,18 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ANNIE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIB-SI-okq">
                                             <rect key="frame" x="8" y="32" width="358.5" height="48"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AS MANY ROUNDS AS POSSIBLE IN 30 MIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="8SY-jd-PXd">
-                                            <rect key="frame" x="8" y="82" width="358.5" height="30"/>
+                                            <rect key="frame" x="8" y="76" width="358.5" height="30"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GiK-Hj-tPj">
-                                            <rect key="frame" x="14" y="112" width="346" height="123"/>
+                                            <rect key="frame" x="14" y="106" width="346" height="123"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <attributedString key="attributedText">
@@ -464,6 +465,7 @@
                         <outlet property="roundsTextField" destination="k2L-o6-bEk" id="zgt-fq-p5R"/>
                         <outlet property="saveBtnLabel" destination="jaH-GG-CRw" id="vrz-vr-6x2"/>
                         <outlet property="wodNameLabel" destination="RtV-ri-UVa" id="sqO-UE-VVV"/>
+                        <outlet property="wodTypeLabel" destination="UJY-Ib-gYa" id="PrD-OW-9TU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zGY-90-wOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -657,7 +659,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                             </pickerView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="100 air squats" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8ry-sG-2KW">
-                                <rect key="frame" x="16" y="129" width="343" height="38"/>
+                                <rect key="frame" x="16" y="129" width="343" height="107"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -694,7 +696,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryJ-Wh-wiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2829" y="51"/>
+            <point key="canvasLocation" x="2828.5" y="50.5"/>
         </scene>
         <!--History-->
         <scene sceneID="7VQ-Vw-Unq">

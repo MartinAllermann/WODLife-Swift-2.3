@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WODLife/WodAMRAPResultsViewController.swift"
-            timestampString = "504038222.854798"
+            timestampString = "506169190.043779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -72,28 +72,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WODLife/amrapTimeViewController.swift"
-            timestampString = "505863914.857319"
+            timestampString = "506169190.043779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "dismissVC()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WODLife/HistoryViewController.swift"
-            timestampString = "501364073.442416"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -120,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WODLife/WodAMRAPResultsViewController.swift"
-            timestampString = "504039931.646149"
+            timestampString = "506171240.179062"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "textFieldPlaceholder()"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,27 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WODLife/HistoryViewController.swift"
-            timestampString = "502567801.875284"
+            timestampString = "506186063.640227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "getCompletedWodsThisMonth()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WODLife/HistoryViewController.swift"
-            timestampString = "502567803.063804"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "getCompletedWodsThisMonth()"
             landmarkType = "7">
          </BreakpointContent>

@@ -17,8 +17,10 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
     @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
    
     @IBOutlet weak var notesView: UITextView!
+    @IBOutlet weak var wodTypeLabel: UILabel!
 
     var wodName: String?
+    var wodType: String?
     var roundsFromTimer: Int?
     var newDate = Date()
     var timerUsed: Bool = false
@@ -38,10 +40,29 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         notesView.delegate = self
 
  
+        if wodType == "For load" {
+        
+        wodTypeLabel.text = "Weight"
+        
+        } else {
+        
+        wodTypeLabel.text = "Rounds"
+        
+        }
         
         if timerUsed == true {
         
-            roundsTextField.text = "\(roundsFromTimer!)"
+            
+            
+            if wodType == "For load" {
+                
+                roundsTextField.text = "0"
+                
+            } else {
+                
+                roundsTextField.text = "\(roundsFromTimer!)"
+                
+            }
         
         }
         
@@ -93,9 +114,15 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         let currentDate = Date()
       
         Wod.name = wodName
-        
         let roundsInt:NSNumber? = Int(roundsTextField.text!) as NSNumber?
-        Wod.rounds = roundsInt!
+
+        if (wodType == "AMRAP") {
+            Wod.rounds = roundsInt!
+        } else {
+            Wod.weight = roundsInt!
+        
+        }
+        
         Wod.date = currentDate
         Wod.notes = notesView.text
         
@@ -124,7 +151,13 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
             for res in results {
                 
                 let roundsInt:NSNumber? = Int(roundsTextField.text!) as NSNumber?
-                res.setValue(roundsInt, forKey: "rounds")
+                
+                if (wodType == "AMRAP") {
+                     res.setValue(roundsInt, forKey: "rounds")
+                } else {
+                     res.setValue(roundsInt, forKey: "weight")
+                }
+                
                 res.setValue(notesView.text, forKey: "notes")
         
                  try con.save()

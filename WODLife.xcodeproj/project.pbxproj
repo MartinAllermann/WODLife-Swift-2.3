@@ -37,6 +37,7 @@
 		5B20A67E1D4B797E006F42C9 /* WodResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodResult.swift; sourceTree = "<group>"; };
 		5B22793E1D605DB60020C0C1 /* forTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = forTimeViewController.swift; sourceTree = "<group>"; };
 		5B2279401D605DD40020C0C1 /* amrapTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = amrapTimeViewController.swift; sourceTree = "<group>"; };
+		5B452D8D1E2B77320097DBAE /* WODLife 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WODLife 5.xcdatamodel"; sourceTree = "<group>"; };
 		5B6512891D4A2E5000824B6C /* WODLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WODLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B65128C1D4A2E5000824B6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B6512911D4A2E5000824B6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -388,12 +389,13 @@
 		5B6512931D4A2E5000824B6C /* WODLife.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5B452D8D1E2B77320097DBAE /* WODLife 5.xcdatamodel */,
 				5BF808A91E144ADB00DBA447 /* WODLife 4.xcdatamodel */,
 				5B0A0A131DFF492F001BE7EC /* WODLife 3.xcdatamodel */,
 				5BB46FDF1DB619280009B2F5 /* WODLife 2.xcdatamodel */,
 				5B6512941D4A2E5000824B6C /* WODLife.xcdatamodel */,
 			);
-			currentVersion = 5BF808A91E144ADB00DBA447 /* WODLife 4.xcdatamodel */;
+			currentVersion = 5B452D8D1E2B77320097DBAE /* WODLife 5.xcdatamodel */;
 			path = WODLife.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

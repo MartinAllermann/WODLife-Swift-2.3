@@ -273,7 +273,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             editMode = false
         
-            if timeComponentType?.range(of: "For time") != nil  {
+            if timeComponentType?.range(of: "For time") != nil || timeComponentType?.range(of: "For Time") != nil  {
                 
                 if indexPath.row == 0 {
                     self.performSegue(withIdentifier: "For Time", sender: indexPath);
@@ -283,17 +283,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
                 
             }
             
-            if timeComponentType?.range(of: "AMRAP") != nil {
-                
-                if indexPath.row == 0 {
-                    self.performSegue(withIdentifier: "AMRAP", sender: indexPath);
-                } else if indexPath.row == 1 {
-                    self.performSegue(withIdentifier: "AMRAP Timer", sender: indexPath);
-                }
-                
-            }
-            
-            if timeComponentType?.range(of: "EMOM") != nil {
+            if timeComponentType?.range(of: "AMRAP") != nil  || timeComponentType?.range(of: "EMOM") != nil  {
                 
                 if indexPath.row == 0 {
                     self.performSegue(withIdentifier: "AMRAP", sender: indexPath);
@@ -321,19 +311,13 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             editMode = true
             
-            if timeComponentType?.range(of: "For time") != nil  {
+            if timeComponentType?.range(of: "For time") != nil || timeComponentType?.range(of: "For Time") != nil  {
                 timeToEdit = workout.time as Int?
                 notesToEdit = workout.notes
                 dateToEdit = workout.date
                 self.performSegue(withIdentifier: "For Time", sender: indexPath);
             }
-            if timeComponentType?.range(of: "AMRAP") != nil  {
-                roundsToEdit = workout.rounds as Int?
-                notesToEdit = workout.notes
-                dateToEdit = workout.date
-                self.performSegue(withIdentifier: "AMRAP", sender: indexPath);
-            }
-            if timeComponentType?.range(of: "EMOM") != nil  {
+            if timeComponentType?.range(of: "AMRAP") != nil  || timeComponentType?.range(of: "EMOM") != nil  {
                 roundsToEdit = workout.rounds as Int?
                 notesToEdit = workout.notes
                 dateToEdit = workout.date

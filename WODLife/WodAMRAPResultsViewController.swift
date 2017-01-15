@@ -52,7 +52,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
         if timerUsed == true {
         
-            
+            print(timerUsed)
             
             if wodType == "For load" {
                 
@@ -116,10 +116,10 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         Wod.name = wodName
         let roundsInt:NSNumber? = Int(roundsTextField.text!) as NSNumber?
 
-        if (wodType == "AMRAP") {
-            Wod.rounds = roundsInt!
+        if (wodType == "For load" ) {
+            Wod.weight = roundsInt
         } else {
-            Wod.weight = roundsInt!
+            Wod.rounds = roundsInt!
         
         }
         
@@ -152,10 +152,10 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
                 
                 let roundsInt:NSNumber? = Int(roundsTextField.text!) as NSNumber?
                 
-                if (wodType == "AMRAP") {
-                     res.setValue(roundsInt, forKey: "rounds")
-                } else {
+                if wodType == "For load" {
                      res.setValue(roundsInt, forKey: "weight")
+                } else {
+                     res.setValue(roundsInt, forKey: "rounds")
                 }
                 
                 res.setValue(notesView.text, forKey: "notes")

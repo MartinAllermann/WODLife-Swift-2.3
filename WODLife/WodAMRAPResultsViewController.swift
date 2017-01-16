@@ -51,8 +51,6 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         }
         
         if timerUsed == true {
-        
-            print(timerUsed)
             
             if wodType == "For load" {
                 

@@ -262,6 +262,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             let vc = segue.destination as! amrapTimeViewController
             vc.wodName = wodName
             vc.timeComponent = timeComponent
+            vc.wodType = timeComponentType
             vc.wodDescription = wodDescription
             
         }

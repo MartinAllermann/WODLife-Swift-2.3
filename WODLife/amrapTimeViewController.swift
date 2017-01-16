@@ -25,6 +25,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     var wodName: String?
     var timeComponent: String?
+    var wodType: String?
     var wodDescription: String?
     var newDate = Date()
     var timer : Timer?
@@ -103,7 +104,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         let vc = segue.destination as! WodAMRAPResultsTableViewController
         vc.wodName = wodName
-        vc.wodType = timeComponent
+        vc.wodType = wodType
         vc.roundsFromTimer = roundCount
         vc.timerUsed = true
 

@@ -16,5 +16,8 @@ class HistoryCell: UITableViewCell {
     
     @IBOutlet weak var value: UILabel!
     
+    @IBOutlet weak var wodType: UILabel!
+    
+    @IBOutlet weak var cellBackground: UIView!
     
 }

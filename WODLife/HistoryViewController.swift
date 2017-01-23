@@ -76,18 +76,25 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         if (workout.rounds != 0) {
             
             cell.value.text = "\(workout.rounds!)" // Fix this
+            cell.wodType.text = "Rounds"
+            cell.cellBackground.backgroundColor = colorPicker(colorName: workout.name)
             
         }
         if (workout.weight != 0) {
             
             cell.value.text = "\(workout.weight!)" // Fix this
+            cell.wodType.text = "Weight"
+            cell.cellBackground.backgroundColor = colorPicker(colorName: workout.name)
             
         }
         if (workout.time != 0){
             
             cell.value.text = "\(secondsToHoursMinutesSeconds(workout.time!))"
-            
+            cell.wodType.text = "Time"
+            cell.cellBackground.backgroundColor = colorPicker(colorName: workout.name)
         }
+        cell.cellBackground?.layer.masksToBounds = true
+        cell.cellBackground?.layer.cornerRadius = 10
         
         return cell
     }
@@ -206,6 +213,200 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont(name: "Helvetica", size: 12)!
         header.textLabel?.textColor = UIColor.groupTableViewBackground
+    }
+    
+    func colorPicker(colorName: String?) -> UIColor {
+        
+        switch(colorName!){
+            
+        case "Amanda":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Angie":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Annie":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Barbara":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Candy":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Chelsea":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Cindy":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Diane":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Elizabeth":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Eva":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Fran":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Grace":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Helen":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Isabel":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Jackie":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Karen":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Kelly":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Linda":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Lynne":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Maggie":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Mary":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Nancy":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        case "Nicole":
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+        //Heros
+        case "Arnie":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Adambrown":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Badger":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Blake":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Bradshaw":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Bulger":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Bull":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Cameron":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Coe":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Collin":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Danny":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Daniel":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Desforges":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "DT":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Erin":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Forrest":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Gator":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Garrett":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Gaza":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Hammer":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Hansen":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Helton":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Holbrook":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Jack":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Jason":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "JBO":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Jerry":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Josh":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Johnson":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Joshie":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "JT":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Justin":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Klepto":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Luce":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Manion":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "McGhee":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Mccluskey":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Michael":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Moore":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Morrison":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Mr. Joshua":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Murph":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Nate":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Nutts":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Paul":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Rahoi":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Randy":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Rankel":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Ricky":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "RJ":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Roy":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Ryan":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Pheezy":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Pike":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Santiago":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Severin":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Small":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Stephen":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "The Seven":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Thompson":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Tommy":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "War Frank":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Weaver":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "White":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Wilmot":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Wittman":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "ZEUS":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+        case "Zimmerman":
+            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+  
+        default:
+            return UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0) // Green
+            
+        }
     }
     
 }

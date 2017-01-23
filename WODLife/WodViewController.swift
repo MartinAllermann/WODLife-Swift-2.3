@@ -45,6 +45,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewWillAppear(_ animated: Bool) {
         
+        
         wodsWithDataArray.removeAll()
         getWod()
         
@@ -270,7 +271,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         if segue.identifier == "showWodDescription" {
         let vc = segue.destination as! WodDescriptionViewController
-            
+            self.searchBar.resignFirstResponder()
             let indexPath = self.tableView.indexPathForSelectedRow
             
             if segmentSelected == wodCollectionOne {

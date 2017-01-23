@@ -281,8 +281,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                     wod = filteredWorkouts[(indexPath?.row)!]
                 }
                 
-                vc.wodName =
-                    wod.name
+                vc.wodName = wod.name
                 vc.timeComponent = wod.typeDescription
                 vc.wodDescription = wod.description
                 vc.timeComponentType = wod.type
@@ -307,7 +306,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             if segmentSelected == wodCollectionThree {
                 
                 var wod = fetchedResultsController.object(at: indexPath!) as! Wod
-                
+            
                 if searchBar.text?.isEmpty == false {
                     wod = filteredWods[(indexPath?.row)!]
                 }
@@ -375,19 +374,18 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         }
         
         if segmentSelected == wodCollectionThree {
-            
+
             if searchText.isEmpty == false {
             
-                searchPredicate = NSPredicate(format: "name CONTAINS[c] %@ OR wodDescription CONTAINS[c] %@ ", searchText, searchText)                
+                searchPredicate = NSPredicate(format: "name CONTAINS[c] %@ OR wodDescription CONTAINS[c] %@ ", searchText, searchText)
                 filteredWods = (self.fetchedResultsController.fetchedObjects?.filter() {
                 return self.searchPredicate!.evaluate(with: $0)
                 } as! [Wod]?)!
                 
             }
-            
-            tableView.reloadData()
-            
+
         }
+        tableView.reloadData()
     }
     
     func colorPicker(colorName: String?) -> UIColor {

@@ -13,6 +13,7 @@
 		5B20A6801D4B797E006F42C9 /* WodResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20A67E1D4B797E006F42C9 /* WodResult.swift */; };
 		5B22793F1D605DB60020C0C1 /* forTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22793E1D605DB60020C0C1 /* forTimeViewController.swift */; };
 		5B2279411D605DD40020C0C1 /* amrapTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2279401D605DD40020C0C1 /* amrapTimeViewController.swift */; };
+		5B325D5B1E361F3C00D911EA /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B325D5A1E361F3C00D911EA /* Workout.swift */; };
 		5B65128D1D4A2E5000824B6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65128C1D4A2E5000824B6C /* AppDelegate.swift */; };
 		5B6512921D4A2E5000824B6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6512901D4A2E5000824B6C /* Main.storyboard */; };
 		5B6512951D4A2E5000824B6C /* WODLife.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512931D4A2E5000824B6C /* WODLife.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 		5B20A67E1D4B797E006F42C9 /* WodResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodResult.swift; sourceTree = "<group>"; };
 		5B22793E1D605DB60020C0C1 /* forTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = forTimeViewController.swift; sourceTree = "<group>"; };
 		5B2279401D605DD40020C0C1 /* amrapTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = amrapTimeViewController.swift; sourceTree = "<group>"; };
+		5B325D5A1E361F3C00D911EA /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		5B452D8D1E2B77320097DBAE /* WODLife 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WODLife 5.xcdatamodel"; sourceTree = "<group>"; };
 		5B6512891D4A2E5000824B6C /* WODLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WODLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B65128C1D4A2E5000824B6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		5B6512801D4A2E5000824B6C = {
 			isa = PBXGroup;
 			children = (
+				5B325D5A1E361F3C00D911EA /* Workout.swift */,
 				5BF808AA1E144B9700DBA447 /* Wod+CoreDataClass.swift */,
 				5BF808AB1E144B9700DBA447 /* Wod+CoreDataProperties.swift */,
 				5B20A67D1D4B797E006F42C9 /* WodResult+CoreDataProperties.swift */,
@@ -204,6 +207,7 @@
 				5BAC71FD1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift in Sources */,
 				5B22793F1D605DB60020C0C1 /* forTimeViewController.swift in Sources */,
 				5BF808A81E144A4A00DBA447 /* CreateWodTableViewController.swift in Sources */,
+				5B325D5B1E361F3C00D911EA /* Workout.swift in Sources */,
 				5B18BF6F1DDCF283001B388D /* HistoryViewController.swift in Sources */,
 				5B20A6801D4B797E006F42C9 /* WodResult.swift in Sources */,
 				5B65128D1D4A2E5000824B6C /* AppDelegate.swift in Sources */,

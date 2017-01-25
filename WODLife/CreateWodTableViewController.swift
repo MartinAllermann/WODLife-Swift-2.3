@@ -129,7 +129,7 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
     func wodNameTextPlaceholder(){
         
         var placeHolder = NSMutableAttributedString()
-        let Name  = "Annie"
+        let Name  = "Name"
         
         // Set the Font
         placeHolder = NSMutableAttributedString(string:Name, attributes: [NSFontAttributeName:UIFont(name: "Helvetica", size: 17.0)!])

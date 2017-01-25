@@ -41,6 +41,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         segmentedControl.setTitle(wodCollectionThree, forSegmentAt: 2)
         
         searchBar.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -389,6 +390,15 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         tableView.reloadData()
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+    {
+        self.searchBar.endEditing(true)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.searchBar.endEditing(true)
+    }
+    
     func colorPicker(colorName: String?) -> UIColor {
         
         switch(colorName!){
@@ -400,10 +410,10 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             return UIColor(red:0.25, green:0.51, blue:0.84, alpha:1.0) // purple
             
         case "yellow":
-            return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // yellow
+            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
             
         case "orange":
-            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
+            return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // yellow
             
         case "green":
             return UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0) // green // #37ba99

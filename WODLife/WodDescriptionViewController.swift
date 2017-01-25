@@ -16,6 +16,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     var wodDescription: String = ""
     var timeComponentType: String?
     var color: UIColor?
+    var secondColor: UIColor?
     var titles = [["Add Score"],["Timer"]]
     
     let dateFormatter = DateFormatter()
@@ -26,6 +27,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     var notesToEdit: String?
     var dateToEdit: Date?
     var timeToEdit: Int?
+    
+    var gradientLayer: CAGradientLayer!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var wodNameLabel: UILabel!
@@ -55,13 +58,12 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func setWodInstructions() {
         
+        
             wodNameLabel.text = wodName?.uppercased()
             timeComponentLabel.text = timeComponent?.uppercased()
             wodDescriptionView.text = wodDescription
             wodDescriptionView.isEditable = false
-            wodDescriptionView.backgroundColor = color
-            backgroundColor.backgroundColor = color
-        
+            wodDescriptionView.backgroundColor = UIColor.clear
         
         let contentSize = wodDescriptionView.sizeThatFits(wodDescriptionView.bounds.size)
     
@@ -71,7 +73,14 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         var frame2 = backgroundColor.frame
         frame2.size.height = contentSize.height + 175
+        
         backgroundColor.frame = frame2
+        
+        gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.backgroundColor.bounds
+        gradientLayer.colors = [color?.cgColor as Any, secondColor?.cgColor as Any]
+        self.backgroundColor.layer.insertSublayer(gradientLayer, at: 0)
+        
     }
     
     func getWodResults() {

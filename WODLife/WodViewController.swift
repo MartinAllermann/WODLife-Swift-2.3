@@ -29,6 +29,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     var filteredWorkouts = [Workout]()
     var filteredWods = [Wod]()
     var searchPredicate: NSPredicate?
+     var gradientLayer: CAGradientLayer!
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         segmentedControl.setTitle(wodCollectionThree, forSegmentAt: 2)
         
         searchBar.delegate = self
+        self.searchBar.keyboardAppearance = UIKeyboardAppearance.dark
         
     }
     
@@ -161,8 +163,10 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.wodName.text = wod.name.uppercased()
             cell.wodType.text = wod.typeDescription.uppercased()
             cell.wodDescOne.text = wod.description
-            cell.wodDescOne.backgroundColor = colorPicker(colorName: wod.color)
+            cell.wodDescOne.backgroundColor = UIColor.clear
             cell.backgroundColor = colorPicker(colorName: wod.color)
+            
+        
             
             if (wodsWithDataArray.contains(wod.name)) {
                 cell.imageIcon.isHidden = false
@@ -182,7 +186,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.wodName.text = wod.name.uppercased()
             cell.wodType.text = wod.typeDescription.uppercased()
             cell.wodDescOne.text = wod.description
-            cell.wodDescOne.backgroundColor = colorPicker(colorName: wod.color)
+            cell.wodDescOne.backgroundColor = UIColor.clear
             cell.backgroundColor = colorPicker(colorName: wod.color)
             
             if (wodsWithDataArray.contains(wod.name)) {
@@ -203,7 +207,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.wodName.text = wod.name?.uppercased()
             cell.wodType.text = wod.type?.uppercased()
             cell.wodDescOne.text = wod.wodDescription
-            cell.wodDescOne.backgroundColor = colorPicker(colorName: "green")
+            cell.wodDescOne.backgroundColor = UIColor.clear
             cell.backgroundColor = colorPicker(colorName: "green")
             
             if (wodsWithDataArray.contains(wod.name!)) {
@@ -288,6 +292,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 vc.wodDescription = wod.description
                 vc.timeComponentType = wod.type
                 vc.color = colorPicker(colorName: wod.color)
+                vc.secondColor = secondColorPicker(colorName: wod.color)
                 
             }
             if segmentSelected == wodCollectionTwo {
@@ -303,6 +308,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 vc.wodDescription = wod.description
                 vc.timeComponentType = wod.type
                 vc.color = colorPicker(colorName: wod.color)
+                vc.secondColor = secondColorPicker(colorName: wod.color)
                 
             }
             if segmentSelected == wodCollectionThree {
@@ -319,6 +325,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 vc.wodDescription = wod.wodDescription!
                 vc.timeComponentType = wod.type
                 vc.color = colorPicker(colorName: "green")
+                vc.secondColor = secondColorPicker(colorName: "green")
                 
             }
         
@@ -406,17 +413,28 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         case "blue":
             return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
             
-        case "purple":
-            return UIColor(red:0.25, green:0.51, blue:0.84, alpha:1.0) // purple
-            
-        case "yellow":
-            return UIColor(red:0.95, green:0.47, blue:0.29, alpha:1.0) // orange
-            
         case "orange":
-            return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // yellow
+            return UIColor(red:0.89, green:0.36, blue:0.36, alpha:1.0)
             
         case "green":
-            return UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0) // green // #37ba99
+            return UIColor(red:0.01, green:0.67, blue:0.69, alpha:1.0)
+            
+        default:
+            return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
+            
+        }
+    }
+    
+    func secondColorPicker(colorName: String?) -> UIColor {
+        
+        switch(colorName!){
+            
+        case "blue":
+            return UIColor(red:0.25, green:0.51, blue:0.84, alpha:1.0) // purple
+        case "orange":
+            return UIColor(red:0.92, green:0.20, blue:0.29, alpha:1.0)
+        case "green":
+            return UIColor(red:0.00, green:0.80, blue:0.67, alpha:1.0)
             
         default:
             return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange

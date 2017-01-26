@@ -32,6 +32,12 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FiraSans-ExtraBoldItalic.ttf</string>
+		<string>FiraSans-Bold.ttf</string>
+		<string>FiraSans-Regular.ttf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

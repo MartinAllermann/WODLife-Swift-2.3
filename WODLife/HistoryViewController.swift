@@ -226,9 +226,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if secondColor == false {
         
-            orange = UIColor(red:0.97, green:0.40, blue:0.30, alpha:1.0)
-            blue = UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
-            green = UIColor(red:0.01, green:0.67, blue:0.69, alpha:1.0)
+            orange = UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
+            blue = UIColor(red:0.23, green:0.64, blue:0.89, alpha:1.0)
+            green = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
+            
         
         } else {
         

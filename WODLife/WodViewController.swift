@@ -223,7 +223,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             
             cell.totalWods.layer.masksToBounds = true
             cell.totalWods.layer.cornerRadius = 5
-            cell.totalWods.backgroundColor = colorPicker(colorName: wod.color)
+            cell.totalWods.backgroundColor = colorPicker(colorName: "green")
             
             cell.totalWodsFill.layer.masksToBounds = true
             cell.totalWodsFill.layer.cornerRadius = 5
@@ -430,13 +430,13 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         switch(colorName!){
             
         case "blue":
-            return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+            return UIColor(red:0.23, green:0.64, blue:0.89, alpha:1.0)
             
         case "orange":
-            return UIColor(red:0.97, green:0.40, blue:0.30, alpha:1.0)
+            return UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
             
         case "green":
-            return UIColor(red:0.01, green:0.67, blue:0.69, alpha:1.0)
+            return UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
             
         default:
             return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
@@ -453,7 +453,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         case "orange":
             return UIColor(red:0.97, green:0.31, blue:0.24, alpha:1.0)
         case "green":
-            return UIColor(red:0.00, green:0.80, blue:0.67, alpha:1.0)
+            return UIColor(red:0.01, green:0.67, blue:0.69, alpha:1.0)
             
         default:
             return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange

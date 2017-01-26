@@ -8,6 +8,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="FiraSans-Bold.ttf">
+            <string>FiraSans-Bold</string>
+        </array>
+        <array key="FiraSans-Regular.ttf">
+            <string>FiraSans-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Create WOD-->
         <scene sceneID="laB-dE-FWS">
@@ -758,7 +766,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cc-oD-0Fn">
                                                             <rect key="frame" x="8" y="8" width="205" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="FiraSans-Bold" family="Fira Sans" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -779,7 +787,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJy-Us-suN">
                                                             <rect key="frame" x="221" y="10" width="130" height="26"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                                            <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="28"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -894,7 +902,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Annie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sG3-Xb-DQO">
                                                     <rect key="frame" x="49" y="16" width="290" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -993,7 +1001,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ieo-ge-Ora" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="WODs" image="Stopwatch" selectedImage="Stopwatch" id="JBW-Te-950"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="htm-po-gBQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="htm-po-gBQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1019,7 +1027,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="NZh-e6-LSJ"/>
-        <segue reference="Vad-cr-cxk"/>
+        <segue reference="gBt-Ml-hQf"/>
+        <segue reference="5e1-cq-d2Q"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,6 +21,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     var totalForTimeWods: Int?
     var currentMonth: String?
     var previousMonth: String?
+    var gradientLayer: CAGradientLayer!
 
     
     override func viewDidLoad() {
@@ -67,34 +68,36 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let workout = fetchedResultsController.object(at: indexPath) as! WodResult
         
         // Configure the cell...
-        
         cell.title.text = workout.name?.uppercased()
         
         let convertedDate = dateFormatter.string(from: workout.date!)
         cell.subtitle.text = convertedDate
         
+        gradientLayer = CAGradientLayer()
+        gradientLayer.frame = cell.cellBackground.bounds
+        gradientLayer.colors = [colorPicker(colorName: workout.name, secondColor: false).cgColor as Any, colorPicker(colorName: workout.name, secondColor: true).cgColor as Any]
+        cell.cellBackground.layer.insertSublayer(gradientLayer, at: 0)
+        
         if (workout.rounds != 0) {
             
             cell.value.text = "\(workout.rounds!)" // Fix this
             cell.wodType.text = "Rounds"
-            cell.cellBackground.backgroundColor = colorPicker(colorName: workout.name)
             
         }
         if (workout.weight != 0) {
             
             cell.value.text = "\(workout.weight!)" // Fix this
             cell.wodType.text = "Weight"
-            cell.cellBackground.backgroundColor = colorPicker(colorName: workout.name)
             
         }
         if (workout.time != 0){
             
             cell.value.text = "\(secondsToHoursMinutesSeconds(workout.time!))"
             cell.wodType.text = "Time"
-            cell.cellBackground.backgroundColor = colorPicker(colorName: workout.name)
         }
         cell.cellBackground?.layer.masksToBounds = true
         cell.cellBackground?.layer.cornerRadius = 10
+        
         
         return cell
     }
@@ -215,11 +218,25 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         header.textLabel?.textColor = UIColor.groupTableViewBackground
     }
     
-    func colorPicker(colorName: String?) -> UIColor {
+    func colorPicker(colorName: String?, secondColor: Bool) -> UIColor {
         
-        let orange = UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // yellow
-        let blue = UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
-        let green = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0) // green // #37ba99
+        var orange = UIColor()
+        var blue = UIColor()
+        var green = UIColor()
+        
+        if secondColor == false {
+        
+            orange = UIColor(red:0.97, green:0.40, blue:0.30, alpha:1.0)
+            blue = UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
+            green = UIColor(red:0.01, green:0.67, blue:0.69, alpha:1.0)
+        
+        } else {
+        
+            orange = UIColor(red:0.97, green:0.31, blue:0.24, alpha:1.0)
+            blue = UIColor(red:0.25, green:0.51, blue:0.84, alpha:1.0) // blue
+            green = UIColor(red:0.00, green:0.80, blue:0.67, alpha:1.0)
+        
+        }
         
         switch(colorName!){
             

@@ -164,14 +164,19 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.wodType.text = wod.typeDescription.uppercased()
             cell.wodDescOne.text = wod.description
             cell.wodDescOne.backgroundColor = UIColor.clear
-            cell.backgroundColor = colorPicker(colorName: wod.color)
+    
+            cell.totalWods.layer.masksToBounds = true
+            cell.totalWods.layer.cornerRadius = 5
+            cell.totalWods.backgroundColor = colorPicker(colorName: wod.color)
             
+            cell.totalWodsFill.layer.masksToBounds = true
+            cell.totalWodsFill.layer.cornerRadius = 5
         
-            
             if (wodsWithDataArray.contains(wod.name)) {
-                cell.imageIcon.isHidden = false
+                cell.totalWodsFill.backgroundColor = UIColor.clear
             } else {
-                cell.imageIcon.isHidden = true
+                //cell.imageIcon.isHidden = true
+                cell.totalWodsFill.backgroundColor = UIColor(red:0.26, green:0.26, blue:0.26, alpha:1.0)
             }
             
         }
@@ -187,14 +192,20 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.wodType.text = wod.typeDescription.uppercased()
             cell.wodDescOne.text = wod.description
             cell.wodDescOne.backgroundColor = UIColor.clear
-            cell.backgroundColor = colorPicker(colorName: wod.color)
+            
+            cell.totalWods.layer.masksToBounds = true
+            cell.totalWods.layer.cornerRadius = 5
+            cell.totalWods.backgroundColor = colorPicker(colorName: wod.color)
+          
+            cell.totalWodsFill.layer.masksToBounds = true
+            cell.totalWodsFill.layer.cornerRadius = 6
             
             if (wodsWithDataArray.contains(wod.name)) {
-                cell.imageIcon.isHidden = false
+                cell.totalWodsFill.backgroundColor = UIColor.clear
             } else {
-                cell.imageIcon.isHidden = true
+                //cell.imageIcon.isHidden = true
+                cell.totalWodsFill.backgroundColor = UIColor(red:0.26, green:0.26, blue:0.26, alpha:1.0)
             }
-            
         }
         if segmentSelected == wodCollectionThree {
             
@@ -208,12 +219,20 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.wodType.text = wod.type?.uppercased()
             cell.wodDescOne.text = wod.wodDescription
             cell.wodDescOne.backgroundColor = UIColor.clear
-            cell.backgroundColor = colorPicker(colorName: "green")
+            //cell.backgroundColor = colorPicker(colorName: "green")
+            
+            cell.totalWods.layer.masksToBounds = true
+            cell.totalWods.layer.cornerRadius = 5
+            cell.totalWods.backgroundColor = colorPicker(colorName: wod.color)
+            
+            cell.totalWodsFill.layer.masksToBounds = true
+            cell.totalWodsFill.layer.cornerRadius = 5
             
             if (wodsWithDataArray.contains(wod.name!)) {
-                cell.imageIcon.isHidden = false
+                cell.totalWodsFill.backgroundColor = UIColor.clear
             } else {
-                cell.imageIcon.isHidden = true
+                //cell.imageIcon.isHidden = true
+                cell.totalWodsFill.backgroundColor = UIColor(red:0.26, green:0.26, blue:0.26, alpha:1.0)
             }
             
         }
@@ -414,7 +433,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             return UIColor(red:0.13, green:0.65, blue:0.94, alpha:1.0) // blue
             
         case "orange":
-            return UIColor(red:0.89, green:0.36, blue:0.36, alpha:1.0)
+            return UIColor(red:0.97, green:0.40, blue:0.30, alpha:1.0)
             
         case "green":
             return UIColor(red:0.01, green:0.67, blue:0.69, alpha:1.0)
@@ -432,7 +451,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         case "blue":
             return UIColor(red:0.25, green:0.51, blue:0.84, alpha:1.0) // purple
         case "orange":
-            return UIColor(red:0.92, green:0.20, blue:0.29, alpha:1.0)
+            return UIColor(red:0.97, green:0.31, blue:0.24, alpha:1.0)
         case "green":
             return UIColor(red:0.00, green:0.80, blue:0.67, alpha:1.0)
             

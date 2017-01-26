@@ -16,11 +16,11 @@ class WodTableViewCell: UITableViewCell{
     
     @IBOutlet weak var wodDescOne: UITextView!
 
-    @IBOutlet weak var imageIcon: UIImageView!
-    
     @IBOutlet weak var disclosureIndicator: UIImageView!
     
+    @IBOutlet weak var totalWods: UIView!
 
+    @IBOutlet weak var totalWodsFill: UIView!
 }
 
 

@@ -26,6 +26,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         gradientLayer = CAGradientLayer()
         
         dateFormatter.dateFormat = "EEEE, MMM d"
         getWodResult()
@@ -73,11 +74,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let convertedDate = dateFormatter.string(from: workout.date!)
         cell.subtitle.text = convertedDate
         
-        gradientLayer = CAGradientLayer()
-        gradientLayer.frame = cell.cellBackground.bounds
-        gradientLayer.colors = [colorPicker(colorName: workout.name, secondColor: true).cgColor as Any, colorPicker(colorName: workout.name, secondColor: false).cgColor as Any]
-        cell.cellBackground.layer.insertSublayer(gradientLayer, at: 0)
-        
         if (workout.rounds != 0) {
             
             cell.value.text = "\(workout.rounds!)" // Fix this
@@ -98,6 +94,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.cellBackground?.layer.masksToBounds = true
         cell.cellBackground?.layer.cornerRadius = 10
         
+        gradientLayer.frame = cell.cellBackground.bounds
+        gradientLayer.colors = [colorPicker(colorName: workout.name, secondColor: true).cgColor as Any, colorPicker(colorName: workout.name, secondColor: false).cgColor as Any]
+        cell.cellBackground.layer.insertSublayer(gradientLayer, at: 0)
         
         return cell
     }

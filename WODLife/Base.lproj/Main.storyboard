@@ -842,7 +842,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uan-5i-9IM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="History" image="Calendar" id="8lR-3n-GIX"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bf8-gT-XFD">
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bf8-gT-XFD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -993,7 +994,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ieo-ge-Ora" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="WODs" image="Stopwatch" selectedImage="Stopwatch" id="JBW-Te-950"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="htm-po-gBQ">
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="htm-po-gBQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

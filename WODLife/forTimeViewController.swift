@@ -46,7 +46,7 @@ class forTimeViewController: UIViewController {
         // Prevent Iphone from going idle
         UIApplication.shared.isIdleTimerDisabled = true
         saveBtnLabel.isEnabled = false
-        startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+        startAndStop.backgroundColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
         
         
         // Do any additional setup after loading the view.
@@ -69,7 +69,7 @@ class forTimeViewController: UIViewController {
         
         startStopWatch = true
         startAndStop.setTitle("Start", for: UIControlState())
-        startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+        startAndStop.backgroundColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
     
     }
     
@@ -116,7 +116,7 @@ class forTimeViewController: UIViewController {
             
             startStopWatch = false
             startAndStop.setTitle("Stop", for: UIControlState())
-            startAndStop.backgroundColor = UIColor(hue: 0.9833, saturation: 0.68, brightness: 0.85, alpha: 1.0)
+            startAndStop.backgroundColor = UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
             
             
         } else {
@@ -129,7 +129,7 @@ class forTimeViewController: UIViewController {
             
             startStopWatch = true
             startAndStop.setTitle("Start", for: UIControlState())
-            startAndStop.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+            startAndStop.backgroundColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
             
         }
         

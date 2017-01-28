@@ -75,7 +75,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         gradientLayer = CAGradientLayer()
         gradientLayer.frame = cell.cellBackground.bounds
-        gradientLayer.colors = [colorPicker(colorName: workout.name, secondColor: false).cgColor as Any, colorPicker(colorName: workout.name, secondColor: true).cgColor as Any]
+        gradientLayer.colors = [colorPicker(colorName: workout.name, secondColor: true).cgColor as Any, colorPicker(colorName: workout.name, secondColor: false).cgColor as Any]
         cell.cellBackground.layer.insertSublayer(gradientLayer, at: 0)
         
         if (workout.rounds != 0) {
@@ -226,16 +226,20 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if secondColor == false {
         
-            orange = UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
-            blue = UIColor(red:0.23, green:0.64, blue:0.89, alpha:1.0)
-            green = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
+           blue = UIColor(red:0.23, green:0.64, blue:0.89, alpha:1.0)
+            
+           orange = UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
+            
+           green = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
             
         
         } else {
         
-            orange = UIColor(red:0.97, green:0.31, blue:0.24, alpha:1.0)
-            blue = UIColor(red:0.25, green:0.51, blue:0.84, alpha:1.0) // blue
-            green = UIColor(red:0.00, green:0.80, blue:0.67, alpha:1.0)
+            blue = UIColor(red:0.45, green:0.64, blue:0.79, alpha:1.0)
+            
+            orange = UIColor(red:0.86, green:0.33, blue:0.33, alpha:1.0)
+            
+            green = UIColor(red:0.22, green:0.69, blue:0.54, alpha:1.0)
         
         }
         

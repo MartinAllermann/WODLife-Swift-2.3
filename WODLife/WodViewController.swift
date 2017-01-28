@@ -439,7 +439,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             return UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
             
         default:
-            return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
+            return UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
             
         }
     }
@@ -449,14 +449,16 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         switch(colorName!){
             
         case "blue":
-            return UIColor(red:0.25, green:0.51, blue:0.84, alpha:1.0) // purple
+            return UIColor(red:0.45, green:0.64, blue:0.79, alpha:1.0)
+            
         case "orange":
-            return UIColor(red:0.97, green:0.31, blue:0.24, alpha:1.0)
+            return UIColor(red:0.86, green:0.33, blue:0.33, alpha:1.0)
+            
         case "green":
-            return UIColor(red:0.01, green:0.67, blue:0.69, alpha:1.0)
+            return UIColor(red:0.22, green:0.69, blue:0.54, alpha:1.0)
             
         default:
-            return UIColor(hue: 0.0222, saturation: 0.72, brightness: 0.91, alpha: 1.0) // Orange
+            return UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
             
         }
     }

@@ -78,7 +78,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.backgroundColor.bounds
-        gradientLayer.colors = [color?.cgColor as Any, secondColor?.cgColor as Any]
+        gradientLayer.colors = [secondColor?.cgColor as Any, color?.cgColor as Any]
         self.backgroundColor.layer.insertSublayer(gradientLayer, at: 0)
         
     }

@@ -45,7 +45,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
 
         // Prevent Iphone from going idle
         UIApplication.shared.isIdleTimerDisabled = true
-        startTimerLabel.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+        startTimerLabel.backgroundColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
         
         timeLeftLabel.isHidden = true
         saveBtnLabel.isEnabled = false
@@ -185,7 +185,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.setTimeLeft), userInfo: nil, repeats: true)
             
             startTimerLabel.setTitle("Stop", for: UIControlState())
-            startTimerLabel.backgroundColor = UIColor(hue: 0.9833, saturation: 0.68, brightness: 0.85, alpha: 1.0)
+            startTimerLabel.backgroundColor = UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
             startTimer = false
             
             
@@ -198,7 +198,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             saveBtnLabel.isEnabled = true
             timer?.invalidate()
             startTimerLabel.setTitle("Start", for: UIControlState())
-            startTimerLabel.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+            startTimerLabel.backgroundColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
             startTimer = true
             timeLeftLabel.text = "00:00:00"
             hourPicker.isHidden = false
@@ -242,7 +242,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         timer?.invalidate()
         startTimerLabel.setTitle("Start", for: UIControlState())
-        startTimerLabel.backgroundColor = UIColor(hue: 0.4583, saturation: 0.7, brightness: 0.73, alpha: 1.0)
+        startTimerLabel.backgroundColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
         startTimer = true
         
     }

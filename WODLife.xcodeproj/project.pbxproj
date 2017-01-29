@@ -23,9 +23,6 @@
 		5B6512A91D4A6C3800824B6C /* WodResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512A81D4A6C3800824B6C /* WodResultTableViewController.swift */; };
 		5B8F607C1DB0FBE400268445 /* WodDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8F607B1DB0FBE400268445 /* WodDescriptionTableViewCell.swift */; };
 		5BAC71FD1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC71FC1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift */; };
-		5BB87B251E3AAB76008206AE /* FiraSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BB87B221E3AAB6A008206AE /* FiraSans-Bold.ttf */; };
-		5BB87B271E3AAB7C008206AE /* FiraSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BB87B241E3AAB6A008206AE /* FiraSans-Regular.ttf */; };
-		5BE9BF571E3CA3F100E0BF76 /* FiraSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BE9BF591E3CA3F100E0BF76 /* FiraSans-ExtraBoldItalic.ttf */; };
 		5BF808A81E144A4A00DBA447 /* CreateWodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF808A71E144A4A00DBA447 /* CreateWodTableViewController.swift */; };
 		5BF808AC1E144B9700DBA447 /* Wod+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF808AA1E144B9700DBA447 /* Wod+CoreDataClass.swift */; };
 		5BF808AD1E144B9700DBA447 /* Wod+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF808AB1E144B9700DBA447 /* Wod+CoreDataProperties.swift */; };
@@ -55,11 +52,7 @@
 		5B8F607B1DB0FBE400268445 /* WodDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		5BAC71FC1D4FA70700E6E72D /* WodAMRAPResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodAMRAPResultsViewController.swift; sourceTree = "<group>"; };
 		5BB46FDF1DB619280009B2F5 /* WODLife 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WODLife 2.xcdatamodel"; sourceTree = "<group>"; };
-		5BB87B221E3AAB6A008206AE /* FiraSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FiraSans-Bold.ttf"; path = "../../../Downloads/Fira_Sans/FiraSans-Bold.ttf"; sourceTree = "<group>"; };
-		5BB87B241E3AAB6A008206AE /* FiraSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FiraSans-Regular.ttf"; path = "../../../Downloads/Fira_Sans/FiraSans-Regular.ttf"; sourceTree = "<group>"; };
 		5BC5C3BF1D99A45700F3A179 /* WODLife.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WODLife.entitlements; sourceTree = "<group>"; };
-		5BE9BF581E3CA3F100E0BF76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/FiraSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		5BE9BF5A1E3CA3F400E0BF76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/FiraSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		5BF808A71E144A4A00DBA447 /* CreateWodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWodTableViewController.swift; sourceTree = "<group>"; };
 		5BF808A91E144ADB00DBA447 /* WODLife 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WODLife 4.xcdatamodel"; sourceTree = "<group>"; };
 		5BF808AA1E144B9700DBA447 /* Wod+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wod+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -87,9 +80,6 @@
 				5BF808AB1E144B9700DBA447 /* Wod+CoreDataProperties.swift */,
 				5B20A67D1D4B797E006F42C9 /* WodResult+CoreDataProperties.swift */,
 				5B20A67E1D4B797E006F42C9 /* WodResult.swift */,
-				5BB87B221E3AAB6A008206AE /* FiraSans-Bold.ttf */,
-				5BE9BF591E3CA3F100E0BF76 /* FiraSans-ExtraBoldItalic.ttf */,
-				5BB87B241E3AAB6A008206AE /* FiraSans-Regular.ttf */,
 				5B65128B1D4A2E5000824B6C /* WODLife */,
 				5B65128A1D4A2E5000824B6C /* Products */,
 			);
@@ -199,11 +189,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BE9BF571E3CA3F100E0BF76 /* FiraSans-ExtraBoldItalic.ttf in Resources */,
 				5B65129A1D4A2E5000824B6C /* LaunchScreen.storyboard in Resources */,
-				5BB87B271E3AAB7C008206AE /* FiraSans-Regular.ttf in Resources */,
 				5B6512971D4A2E5000824B6C /* Assets.xcassets in Resources */,
-				5BB87B251E3AAB76008206AE /* FiraSans-Bold.ttf in Resources */,
 				5B6512921D4A2E5000824B6C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,16 +240,6 @@
 				5B6512991D4A2E5000824B6C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		5BE9BF591E3CA3F100E0BF76 /* FiraSans-ExtraBoldItalic.ttf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5BE9BF581E3CA3F100E0BF76 /* en */,
-				5BE9BF5A1E3CA3F400E0BF76 /* Base */,
-			);
-			name = "FiraSans-ExtraBoldItalic.ttf";
-			path = ../../../Downloads/Fira_Sans;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

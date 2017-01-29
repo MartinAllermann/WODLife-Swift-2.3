@@ -176,7 +176,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 cell.totalWodsFill.backgroundColor = UIColor.clear
             } else {
                 //cell.imageIcon.isHidden = true
-                cell.totalWodsFill.backgroundColor = UIColor(red:0.26, green:0.26, blue:0.26, alpha:1.0)
+                cell.totalWodsFill.backgroundColor = UIColor(red:0.19, green:0.25, blue:0.29, alpha:1.0)
             }
             
         }
@@ -204,7 +204,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 cell.totalWodsFill.backgroundColor = UIColor.clear
             } else {
                 //cell.imageIcon.isHidden = true
-                cell.totalWodsFill.backgroundColor = UIColor(red:0.26, green:0.26, blue:0.26, alpha:1.0)
+                cell.totalWodsFill.backgroundColor = UIColor(red:0.19, green:0.25, blue:0.29, alpha:1.0)
             }
         }
         if segmentSelected == wodCollectionThree {
@@ -232,7 +232,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 cell.totalWodsFill.backgroundColor = UIColor.clear
             } else {
                 //cell.imageIcon.isHidden = true
-                cell.totalWodsFill.backgroundColor = UIColor(red:0.26, green:0.26, blue:0.26, alpha:1.0)
+                cell.totalWodsFill.backgroundColor = UIColor(red:0.19, green:0.25, blue:0.29, alpha:1.0)
             }
             
         }

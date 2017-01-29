@@ -33,7 +33,7 @@ fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-class WodResultTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, NSFetchedResultsControllerDelegate, UITextViewDelegate{
+class WodResultTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, NSFetchedResultsControllerDelegate, UITextViewDelegate, UITextFieldDelegate{
 
     @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
     
@@ -64,7 +64,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         wodNameLabel.text = wodName
         notesTextView.delegate = self
-   
+        
         minutes = 0
         seconds = 0
         
@@ -222,6 +222,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         timeTextField.inputAccessoryView = toolBar
         timeTextField.inputView = pickerView
+      
     
     }
     
@@ -311,6 +312,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.characters.count // for Swift use count(newText)
         return numberOfChars < 200;
@@ -323,5 +325,6 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         header.textLabel?.textColor = UIColor.groupTableViewBackground
     }
     
+
     
 }

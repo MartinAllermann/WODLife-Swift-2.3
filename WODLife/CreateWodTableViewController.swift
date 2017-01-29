@@ -28,6 +28,7 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         wodDescriptionText.delegate = self
         wodNameText.addTarget(self, action: #selector(CreateWodTableViewController.txtEditing(textField:)), for: UIControlEvents.editingChanged)
         wodNameTextPlaceholder()
+        scoringInput.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: UIControlState.selected)
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         

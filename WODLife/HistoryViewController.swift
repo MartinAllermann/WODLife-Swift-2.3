@@ -26,7 +26,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         gradientLayer = CAGradientLayer()
         
         dateFormatter.dateFormat = "EEEE, MMM d"
         getWodResult()
@@ -93,10 +92,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         cell.cellBackground?.layer.masksToBounds = true
         cell.cellBackground?.layer.cornerRadius = 10
-        
-        gradientLayer.frame = cell.cellBackground.bounds
-        gradientLayer.colors = [colorPicker(colorName: workout.name, secondColor: true).cgColor as Any, colorPicker(colorName: workout.name, secondColor: false).cgColor as Any]
-        cell.cellBackground.layer.insertSublayer(gradientLayer, at: 0)
+        cell.cellBackground?.backgroundColor = colorPicker(colorName: workout.name, secondColor: false)
         
         return cell
     }
@@ -213,8 +209,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = UIFont(name: "Helvetica", size: 12)!
-        header.textLabel?.textColor = UIColor.groupTableViewBackground
+        header.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold)
+        header.textLabel?.textColor = UIColor.white
     }
     
     func colorPicker(colorName: String?, secondColor: Bool) -> UIColor {

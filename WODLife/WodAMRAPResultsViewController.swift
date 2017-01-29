@@ -35,6 +35,8 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
         wodNameLabel.text = wodName
         textFieldPlaceholder()
+        
+        roundsTextField.addTarget(self, action: #selector(CreateWodTableViewController.txtEditing(textField:)), for: UIControlEvents.editingChanged)
  
         roundsTextField.delegate = self
         notesView.delegate = self
@@ -75,6 +77,12 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
     
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
  
+        if roundsTextField.text?.isEmpty == true {
+        
+        saveBtnLabel.isEnabled = false
+        
+        }
+        
     }
     
     @IBAction func saveB(_ sender: AnyObject) {
@@ -220,6 +228,16 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont(name: "Helvetica", size: 12)!
         header.textLabel?.textColor = UIColor.groupTableViewBackground
+    }
+    
+    func txtEditing(textField: UITextField) {
+
+        if roundsTextField.text?.isEmpty == true {
+            saveBtnLabel.isEnabled = false
+        } else {
+            saveBtnLabel.isEnabled = true
+        }
+        
     }
 
 }

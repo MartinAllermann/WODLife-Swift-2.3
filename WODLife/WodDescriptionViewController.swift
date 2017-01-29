@@ -371,4 +371,11 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold)
+        header.textLabel?.textColor = UIColor.white
+    }
+    
 }

@@ -29,7 +29,6 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     var filteredWorkouts = [Workout]()
     var filteredWods = [Wod]()
     var searchPredicate: NSPredicate?
-     var gradientLayer: CAGradientLayer!
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +39,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         segmentedControl.setTitle(wodCollectionOne, forSegmentAt: 0)
         segmentedControl.setTitle(wodCollectionTwo, forSegmentAt: 1)
         segmentedControl.setTitle(wodCollectionThree, forSegmentAt: 2)
+        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: UIControlState.selected)
         
         searchBar.delegate = self
         self.searchBar.keyboardAppearance = UIKeyboardAppearance.dark

@@ -80,11 +80,11 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         let contentSize = wodDescriptionView.sizeThatFits(wodDescriptionView.bounds.size)
     
         var frame = wodDescriptionView.frame
-        frame.size.height = contentSize.height + 150
+        frame.size.height = contentSize.height + 175
         wodDescriptionView.frame = frame
         
         var frame2 = backgroundColor.frame
-        frame2.size.height = contentSize.height + 175
+        frame2.size.height = contentSize.height + 200
         
         backgroundColor.frame = frame2
         
@@ -403,7 +403,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         self.navigationController?.navigationBar.tintColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
         self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = nil
-        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
 }

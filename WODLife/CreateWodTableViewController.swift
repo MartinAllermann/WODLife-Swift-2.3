@@ -136,7 +136,7 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
         placeHolder = NSMutableAttributedString(string:Name, attributes: [NSFontAttributeName:UIFont(name: "Helvetica", size: 17.0)!])
         
         // Set the color
-        placeHolder.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range:NSRange(location:0,length:Name.characters.count))
+        placeHolder.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGray, range:NSRange(location:0,length:Name.characters.count))
         
         // Add attribute
         wodNameText.attributedPlaceholder = placeHolder
@@ -147,7 +147,7 @@ class CreateWodTableViewController: UITableViewController, NSFetchedResultsContr
     {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont(name: "Helvetica", size: 12)!
-        header.textLabel?.textColor = UIColor.groupTableViewBackground
+        header.textLabel?.textColor = UIColor.white
     }
     
 }

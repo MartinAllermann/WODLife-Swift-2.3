@@ -14,7 +14,9 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var timeLeftLabel: UILabel!
     @IBOutlet weak var startTimerLabel: UIButton!
     @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
-    @IBOutlet weak var roundCountBtnLabel: UIButton!
+    @IBOutlet weak var roundCountBtnLabel: UILabel!
+
+    @IBOutlet weak var IncrementBtn: UIStepper!
     @IBOutlet weak var hourPicker: UIPickerView!
     @IBOutlet weak var minutePicker: UIPickerView!
     
@@ -78,12 +80,11 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func saveBtn(_ sender: AnyObject) {
     }
-    
-    @IBAction func roundCountBtn(_ sender: AnyObject) {
-        
-        roundCount += 1
-        roundCountBtnLabel.setTitle("\(roundCount)", for: UIControlState())
-        roundCountBtnLabel.titleLabel?.font =  UIFont(name: "Helvetica", size: 75)
+
+    @IBAction func stepperBtn(_ sender: UIStepper) {
+
+        roundCount = Int(sender.value)
+        roundCountBtnLabel.text = "\(roundCount)"
         
         if (timeLeftLabel.isHidden == true){
             saveBtnLabel.isEnabled = true
@@ -91,6 +92,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             saveBtnLabel.isEnabled = false
         }
     }
+
     
     func setWod() {
         

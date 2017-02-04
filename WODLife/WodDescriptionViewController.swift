@@ -47,7 +47,9 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 50 {
             showNavigation()
-        } else {
+            self.navigationController?.navigationBar.barTintColor = UIColor(red:0.11, green:0.12, blue:0.15, alpha:1.0) //
+        }
+        else {
             hideNavigation()
         }
     }
@@ -61,6 +63,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewWillDisappear(_ animated: Bool) {
         showNavigation()
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     
@@ -399,11 +402,14 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func showNavigation(){
-        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.17, green:0.18, blue:0.20, alpha:1.0)
-        self.navigationController?.navigationBar.tintColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
+
         self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = nil
-        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.17, green:0.18, blue:0.20, alpha:1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
+        
+
     }
     
 }

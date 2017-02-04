@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WODLife/WodDescriptionViewController.swift"
-            timestampString = "507912038.291934"
+            timestampString = "507921051.893335"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>

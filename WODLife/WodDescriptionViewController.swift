@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class WodDescriptionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
+class WodDescriptionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UIScrollViewDelegate{
     
     var wodName: String?
     var timeComponent: String?
@@ -39,17 +39,30 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setWodInstructions()
         getWodResults()
-        
-        
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 50 {
+            showNavigation()
+        } else {
+            hideNavigation()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        hideNavigation()
         if let index = self.tableView.indexPathForSelectedRow{
             self.tableView.deselectRow(at: index, animated: true)
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        showNavigation()
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,7 +70,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func setWodInstructions() {
-        
         
             wodNameLabel.text = wodName?.uppercased()
             timeComponentLabel.text = timeComponent?.uppercased()
@@ -376,6 +388,22 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold)
         header.textLabel?.textColor = UIColor.white
+    }
+    
+    func hideNavigation(){
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    func showNavigation(){
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.17, green:0.18, blue:0.20, alpha:1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
 }

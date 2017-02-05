@@ -286,22 +286,35 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             return orange
         case "Nicole":
             return orange
+            
         //Heros
+        case "Abbate":
+            return blue
         case "Arnie":
             return blue
         case "Adambrown":
             return blue
         case "Badger":
             return blue
+        case "Barraza":
+            return blue
         case "Blake":
             return blue
+        case "Bradley":
+            return blue
         case "Bradshaw":
+            return blue
+        case "Brehm":
+            return blue
+        case "Brian":
             return blue
         case "Bulger":
             return blue
         case "Bull":
             return blue
         case "Cameron":
+            return blue
+        case "Carse":
             return blue
         case "Coe":
             return blue
@@ -311,11 +324,17 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             return blue
         case "Daniel":
             return blue
+        case "Del":
+            return blue
         case "Desforges":
+            return blue
+        case "Dae han":
             return blue
         case "DT":
             return blue
         case "Erin":
+            return blue
+        case "Falkel":
             return blue
         case "Forrest":
             return blue
@@ -325,15 +344,29 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             return blue
         case "Gaza":
             return blue
+        case "Glen":
+            return blue
         case "Hammer":
+            return blue
+        case "Hamilton":
             return blue
         case "Hansen":
             return blue
         case "Helton":
             return blue
+        case "Hidalgo":
+            return blue
         case "Holbrook":
             return blue
+        case "Holleyman":
+            return blue
+        case "Hortman":
+            return blue
         case "Jack":
+            return blue
+        case "Jag 28":
+            return blue
+        case "Jared":
             return blue
         case "Jason":
             return blue
@@ -353,15 +386,25 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             return blue
         case "Klepto":
             return blue
+        case "Ledesma":
+            return blue
+        case "Loredo":
+            return blue
         case "Luce":
             return blue
         case "Manion":
+            return blue
+        case "Marco":
             return blue
         case "McGhee":
             return blue
         case "Mccluskey":
             return blue
+        case "Meadows":
+            return blue
         case "Michael":
+            return blue
+        case "Moon":
             return blue
         case "Moore":
             return blue
@@ -373,11 +416,15 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             return blue
         case "Nate":
             return blue
+        case "Nick":
+            return blue
         case "Nutts":
             return blue
         case "Paul":
             return blue
         case "Rahoi":
+            return blue
+        case "Ralph":
             return blue
         case "Randy":
             return blue
@@ -386,6 +433,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         case "Ricky":
             return blue
         case "RJ":
+            return blue
+        case "Robbie":
             return blue
         case "Roy":
             return blue
@@ -397,25 +446,55 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             return blue
         case "Santiago":
             return blue
+        case "Santora":
+            return blue
+        case "Sean":
+            return blue
+        case "Servais":
+            return blue
         case "Severin":
+            return blue
+        case "Ship":
             return blue
         case "Small":
             return blue
         case "Stephen":
             return blue
+        case "Strange":
+            return blue
+        case "Terry":
+            return blue
         case "The Seven":
             return blue
         case "Thompson":
             return blue
+        case "Tom":
+            return blue
         case "Tommy":
+            return blue
+        case "Tully":
+            return blue
+        case "Tumilson":
+            return blue
+        case "Tyler":
+            return blue
+        case "Omar":
             return blue
         case "War Frank":
             return blue
         case "Weaver":
             return blue
+        case "Weston":
+            return blue
         case "White":
             return blue
         case "Wilmot":
+            return blue
+        case "Whitten":
+            return blue
+        case "Woehlke":
+            return blue
+        case "Wood":
             return blue
         case "Wittman":
             return blue

@@ -43,6 +43,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         dateToFetch = dateToEdit
         
         dateInput.inputView = datePicker
+        datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(WodAMRAPResultsTableViewController.updateDateTxt), for: UIControlEvents.valueChanged)
 
         

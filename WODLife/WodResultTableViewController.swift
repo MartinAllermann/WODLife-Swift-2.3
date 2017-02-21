@@ -214,6 +214,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         pickerView.delegate = self
         pickerView.backgroundColor = UIColor.white
+        pickerDateView.datePickerMode = .date
         
         //Populate array with 59 minutes
         for x in 0...59 {

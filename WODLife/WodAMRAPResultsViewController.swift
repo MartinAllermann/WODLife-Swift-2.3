@@ -19,28 +19,39 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
     @IBOutlet weak var notesView: UITextView!
     @IBOutlet weak var wodTypeLabel: UILabel!
 
+    @IBOutlet weak var dateInput: UITextField!
+    
     var wodName: String?
     var wodType: String?
     var roundsFromTimer: Int?
     var newDate = Date()
     var timerUsed: Bool = false
-    
     var editMode: Bool = false
+    var datePicker = UIDatePicker()
     var roundsToEdit: Int?
     var notesToEdit: String?
     var dateToEdit: Date?
+    var dateToFetch: Date?
+    let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         wodNameLabel.text = wodName
         textFieldPlaceholder()
+        datePlaceholder()
+        dateToFetch = dateToEdit
+        
+        dateInput.inputView = datePicker
+        datePicker.addTarget(self, action: #selector(WodAMRAPResultsTableViewController.updateDateTxt), for: UIControlEvents.valueChanged)
+
         
         roundsTextField.addTarget(self, action: #selector(CreateWodTableViewController.txtEditing(textField:)), for: UIControlEvents.editingChanged)
  
         roundsTextField.delegate = self
         notesView.delegate = self
-
+        
+     
  
         if wodType == "For load" {
         
@@ -115,8 +126,6 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
         let ent = NSEntityDescription.entity(forEntityName: "WodResult", in: context)
         let Wod = WodResult(entity: ent!, insertInto: context)
-        
-        let currentDate = Date()
       
         Wod.name = wodName
         let roundsInt:NSNumber? = Int(roundsTextField.text!) as NSNumber?
@@ -128,7 +137,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
         }
         
-        Wod.date = currentDate
+        Wod.date = getDate()
         Wod.notes = notesView.text
         
         do {
@@ -147,7 +156,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         let con: NSManagedObjectContext = appDel.managedObjectContext
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
-        request.predicate = NSPredicate(format: "name = %@ && date == %@", wodName!, dateToEdit! as CVarArg)
+        request.predicate = NSPredicate(format: "name = %@ && date == %@", wodName!, dateToFetch! as CVarArg)
         request.returnsObjectsAsFaults = false
         
         do {
@@ -164,6 +173,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
                 }
                 
                 res.setValue(notesView.text, forKey: "notes")
+                res.setValue(getDate(), forKey: "date")
         
                  try con.save()
                 dismissVC()
@@ -197,6 +207,13 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
         // Add attribute
         roundsTextField.attributedPlaceholder = placeHolder
+        
+    }
+    
+    func datePlaceholder(){
+        
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateInput.text = dateFormatter.string(from: getDate())
         
     }
 
@@ -239,5 +256,22 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         }
         
     }
+    
+    func getDate() -> Date{
+        
+        if dateToEdit != nil {
+            return dateToEdit!
+        } else {
+            let currentDate = Date()
+            return currentDate
+        }
+    }
+    
+    func updateDateTxt(){
+        dateToEdit = datePicker.date
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateInput.text = dateFormatter.string(from: datePicker.date)
+    }
+    
 
 }

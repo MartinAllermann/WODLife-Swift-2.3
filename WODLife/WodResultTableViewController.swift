@@ -43,14 +43,18 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     
     @IBOutlet weak var notesTextView: UITextView!
     
+    @IBOutlet weak var dateTxt: UITextField!
+    
     var wodName: String?
     var wodResult: Int?
     var pickOption:[String] = []
     var pickOption2:[String] = []
+    let dateFormatter = DateFormatter()
     var minutes: Int?
     var seconds: Int?
     var newDate = Date()
     let pickerView = UIPickerView()
+    let pickerDateView = UIDatePicker()
     var timerUsed: Bool = false
     var elapsedTimeInSeconds: Int?
     
@@ -58,17 +62,20 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     var timeToEdit: Int?
     var notesToEdit: String?
     var dateToEdit: Date?
+    var dateToFetch: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         wodNameLabel.text = wodName
         notesTextView.delegate = self
-        
+        dateToFetch = dateToEdit
+       
         minutes = 0
         seconds = 0
         
         textFieldPlaceholder()
+        datePlaceholder()
         
         configPickerViews()
         
@@ -90,7 +97,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         }
          self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
-        
+         pickerDateView.addTarget(self, action: #selector(WodResultTableViewController.updateDateTxt), for: UIControlEvents.valueChanged)
     }
     
     @IBAction func saveBtn(_ sender: AnyObject) {
@@ -121,11 +128,10 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         let ent = NSEntityDescription.entity(forEntityName: "WodResult", in: context)
         let Wod = WodResult(entity: ent!, insertInto: context)
         
-        let currentDate = Date()
         
         Wod.name = wodName
         Wod.time = elapsedTimeInSeconds as NSNumber?
-        Wod.date = currentDate
+        Wod.date = getDate()
         Wod.notes = notesTextView.text
         
         do {
@@ -144,7 +150,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         let con: NSManagedObjectContext = appDel.managedObjectContext
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
-        request.predicate = NSPredicate(format: "name = %@ && date == %@", wodName!, dateToEdit! as CVarArg)
+        request.predicate = NSPredicate(format: "name = %@ && date == %@", wodName!, dateToFetch! as CVarArg)
         request.returnsObjectsAsFaults = false
         
         do {
@@ -154,6 +160,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
                 let time = elapsedTimeInSeconds as NSNumber?
                 res.setValue(time, forKey: "time")
                 res.setValue(notesTextView.text, forKey: "notes")
+                res.setValue(dateToEdit, forKey: "date")
                 
                 
                 try con.save()
@@ -178,6 +185,9 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     func textFieldPlaceholder(){
         
         timeTextField.placeholder = "0:00"
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateTxt.placeholder = dateFormatter.string(from: getDate())
+        
         var placeHolder = NSMutableAttributedString()
         let Name  = "0:00"
         
@@ -189,7 +199,14 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         
         // Add attribute
         timeTextField.attributedPlaceholder = placeHolder
+     
+    }
     
+    func datePlaceholder(){
+        
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateTxt.text = dateFormatter.string(from: getDate())
+        
     }
     
     func configPickerViews(){
@@ -221,9 +238,8 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         toolBar.isUserInteractionEnabled = true
         
         timeTextField.inputAccessoryView = toolBar
+        dateTxt.inputView = pickerDateView
         timeTextField.inputView = pickerView
-      
-    
     }
     
     func donePicker() {
@@ -277,19 +293,13 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     func configTextField(){
         
         if seconds <= 9 {
-            
             timeTextField.text = "\(minutes!)" + ":" + "0\(seconds!)"
-            
         }
         
         else {
-            
             timeTextField.text = "\(minutes!)" + ":" + "\(seconds!)"
-        
         }
-        
         elapsedTimeInSeconds = (minutes! * 60) + (seconds)!
-        
     }
     
     func secondsToHoursMinutesSeconds (_ seconds : Int) -> (String) {
@@ -300,14 +310,10 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         sec = (seconds % 3600) % 60
         
         if sec <= 9 {
-
             return "\(min!)" + ":" + "0\(sec!)"
         }
-            
         else {
-            
             return "\(min!)" + ":" + "\(sec!)"
-            
         }
     }
     
@@ -325,6 +331,20 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         header.textLabel?.textColor = UIColor.groupTableViewBackground
     }
     
-
+    func getDate() -> Date{
+        
+        if dateToEdit != nil {
+            return dateToEdit!
+        } else {
+            let currentDate = Date()
+            return currentDate
+        }
+    }
+    
+    func updateDateTxt(){
+        dateToEdit = pickerDateView.date
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateTxt.text = dateFormatter.string(from: pickerDateView.date)
+    }
     
 }

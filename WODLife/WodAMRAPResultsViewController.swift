@@ -44,6 +44,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
         dateInput.inputView = datePicker
         datePicker.datePickerMode = .date
+        datePicker.backgroundColor = UIColor.white
         datePicker.addTarget(self, action: #selector(WodAMRAPResultsTableViewController.updateDateTxt), for: UIControlEvents.valueChanged)
 
         

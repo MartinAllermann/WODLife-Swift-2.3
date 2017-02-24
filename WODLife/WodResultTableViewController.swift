@@ -78,6 +78,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         datePlaceholder()
         
         configPickerViews()
+        configDatePicker()
         
         if timerUsed == true {
             
@@ -241,6 +242,12 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         timeTextField.inputAccessoryView = toolBar
         dateTxt.inputView = pickerDateView
         timeTextField.inputView = pickerView
+    }
+    
+    func configDatePicker(){
+        
+        pickerDateView.backgroundColor = UIColor.white
+        
     }
     
     func donePicker() {

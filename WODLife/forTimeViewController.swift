@@ -14,7 +14,9 @@ class forTimeViewController: UIViewController {
     var previousTimeIsEmpty: Bool = true
     var previousTime: String?
     var wodResultString: String?
-    
+    var countdownEnabled: Bool = true
+    var countdownTimer: Timer?
+    var count = 3
 
     @IBOutlet weak var currentTime: UILabel!
     @IBOutlet weak var saveBtnLabel: UIBarButtonItem!
@@ -24,6 +26,7 @@ class forTimeViewController: UIViewController {
     @IBOutlet weak var wodNameLabel: UILabel!
     @IBOutlet weak var timeComponentLabel: UILabel!
     @IBOutlet weak var wodDescriptionView: UITextView!
+    
     
     @IBAction func cancelBtn(_ sender: AnyObject) {
         killTimer()
@@ -107,17 +110,14 @@ class forTimeViewController: UIViewController {
         
         if startStopWatch == true {
             
-            reset.isEnabled = false
-            reset.isHidden = true
-            saveBtnLabel.isEnabled = false
-            self.startTime = Date.timeIntervalSinceReferenceDate
+            if countdownEnabled == true {
+                count = 3
+                currentTime.text = "3"
+                self.countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(forTimeViewController.countdownTimerFunc), userInfo: nil, repeats: true)
+            } else {
             
-            self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(forTimeViewController.updateTime), userInfo: nil, repeats: true)
-            
-            startStopWatch = false
-            startAndStop.setTitle("Stop", for: UIControlState())
-            startAndStop.backgroundColor = UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
-            
+                startTimer()
+            }
             
         } else {
             
@@ -133,6 +133,21 @@ class forTimeViewController: UIViewController {
             
         }
         
+    }
+    
+    func startTimer(){
+        
+        reset.isEnabled = false
+        reset.isHidden = true
+        saveBtnLabel.isEnabled = false
+        self.startTime = Date.timeIntervalSinceReferenceDate
+        
+        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(forTimeViewController.updateTime), userInfo: nil, repeats: true)
+        
+        startStopWatch = false
+        startAndStop.setTitle("Stop", for: UIControlState())
+        startAndStop.backgroundColor = UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
+    
     }
     
     override func didReceiveMemoryWarning() {
@@ -169,6 +184,25 @@ class forTimeViewController: UIViewController {
         
         wodResult = (minutes * 60) + seconds
         
+    }
+    
+    func countdownTimerFunc(){
+        startAndStop.isEnabled = false
+        switch count {
+        case 3:
+            currentTime.text = "2"
+            count -= 1
+        case 2:
+            currentTime.text = "1"
+            count -= 1
+        case 1:
+            currentTime.text = "GO!"
+            count -= 1
+        default:
+            countdownTimer?.invalidate()
+            startAndStop.isEnabled = true
+            startTimer()
+        }
     }
     
     

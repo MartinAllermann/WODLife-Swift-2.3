@@ -93,6 +93,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             segmentSelected = wodCollectionThree
         }
         
+        searchBar.text = nil
         self.tableView.reloadData()
     }
     
@@ -133,8 +134,8 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 
                 return (fetchedResultsController.sections?[0].numberOfObjects)!
                 
-                
             }
+                
             else {
                 
                 emptyLabel.text = ""
@@ -394,7 +395,6 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             
         }
         if segmentSelected == wodCollectionTwo {
-            
             
             filteredWorkouts  = searchText.isEmpty ? heroWods : heroWods.filter({(dataString: Workout) -> Bool in
                 // If dataItem matches the searchText, return true to include it

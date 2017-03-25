@@ -21,6 +21,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     var titles = [["Add Score"],["Timer"]]
     var videoUrlString: String?
     var content: String?
+    @IBOutlet weak var tableFooter: UIView!
     @IBOutlet weak var videoLabel: UILabel!
     @IBOutlet weak var videoView: UIWebView!
     
@@ -400,6 +401,13 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         header.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold)
         header.textLabel?.textColor = UIColor.white
     }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if fetchedResultsController.fetchedObjects?.isEmpty == true {
+            return 10
+        } else {
+            return 25
+        }
+    }
     
     func hideNavigation(){
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -456,7 +464,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func loadVideo() {
-        
         if videoUrlString == nil || (videoUrlString?.contains("No video"))!{
             print("No connection or video")
         } else {
@@ -483,6 +490,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func styleVideoView(){
     videoView.layer.cornerRadius = 10
+    videoView.frame.size.height = 250
+    self.tableFooter.frame.size.height = 350
     videoView.layer.masksToBounds = true
         videoLabel.isHidden = true
         videoView.isHidden = true

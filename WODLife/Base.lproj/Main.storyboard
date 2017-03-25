@@ -180,12 +180,31 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.15858069059999999" green="0.70242935419999997" blue="0.4803941846" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="E75-t6-b1g">
+                                    <rect key="frame" x="0.0" y="446" width="375" height="178"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VIDEO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQ5-vT-Hb5">
+                                            <rect key="frame" x="15" y="14" width="58" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j3Z-RV-5Df">
+                                            <rect key="frame" x="15" y="43" width="345" height="115"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </webView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Nt7-Hj-A4U" customClass="WodDescriptionTableViewCell" customModule="WODLife" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="380.5" width="375" height="55"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Nt7-Hj-A4U" customClass="WodDescriptionTableViewCell" customModule="WODLife" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="381" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nt7-Hj-A4U" id="zK9-Ze-98d">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-lU-CKh">
@@ -200,7 +219,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFQ-lT-zO7">
-                                                    <rect key="frame" x="308" y="13" width="66" height="26.5"/>
+                                                    <rect key="frame" x="275" y="13" width="66" height="26.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
@@ -232,6 +251,8 @@
                         <outlet property="backgroundColor" destination="g7x-xB-irg" id="SDR-9S-7Wm"/>
                         <outlet property="tableView" destination="DXw-1Q-5wu" id="onm-eZ-cWQ"/>
                         <outlet property="timeComponentLabel" destination="8SY-jd-PXd" id="49a-cd-8PW"/>
+                        <outlet property="videoLabel" destination="lQ5-vT-Hb5" id="Nib-V8-vCV"/>
+                        <outlet property="videoView" destination="j3Z-RV-5Df" id="zcz-1P-bqG"/>
                         <outlet property="wodDescriptionView" destination="GiK-Hj-tPj" id="3PJ-4A-bOX"/>
                         <outlet property="wodNameLabel" destination="zIB-SI-okq" id="aHL-bT-590"/>
                         <segue destination="wWK-Me-Ocz" kind="push" identifier="For Time" id="NZh-e6-LSJ"/>
@@ -242,14 +263,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkL-Xq-sUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1860" y="510"/>
+            <point key="canvasLocation" x="1859.5" y="509.5"/>
         </scene>
         <!--Wod Result Table View Controller-->
         <scene sceneID="lqL-3Y-G7O">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="wWK-Me-Ocz" customClass="WodResultTableViewController" customModule="WODLife" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="10" sectionFooterHeight="10" id="jRs-u8-swC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="10" sectionFooterHeight="10" id="jRs-u8-swC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.19215686269999999" green="0.2470588235" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1091,7 +1112,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Vad-cr-cxk"/>
-        <segue reference="5e1-cq-d2Q"/>
+        <segue reference="NZh-e6-LSJ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15858069062232971" green="0.70242935419082642" blue="0.48039418458938599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

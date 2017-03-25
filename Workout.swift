@@ -14,4 +14,5 @@ struct Workout {
     let description : String
     let type : String
     let color : String
+    let id: String
 }

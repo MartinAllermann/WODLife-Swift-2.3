@@ -12,12 +12,17 @@ import CoreData
 class WodDescriptionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UIScrollViewDelegate{
     
     var wodName: String?
+    var wodId: String?
     var timeComponent: String?
     var wodDescription: String = ""
     var timeComponentType: String?
     var color: UIColor?
     var secondColor: UIColor?
     var titles = [["Add Score"],["Timer"]]
+    var videoUrlString: String?
+    var content: String?
+    @IBOutlet weak var videoLabel: UILabel!
+    @IBOutlet weak var videoView: UIWebView!
     
     let dateFormatter = DateFormatter()
     var fetchedResultsController:NSFetchedResultsController<NSFetchRequestResult>!
@@ -42,6 +47,9 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         setWodInstructions()
         getWodResults()
+        styleVideoView()
+        getVideoUrl()
+ 
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -87,7 +95,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         wodDescriptionView.frame = frame
         
         var frame2 = backgroundColor.frame
-        frame2.size.height = contentSize.height + 200
+        frame2.size.height = contentSize.height + 225
         
         backgroundColor.frame = frame2
         
@@ -138,6 +146,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         switch section {
         case 0:
             return titles.count
+        case 1:
+            return (fetchedResultsController.sections?[0].numberOfObjects)!
         default:
             return (fetchedResultsController.sections?[0].numberOfObjects)!
         }
@@ -161,9 +171,9 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             } else {
                 cell.leftIcon.image = UIImage(named: "Stopwatch")
             }
-
+            
         case 1:
-        
+            
             let idx = IndexPath(row: indexPath.row, section: 0)
             let workout = fetchedResultsController.object(at: idx) as! WodResult
             
@@ -190,7 +200,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             if (workout.time != 0){
                 
                 cell.detailLabel.text = "\(secondsToHoursMinutesSeconds(workout.time!))"
-                
             }
             
         default:
@@ -356,7 +365,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             }
         
         }
-        
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -411,5 +419,75 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
 
     }
+    
+    func getVideoUrl() {
+        
+        if wodId == "0" {
+            print("No Post ID")
+        } else {
+            
+            let url = URL(string: "http://34.206.174.67/wp-json/wp/v2/posts/" + wodId!)
+            let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+                if error != nil {
+                    print("ERROR")
+                } else {
+                    
+                    if let myContent = data {
+                        
+                        do {
+                            //Array
+                            let myJson = try JSONSerialization.jsonObject(with: myContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            
+                            if let content = myJson["content"] as? NSDictionary {
+                                if let rentered = content["rendered"] {
+                                    self.videoUrlString = rentered as? String
+                                    self.loadVideo()
+                                }
+                            }
+                        }
+                        catch {
+                            
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    func loadVideo() {
+        
+        if videoUrlString == nil || (videoUrlString?.contains("No video"))!{
+            print("No connection or video")
+        } else {
+            
+            print("show video")
+            DispatchQueue.global(qos: .background).async {
+                // Background Thread
+                let removeLastTag = self.videoUrlString?.replacingOccurrences(of: "</p>", with: "", options: .regularExpression)
+                let removeFirstTag = removeLastTag?.replacingOccurrences(of: "<p>", with: "", options: .regularExpression)
+                let cleanURL = removeFirstTag?.replacingOccurrences(of: "\n", with: "", options: .regularExpression)
+                self.content = "https://" + cleanURL!
+                
+                let url = URL(string: self.content!)
+                self.videoView.loadRequest(URLRequest(url: url!))
+                
+                DispatchQueue.main.async {
+                    // Run UI Updates
+                    self.videoLabel.isHidden = false
+                    self.videoView.isHidden = false
+                }
+            }
+        }
+    }
+    
+    func styleVideoView(){
+    videoView.layer.cornerRadius = 10
+    videoView.layer.masksToBounds = true
+        videoLabel.isHidden = true
+        videoView.isHidden = true
+    }
+    
+    
     
 }

@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate, UITextViewDelegate{
     
    

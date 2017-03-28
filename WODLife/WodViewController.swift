@@ -33,6 +33,7 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         getWodData()
     
         segmentSelected = wodCollectionOne // The first segmentSelected should be wodCollectionOne

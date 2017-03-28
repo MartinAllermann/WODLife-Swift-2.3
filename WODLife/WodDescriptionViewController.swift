@@ -53,6 +53,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
     }
     
+    //Set UIViewControllerBasedStatusBarAppearance to no
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 50 {
@@ -434,6 +435,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         
         if wodId == "0" {
             print("No Post ID")
+            self.videoLabel.isHidden = true
         } else {
             
             let url = URL(string: "http://34.206.174.67/wp-json/wp/v2/posts/" + wodId!)
@@ -468,6 +470,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     func loadVideo() {
         if videoUrlString == nil || (videoUrlString?.contains("No video"))!{
             print("No connection or video")
+            self.videoLabel.isHidden = true
         } else {
             
             print("show video")
@@ -483,7 +486,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
                 
                 DispatchQueue.main.async {
                     // Run UI Updates
-                    self.videoLabel.isHidden = false
                     self.videoView.isHidden = false
                 }
             }
@@ -495,10 +497,9 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     videoView.frame.size.height = 250
     self.tableFooter.frame.size.height = 350
     videoView.layer.masksToBounds = true
-        videoLabel.isHidden = true
+        videoLabel.isHidden = false
         videoView.isHidden = true
     }
-    
     
     
 }

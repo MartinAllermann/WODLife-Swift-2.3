@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+       
+        
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
         UINavigationBar.appearance().tintColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
@@ -37,9 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if ["MPInlineVideoFullscreenViewController", "MPMoviePlayerViewController", "AVFullScreenViewController"].contains(className)
             {
                 return UIInterfaceOrientationMask.allButUpsideDown
+                
             }
         }
-        
+ 
         return UIInterfaceOrientationMask.portrait
     }
     

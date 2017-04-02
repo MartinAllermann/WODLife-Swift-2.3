@@ -229,7 +229,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             return UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
             
         case "yellow":
-            return UIColor(red:0.98, green:0.73, blue:0.46, alpha:1.0)
+            return UIColor(red:0.97, green:0.62, blue:0.40, alpha:1.0)
             
         default:
             return UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
@@ -393,9 +393,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             Workout(name:"Wittman", typeDescription:"7 rounds for time", description:"15 kettlebell swings\n15 power cleans (95 lbs)\n15 box jumps", type: "For time", color: "blue", id: ""),
             Workout(name:"ZEUS", typeDescription:"3 rounds for time", description:"30 wall-ball shots, 20-lb. ball\n75-lb. sumo deadlift high pulls, 30 reps\n30 box jumps, 20-inch box\n75-lb. push presses, 30 reps\nRow 30 calories\n30 push-ups\nBody-weight back squats, 10 reps", type: "For time", color: "blue", id: ""),
             Workout(name:"Zimmerman", typeDescription:"As many rounds as possible in 25 min", description:"11 chest-to-bar pull-ups\n2 deadlifts (315 lbs)\n10 handstand push-ups", type: "AMRAP", color: "blue", id: ""),
-            
-            
-            Workout(name:"OPEN 17.5", typeDescription:"10 Rounds for Time", description:"9 Thrusters (95/65 lb)\n35 Double Unders", type: "For time", color: "blue", id: "0"),
             
             Workout(name:"OPEN 17.5", typeDescription:"10 Rounds for Time", description:"9 Thrusters (95/65 lb)\n35 Double Unders", type: "For time", color: "yellow", id: "308"),
             Workout(name:"OPEN 17.4", typeDescription:"AMRAP in 13 min", description:"55 Deadlifts (225/155 lbs)\n55 Wall Ball Shots (20/14 lb to 10/9 ft)\n55 calorie Row\n55 Handstand Push-Ups", type: "AMRAP", color: "yellow", id: "310"),

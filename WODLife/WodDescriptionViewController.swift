@@ -470,7 +470,6 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     func loadVideo() {
         if videoUrlString == nil || (videoUrlString?.contains("No video"))!{
             print("No connection or video")
-            self.videoLabel.isHidden = true
         } else {
             
             print("show video")
@@ -487,6 +486,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
                 DispatchQueue.main.async {
                     // Run UI Updates
                     self.videoView.isHidden = false
+                    self.videoLabel.isHidden = false
                 }
             }
         }
@@ -497,7 +497,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     videoView.frame.size.height = 250
     self.tableFooter.frame.size.height = 350
     videoView.layer.masksToBounds = true
-        videoLabel.isHidden = false
+        videoLabel.isHidden = true
         videoView.isHidden = true
     }
     

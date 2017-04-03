@@ -111,6 +111,8 @@ class forTimeViewController: UIViewController {
         if startStopWatch == true {
             
             if countdownEnabled == true {
+                reset.isHidden = true
+                startAndStop.isHidden = true
                 count = 3
                 currentTime.text = "3"
                 self.countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(forTimeViewController.countdownTimerFunc), userInfo: nil, repeats: true)
@@ -187,7 +189,6 @@ class forTimeViewController: UIViewController {
     }
     
     func countdownTimerFunc(){
-        startAndStop.isEnabled = false
         switch count {
         case 3:
             currentTime.text = "2"
@@ -200,7 +201,7 @@ class forTimeViewController: UIViewController {
             count -= 1
         default:
             countdownTimer?.invalidate()
-            startAndStop.isEnabled = true
+            startAndStop.isHidden = false
             startTimer()
         }
     }

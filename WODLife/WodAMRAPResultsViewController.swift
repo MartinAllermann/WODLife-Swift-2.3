@@ -34,6 +34,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
     var dateToEdit: Date?
     var dateToFetch: Date?
     let dateFormatter = DateFormatter()
+    var alertController = UIAlertController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,15 +111,22 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         notesView.text = "None"
             
         }
+        if (roundsTextField.text != "0") {
         
-        if editMode == false {
+            if editMode == false {
+                
+                saveResult()
+                
+            } else {
+                
+                updateResult()
+                
+            }
             
-            saveResult()
-        
         } else {
-            
-            updateResult()
         
+        alert()
+            
         }
 
     }
@@ -274,6 +282,19 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         dateToEdit = datePicker.date
         dateFormatter.dateStyle = DateFormatter.Style.medium
         dateInput.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    func alert(){
+        //Construct alert view
+        alertController = UIAlertController(title: "Please enter result", message: "", preferredStyle: .alert)
+        // add an action
+        let alertAction = UIAlertAction(title: "Done", style: .default) {
+            
+            (action) -> Void in
+        }
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
 

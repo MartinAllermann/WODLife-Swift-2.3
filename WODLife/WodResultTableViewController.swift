@@ -64,6 +64,8 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     var dateToEdit: Date?
     var dateToFetch: Date?
     
+    var alertController = UIAlertController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -107,19 +109,21 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         if timeTextField.text!.isEmpty {
             
             elapsedTimeInSeconds = 0
-        
         }
-    
-        if editMode == false {
-            
-            saveResult()
+        if (elapsedTimeInSeconds != 0) {
         
-        } else {
-            
-            updateResult()
-        
+            if editMode == false {
+                
+                saveResult()
+                
+            } else {
+                
+                updateResult()
+                
+            }
+        } else{
+        alert()
         }
-        
     }
     
     
@@ -354,6 +358,19 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
         dateToEdit = pickerDateView.date
         dateFormatter.dateStyle = DateFormatter.Style.medium
         dateTxt.text = dateFormatter.string(from: pickerDateView.date)
+    }
+    
+    func alert(){
+        //Construct alert view
+        alertController = UIAlertController(title: "Please enter score", message: "", preferredStyle: .alert)
+        // add an action
+        let alertAction = UIAlertAction(title: "Done", style: .default) {
+            
+            (action) -> Void in
+        }
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
 }

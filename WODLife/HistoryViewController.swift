@@ -250,6 +250,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
       
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "Modal", sender: indexPath)
+    }
+    
     func getWodData(){
         
         wods = [

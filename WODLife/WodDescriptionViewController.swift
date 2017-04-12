@@ -350,19 +350,19 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             editMode = true
             
             if timeComponentType?.range(of: "For time") != nil || timeComponentType?.range(of: "For Time") != nil  {
-                timeToEdit = workout.time as Int?
+                timeToEdit = workout.time as! Int?
                 notesToEdit = workout.notes
                 dateToEdit = workout.date
                 self.performSegue(withIdentifier: "For Time", sender: indexPath);
             }
             if timeComponentType?.range(of: "AMRAP") != nil  || timeComponentType?.range(of: "EMOM") != nil  {
-                roundsToEdit = workout.rounds as Int?
+                roundsToEdit = workout.rounds as! Int?
                 notesToEdit = workout.notes
                 dateToEdit = workout.date
                 self.performSegue(withIdentifier: "AMRAP", sender: indexPath);
             }
             if timeComponentType?.range(of: "For load") != nil  {
-                roundsToEdit = workout.weight as Int?
+                roundsToEdit = workout.weight as! Int?
                 notesToEdit = workout.notes
                 dateToEdit = workout.date
                 self.performSegue(withIdentifier: "AMRAP", sender: indexPath);

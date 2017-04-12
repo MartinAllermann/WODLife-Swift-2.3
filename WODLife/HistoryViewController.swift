@@ -51,7 +51,28 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let workout = fetchedResultsController.object(at: self.tableView.indexPathForSelectedRow!) as! WodResult
         let vc = segue.destination as! HistoryModalViewController
         vc.wodName = workout.name
+        let convertedDate = dateFormatter.string(from: workout.date!)
+        vc.wodDate = convertedDate
         vc.wodNotes = workout.notes
+        
+        if (workout.rounds != 0) {
+            
+            vc.wodResult = "\(workout.rounds!)" // Fix this
+            vc.wodType = "Rounds"
+            
+        }
+        if (workout.weight != 0) {
+            
+            vc.wodResult = "\(workout.weight!)" // Fix this
+            vc.wodType = "Weight"
+            
+        }
+        if (workout.time != 0){
+            
+            vc.wodResult = "\(secondsToHoursMinutesSeconds(workout.time!))"
+            vc.wodType = "Time"
+        }
+        
         vc.wodColor = colorPicker(colorName: getWorkoutColor(name: workout.name))
     }
     

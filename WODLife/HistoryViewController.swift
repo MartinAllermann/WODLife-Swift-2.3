@@ -39,9 +39,20 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
          getCompletedWods()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "Modal", sender: indexPath)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let workout = fetchedResultsController.object(at: self.tableView.indexPathForSelectedRow!) as! WodResult
+        let vc = segue.destination as! HistoryModalViewController
+        vc.wodName = workout.name
+        vc.wodNotes = workout.notes
+        vc.wodColor = colorPicker(colorName: getWorkoutColor(name: workout.name))
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -250,9 +261,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
       
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "Modal", sender: indexPath)
-    }
     
     func getWodData(){
         

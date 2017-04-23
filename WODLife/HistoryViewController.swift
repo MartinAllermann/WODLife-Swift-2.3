@@ -11,18 +11,22 @@ import CoreData
 
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
-    @IBOutlet weak var completedThisMonth: UILabel!
-    @IBOutlet weak var completedLastMonth: UILabel!
+    
+    @IBOutlet weak var activeDaysLast30Days: UILabel!
+    @IBOutlet weak var activeDaysProgress: UILabel!
+    @IBOutlet weak var wodsLast30Days: UILabel!
+    @IBOutlet weak var wodsProgress: UILabel!
+    @IBOutlet weak var totalWodsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var fetchedResultsController:NSFetchedResultsController<NSFetchRequestResult>!
     let dateFormatter = DateFormatter()
-    var completedWodsThisMonth: Int?
-    var completedWodsLastMonth: Int?
-    var totalForTimeWods: Int?
-    var currentMonth: String?
-    var previousMonth: String?
     var gradientLayer: CAGradientLayer!
     var wods = [Workout]()
+    var totalActiveDaysLast30Days: String?
+    var totalWodsLast30Days: String?
+    var totalWodsAllTime: String?
+    var wodsProgressString: String?
+    var activeDaysProgressString: String?
 
     
     override func viewDidLoad() {
@@ -36,7 +40,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     override func viewDidAppear(_ animated: Bool) {
-         getCompletedWods()
+         getStats()
+         activeDaysLast30Days.text = totalActiveDaysLast30Days
+         wodsLast30Days.text = totalWodsLast30Days
+         totalWodsLabel.text = totalWodsAllTime
+         wodsProgress.text = wodsProgressString
+         activeDaysProgress.text = activeDaysProgressString
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -176,70 +185,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func getCompletedWods() {
-
-        completedWodsThisMonth = 0
-        completedWodsLastMonth = 0
-        
-        getMonths()
-        getCompletedWodsThisMonth()
-        
-    }
-    
-    func getMonths(){
-    
-        let currentDate = NSDate()
-        let currentDateDateFormatter = DateFormatter()
-        currentDateDateFormatter.dateFormat = "MM-yyyy"
-        currentMonth = currentDateDateFormatter.string(from: currentDate as Date)
-        
-        let previousDate = NSCalendar.current.date(byAdding: .month, value: -1, to: Date())
-        let previousDateFormatter = DateFormatter()
-        previousDateFormatter.dateFormat = "MM-yyyy"
-        previousMonth = currentDateDateFormatter.string(from: previousDate! as Date)
-    
-    }
-    
-    func getCompletedWodsThisMonth() {
-        
-        var monthArray: [String] = []
-
-        let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
-        let con: NSManagedObjectContext = appDel.managedObjectContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
-        request.returnsObjectsAsFaults = false
-        
-        do {
-            
-            let results = try con.fetch(request) as! [WodResult]
-            for res in results {
-            let dates = res.date
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM-yyyy"
-            monthArray.append(dateFormatter.string(from: dates! as Date))
-            }
-            
-        } catch {
-            print("Unresolved error")
-            abort()
-        }
-        
-        completedWodsThisMonth = monthArray.filter{$0 == currentMonth}.count
-        completedWodsLastMonth = monthArray.filter{$0 == previousMonth}.count
-        
-        switch completedWodsThisMonth! {
-        case 0:
-             completedThisMonth.text = "\(completedWodsThisMonth!)" + " WODs"
-        case 1:
-             completedThisMonth.text = "\(completedWodsThisMonth!)" + " WOD"
-        default:
-             completedThisMonth.text = "\(completedWodsThisMonth!)" + " WODs"
-        }
-        completedLastMonth.text = "\(completedWodsLastMonth!)" + " completed last month"
-        
-    }
-    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     {
         let header = view as! UITableViewHeaderFooterView
@@ -282,7 +227,150 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
       
     }
     
+    func getStats() {
+        
+        // last 30 days
+        
+        var today = Date()
+        var last30Days = [String]()
+        for _ in 1...30{
+            let tomorrow = Calendar.current.date(byAdding: .day, value: -1, to: today)
+            let date = DateFormatter()
+            date.dateFormat = "dd-MM-yyyy"
+            let stringDate : String = date.string(from: today)
+            today = tomorrow!
+            last30Days.append(stringDate)
+        }
+        
+        
+        print(last30Days)
+        print(getPrevious30Days())
+        
+        var allActiveDates: [String] = []
+        let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        let con: NSManagedObjectContext = appDel.managedObjectContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            
+            let results = try con.fetch(request) as! [WodResult]
+            for res in results {
+                let dates = res.date
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yyyy"
+                allActiveDates.append(dateFormatter.string(from: dates! as Date))
+            }
+        } catch {
+            print("Unresolved error")
+            abort()
+        }
+        print(allActiveDates.count)
+        
+        // LastMonth
+        var activeDatesFromCurrentMonth: [String] = []
+        for item in allActiveDates {
+            if (last30Days.contains(item)){
+                activeDatesFromCurrentMonth.append(item)
+            }
+        }
+        print("\(activeDatesFromCurrentMonth.count)" + " Last 30 days")
+        
+        // PreviousMonth
+        var activeDatesFromPreviousMonth: [String] = []
+        for item in allActiveDates {
+            if (getPrevious30Days().contains(item)){
+                activeDatesFromPreviousMonth.append(item)
+            }
+        }
+        print("\(activeDatesFromPreviousMonth.count)" + " Previous Month")
+        
+        // Last Month
+        var dates: [String:String] = [:]
+        for item in activeDatesFromCurrentMonth {
+            dates[item] = (dates[item] ?? "0")
+        }
+        print("\(dates.count)" + "active dates")
+        
+        // Last Month
+        var previousDates: [String:String] = [:]
+        for item in activeDatesFromPreviousMonth {
+            previousDates[item] = (previousDates[item] ?? "0")
+        }
+        print("\(previousDates.count)" + " previous active dates")
+        
+        if (allActiveDates.count != 0) {
+            totalWodsAllTime = "\(allActiveDates.count)"
+        } else {
+            totalWodsAllTime = "0"
+        }
+        
+        if (activeDatesFromCurrentMonth.count != 0) {
+            totalWodsLast30Days = "\(activeDatesFromCurrentMonth.count)"
+        } else {
+            totalWodsLast30Days = "0"
+        }
+        
+        if (dates.count != 0) {
+            totalActiveDaysLast30Days = "\(dates.count)"
+        } else {
+            totalActiveDaysLast30Days = "0"
+        }
+        
+        if (activeDatesFromPreviousMonth.count != 0) {
+            let last30daysWodsProgress = ((Double(activeDatesFromCurrentMonth.count) - Double(activeDatesFromPreviousMonth.count)) / Double(activeDatesFromPreviousMonth.count)) * 100
+            
+            if(last30daysWodsProgress > 0) {
+                wodsProgressString = "▲"+"\(Int(last30daysWodsProgress))" + "%"
+                wodsProgress.textColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
+            }
+            if(last30daysWodsProgress == 0) {
+                wodsProgressString = "\(Int(last30daysWodsProgress))" + "%"
+            }
+            if(last30daysWodsProgress < 0) {
+                wodsProgressString = "▼"+"\(Int(last30daysWodsProgress))" + "%"
+                wodsProgress.textColor = UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
+            }
+            
+        }
+        
+        if (previousDates.count != 0) {
+            if (dates.count >= previousDates.count) {
+                let last30ActiveDaysProgress = ((Double(dates.count) - Double(previousDates.count)) / Double(previousDates.count)) * 100
+                
+                if(last30ActiveDaysProgress > 0) {
+                    activeDaysProgressString = "▲" + "\(Int(last30ActiveDaysProgress))" + "%"
+                    activeDaysProgress.textColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
+                }
+                if(last30ActiveDaysProgress == 0) {
+                    activeDaysProgressString = "\(Int(last30ActiveDaysProgress))" + "%"
+                }
+                if(last30ActiveDaysProgress < 0) {
+                    activeDaysProgressString = "▼"+"\(Int(last30ActiveDaysProgress))" + "%"
+                    activeDaysProgress.textColor = UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
+                }
+            }
+        }
+    }
     
+    func getPrevious30Days() -> [String] {
+        
+        let today = Date()
+        var previousMonth = Calendar.current.date(byAdding: .day, value: -30, to: today)
+        var last30Days = [String]()
+        for _ in 1...30{
+            let tomorrow = Calendar.current.date(byAdding: .day, value: -1, to: previousMonth!)
+            let date = DateFormatter()
+            date.dateFormat = "dd-MM-yyyy"
+            let stringDate : String = date.string(from: previousMonth!)
+            previousMonth = tomorrow!
+            last30Days.append(stringDate)
+        }
+        
+        return last30Days
+    }
+
     func getWodData(){
         
         wods = [

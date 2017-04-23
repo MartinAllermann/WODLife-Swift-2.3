@@ -43,7 +43,7 @@ class HistoryModalViewController: UIViewController {
     
     func designModal() {
         
-    headerLabel.text = wodName
+    headerLabel.text = wodName?.uppercased()
     headerSubtitle.text = wodDate
     headerType.text = wodType
     headerValue.text = wodResult

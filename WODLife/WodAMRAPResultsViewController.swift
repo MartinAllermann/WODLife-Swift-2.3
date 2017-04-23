@@ -108,7 +108,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         
         if notesView.text!.isEmpty {
         
-        notesView.text = "None"
+        notesView.text = "No Notes"
             
         }
         if (roundsTextField.text != "0") {
@@ -214,7 +214,7 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
         placeHolder = NSMutableAttributedString(string:Name, attributes: [NSFontAttributeName:UIFont(name: "Helvetica", size: 17.0)!])
         
         // Set the color
-        placeHolder.addAttribute(NSForegroundColorAttributeName, value: UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0), range:NSRange(location:0,length:Name.characters.count))
+        placeHolder.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGray, range:NSRange(location:0,length:Name.characters.count))
         
         // Add attribute
         roundsTextField.attributedPlaceholder = placeHolder

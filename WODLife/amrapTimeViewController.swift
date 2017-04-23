@@ -118,7 +118,7 @@ class amrapTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if (pickerView.tag == 1){
             return hourArray[row] + " h"
         }else{
-            return minArray[row] + " min"
+            return minArray[row] + " m"
         }
     }
     

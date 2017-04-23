@@ -110,6 +110,12 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
             
             elapsedTimeInSeconds = 0
         }
+        if notesTextView.text!.isEmpty {
+            
+            notesTextView.text = "No notes"
+            
+        }
+        
         if (elapsedTimeInSeconds != 0) {
         
             if editMode == false {
@@ -283,7 +289,7 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if component == 0 {
-        return pickOption[row] + " min"
+        return pickOption[row] + " m"
         } else {
             return pickOption2[row] + " s"
             

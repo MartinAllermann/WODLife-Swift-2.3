@@ -88,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WODLife/WodResultTableViewController.swift"
-            timestampString = "513525264.480981"
+            timestampString = "513765746.75253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "textFieldPlaceholder()"
             landmarkType = "7">
          </BreakpointContent>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WODLife/HistoryViewController.swift"
-            timestampString = "513702364.243213"
+            timestampString = "514659290.418778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "tableView(_:willDisplayHeaderView:forSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -246,11 +246,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WODLife/WodResultTableViewController.swift"
-            timestampString = "513525264.480981"
+            timestampString = "513765746.75253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
             landmarkName = "getDate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -262,11 +262,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WODLife/WodResultTableViewController.swift"
-            timestampString = "513525264.480981"
+            timestampString = "513765746.75253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
             landmarkName = "updateDateTxt()"
             landmarkType = "7">
          </BreakpointContent>
@@ -316,6 +316,22 @@
             startingLineNumber = "295"
             endingLineNumber = "295"
             landmarkName = "alert()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WODLife/WodAMRAPResultsViewController.swift"
+            timestampString = "513766375.642155"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "textFieldPlaceholder()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -322,35 +322,35 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             let last30daysWodsProgress = ((Double(activeDatesFromCurrentMonth.count) - Double(activeDatesFromPreviousMonth.count)) / Double(activeDatesFromPreviousMonth.count)) * 100
             
             if(last30daysWodsProgress > 0) {
-                wodsProgressString = "▲"+"\(Int(last30daysWodsProgress))" + "%"
+                wodsProgressString = "▲ "+"\(Int(last30daysWodsProgress))" + "%"
                 wodsProgress.textColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
             }
             if(last30daysWodsProgress == 0) {
                 wodsProgressString = "\(Int(last30daysWodsProgress))" + "%"
+                wodsProgress.textColor = UIColor.white
             }
             if(last30daysWodsProgress < 0) {
-                wodsProgressString = "▼"+"\(Int(last30daysWodsProgress))" + "%"
+                wodsProgressString = "▼ "+"\(Int(last30daysWodsProgress))" + "%"
                 wodsProgress.textColor = UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
             }
             
         }
         
         if (previousDates.count != 0) {
-            if (dates.count >= previousDates.count) {
                 let last30ActiveDaysProgress = ((Double(dates.count) - Double(previousDates.count)) / Double(previousDates.count)) * 100
                 
                 if(last30ActiveDaysProgress > 0) {
-                    activeDaysProgressString = "▲" + "\(Int(last30ActiveDaysProgress))" + "%"
+                    activeDaysProgressString = "▲ " + "\(Int(last30ActiveDaysProgress))" + "%"
                     activeDaysProgress.textColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
                 }
                 if(last30ActiveDaysProgress == 0) {
                     activeDaysProgressString = "\(Int(last30ActiveDaysProgress))" + "%"
+                    activeDaysProgress.textColor = UIColor.white
                 }
                 if(last30ActiveDaysProgress < 0) {
-                    activeDaysProgressString = "▼"+"\(Int(last30ActiveDaysProgress))" + "%"
+                    activeDaysProgressString = "▼ "+"\(Int(last30ActiveDaysProgress))" + "%"
                     activeDaysProgress.textColor = UIColor(red:0.92, green:0.30, blue:0.36, alpha:1.0)
                 }
-            }
         }
     }
     

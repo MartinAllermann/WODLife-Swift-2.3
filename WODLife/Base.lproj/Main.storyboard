@@ -414,7 +414,7 @@
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="hmX-s9-e33" customClass="WodAMRAPResultsTableViewController" customModule="WODLife" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="10" sectionFooterHeight="10" id="0LG-Q7-bAU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.19215686269999999" green="0.2470588235" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1162,16 +1162,35 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" searchBarStyle="prominent" text="" placeholder="Search WODs, Exercises" id="d5G-TW-upr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="barTintColor" red="0.16862745098039217" green="0.1803921568627451" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                </searchBar>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="WLM-CV-dF8">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <searchBar contentMode="redraw" fixedFrame="YES" barStyle="black" searchBarStyle="prominent" text="" placeholder="Search WODs, Exercises" translatesAutoresizingMaskIntoConstraints="NO" id="d5G-TW-upr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="barTintColor" red="0.16862745098039217" green="0.1803921568627451" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        </searchBar>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCJ-lT-CAI">
+                                            <rect key="frame" x="8" y="65" width="359" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.15858069062232971" green="0.70242935419082642" blue="0.48039418458938599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <state key="normal" title="Create Custom WOD">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="61Q-4A-phI" kind="push" identifier="createNewWod" id="Xe9-xk-5LU"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.12939286231994629" green="0.12942266464233398" blue="0.12939092516899109" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="STG-o0-cL0" customClass="WodTableViewCell" customModule="WODLife" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="99.5" width="375" height="192"/>
+                                        <rect key="frame" x="0.0" y="185.5" width="375" height="192"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="STG-o0-cL0" id="Tmx-eo-8iu">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
@@ -1249,7 +1268,7 @@
                     <navigationItem key="navigationItem" id="tNz-OA-1FX">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="9oG-fq-caU">
-                            <rect key="frame" x="21.5" y="6.5" width="303" height="31"/>
+                            <rect key="frame" x="36" y="6.5" width="303" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="GIRLS"/>
@@ -1261,22 +1280,18 @@
                                 <action selector="segmentedControlAction:" destination="clr-XN-4RB" eventType="valueChanged" id="FGS-C8-EOy"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WiK-7u-H5e">
-                            <connections>
-                                <action selector="createWodBtn:" destination="clr-XN-4RB" id="3sZ-7y-3Eb"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="createCustomWod" destination="iCJ-lT-CAI" id="zB3-Hs-IQj"/>
                         <outlet property="searchBar" destination="d5G-TW-upr" id="k6w-2W-kqL"/>
                         <outlet property="segmentedControl" destination="9oG-fq-caU" id="VMK-Yc-Qno"/>
+                        <outlet property="tableHeader" destination="WLM-CV-dF8" id="FPI-Tg-YiP"/>
                         <outlet property="tableView" destination="Ryc-fm-NNn" id="FMz-66-Dhd"/>
-                        <segue destination="61Q-4A-phI" kind="push" identifier="createNewWod" id="igg-f6-Y6g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6g-Qo-BX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="509"/>
+            <point key="canvasLocation" x="1273.5" y="508.5"/>
         </scene>
         <!--WODs-->
         <scene sceneID="Jxi-tU-x2L">
@@ -1315,7 +1330,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="NZh-e6-LSJ"/>
-        <segue reference="Vad-cr-cxk"/>
+        <segue reference="gBt-Ml-hQf"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15858069062232971" green="0.70242935419082642" blue="0.48039418458938599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

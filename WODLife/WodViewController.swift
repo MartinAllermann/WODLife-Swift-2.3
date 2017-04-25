@@ -13,6 +13,8 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var createCustomWod: UIButton!
+    @IBOutlet weak var tableHeader: UIView!
     
     var fetchedResultsController:NSFetchedResultsController<NSFetchRequestResult>!
     
@@ -20,8 +22,6 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     var wodCollectionTwo = "HERO"
     var wodCollectionThree = "OPEN"
     var wodCollectionFour = "My WODs"
-    var numberOfCustomWods = 0
-    var createdNewWod = false
     let emptyLabel = UILabel()
     var segmentSelected: String?
     var wodsWithDataArray: [String] = []
@@ -35,8 +35,11 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         getWodData()
+        
+        // Hide createCustomWodButton
+        createCustomWod.isHidden = true
+        tableHeader.frame.size.height = 44
         
         segmentSelected = wodCollectionOne // The first segmentSelected should be wodCollectionOne
         segmentedControl.setTitle(wodCollectionOne, forSegmentAt: 0)
@@ -52,18 +55,8 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
         wodsWithDataArray.removeAll()
         getWod()
-        
-        if (numberOfCustomWods < (fetchedResultsController.sections?[0].numberOfObjects)!) {
-            if  createdNewWod == true {
-                segmentedControl.selectedSegmentIndex = 3
-                segmentSelected = wodCollectionFour
-                
-                createdNewWod = false
-            }
-        }
         
         self.tableView.reloadData()
         
@@ -74,15 +67,12 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     
-    @IBAction func createWodBtn(_ sender: Any) {
-        performSegue(withIdentifier: "createNewWod", sender: sender)
-        createdNewWod = true
-        numberOfCustomWods = (fetchedResultsController.sections?[0].numberOfObjects)!
-    }
-    
     
     // MARK: - Table view data source
     @IBAction func segmentedControlAction(_ sender: Any) {
+        
+        createCustomWod.isHidden = true
+        tableHeader.frame.size.height = 44
         
         if(segmentedControl.selectedSegmentIndex == 0)
         {
@@ -99,6 +89,9 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         if(segmentedControl.selectedSegmentIndex == 3)
         {
             segmentSelected = wodCollectionFour
+            
+            createCustomWod.isHidden = false
+            tableHeader.frame.size.height = 130
         }
         
         searchBar.text = nil

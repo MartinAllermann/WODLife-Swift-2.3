@@ -160,7 +160,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WodDescriptionTableViewCell
-        
+        cell.leftIcon.tintColor = UIColor.white
         switch (indexPath.section) {
             
         case 0:
@@ -171,10 +171,12 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             
             if (indexPath.row == 0){
-                cell.leftIcon.image = UIImage(named: "Compose")
+                cell.leftIcon.image = UIImage(named: "ComposeInverted")
+                
             } else {
-                cell.leftIcon.image = UIImage(named: "Stopwatch")
+                cell.leftIcon.image = UIImage(named: "TimerInverted")
             }
+            
             
         case 1:
             
@@ -189,7 +191,7 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             cell.detailLabel?.layer.masksToBounds = true
             cell.detailLabel?.layer.cornerRadius = 10
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            cell.leftIcon.image = UIImage(named: "Calendar")
+            cell.leftIcon.image = UIImage(named: "CalendarInverted")
             
             if (workout.rounds != 0) {
                 
@@ -210,8 +212,8 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
             
             cell.titleLabel.text = "test3"
         }
-        
         return cell
+        
     }
     
     

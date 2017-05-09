@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B06F3241DE03F75006567C4 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06F3231DE03F75006567C4 /* HistoryCell.swift */; };
+		5B12E90D1EB90F5D0052A584 /* RandomWodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12E90C1EB90F5D0052A584 /* RandomWodViewController.swift */; };
 		5B18BF6F1DDCF283001B388D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18BF6E1DDCF283001B388D /* HistoryViewController.swift */; };
 		5B1F1E181E9E33FD00A0D8F1 /* HistoryModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F1E171E9E33FD00A0D8F1 /* HistoryModalViewController.swift */; };
 		5B20A67F1D4B797E006F42C9 /* WodResult+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20A67D1D4B797E006F42C9 /* WodResult+CoreDataProperties.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		5B06F3231DE03F75006567C4 /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		5B0A0A131DFF492F001BE7EC /* WODLife 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WODLife 3.xcdatamodel"; sourceTree = "<group>"; };
+		5B12E90C1EB90F5D0052A584 /* RandomWodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomWodViewController.swift; sourceTree = "<group>"; };
 		5B18BF6E1DDCF283001B388D /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		5B1F1E171E9E33FD00A0D8F1 /* HistoryModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryModalViewController.swift; sourceTree = "<group>"; };
 		5B20A67D1D4B797E006F42C9 /* WodResult+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WodResult+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				5B18BF6E1DDCF283001B388D /* HistoryViewController.swift */,
 				5B06F3231DE03F75006567C4 /* HistoryCell.swift */,
 				5B1F1E171E9E33FD00A0D8F1 /* HistoryModalViewController.swift */,
+				5B12E90C1EB90F5D0052A584 /* RandomWodViewController.swift */,
 			);
 			path = WODLife;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				5B22793F1D605DB60020C0C1 /* forTimeViewController.swift in Sources */,
 				5BF808A81E144A4A00DBA447 /* CreateWodTableViewController.swift in Sources */,
 				5B325D5B1E361F3C00D911EA /* Workout.swift in Sources */,
+				5B12E90D1EB90F5D0052A584 /* RandomWodViewController.swift in Sources */,
 				5B18BF6F1DDCF283001B388D /* HistoryViewController.swift in Sources */,
 				5B1F1E181E9E33FD00A0D8F1 /* HistoryModalViewController.swift in Sources */,
 				5B20A6801D4B797E006F42C9 /* WodResult.swift in Sources */,

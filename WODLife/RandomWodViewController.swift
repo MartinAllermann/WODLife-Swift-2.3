@@ -1,347 +1,82 @@
 //
-//  WodViewController.swift
+//  RandomWodViewController.swift
 //  WODLife
 //
-//  Created by Martin on 29/12/2016.
-//  Copyright © 2016 Martin. All rights reserved.
+//  Created by Martin on 02/05/2017.
+//  Copyright © 2017 Martin. All rights reserved.
 //
 
 import UIKit
-import CoreData
 
-class WodViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextViewDelegate, UISearchBarDelegate {
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var createCustomWod: UIButton!
-    @IBOutlet weak var tableHeader: UIView!
-    
-    var fetchedResultsController:NSFetchedResultsController<NSFetchRequestResult>!
-    
-    var wodCollectionOne = "GIRLS"
-    var wodCollectionTwo = "HERO"
-    var wodCollectionThree = "OPEN"
-    var wodCollectionFour = "My WODs"
-    let emptyLabel = UILabel()
-    var segmentSelected: String?
-    var wodsWithDataArray: [String] = []
+class RandomWodViewController: UIViewController {
+    @IBOutlet weak var wodName: UILabel!
+    @IBOutlet weak var wodType: UILabel!
+    @IBOutlet weak var wodDescription: UITextView!
+    @IBOutlet weak var background: UIView!
+    @IBOutlet weak var shuffleBtn: UIButton!
+    @IBOutlet weak var timerBtn: UIButton!
+   
     var girlWods = [Workout]()
     var heroWods = [Workout]()
     var openWods = [Workout]()
-    var filteredWorkouts = [Workout]()
-    var filteredWods = [Wod]()
-    var searchPredicate: NSPredicate?
-    
+    var randomWodCategory = 0
+    var random = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getWodData()
+        randomWod()
         
-        // Hide createCustomWodButton
-        createCustomWod.isHidden = true
-        tableHeader.frame.size.height = 44
+        shuffleBtn.layer.cornerRadius = 3;
+        shuffleBtn.layer.borderWidth = 1;
+        shuffleBtn.layer.borderColor = UIColor.white.cgColor
         
-        segmentSelected = wodCollectionOne // The first segmentSelected should be wodCollectionOne
-        segmentedControl.setTitle(wodCollectionOne, forSegmentAt: 0)
-        segmentedControl.setTitle(wodCollectionTwo, forSegmentAt: 1)
-        segmentedControl.setTitle(wodCollectionThree, forSegmentAt: 2)
-        segmentedControl.setTitle(wodCollectionFour, forSegmentAt: 3)
-        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: UIControlState.selected)
-        
-        searchBar.delegate = self
-        self.searchBar.keyboardAppearance = UIKeyboardAppearance.dark
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        wodsWithDataArray.removeAll()
-        getWod()
-        
-        self.tableView.reloadData()
+        timerBtn.layer.cornerRadius = 3;
+        timerBtn.layer.borderWidth =
+        1;
+        timerBtn.layer.borderColor = UIColor.white.cgColor
         
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    @IBAction func shuffleAction(_ sender: Any) {
+    randomWod()
     }
     
-    
-    
-    // MARK: - Table view data source
-    @IBAction func segmentedControlAction(_ sender: Any) {
+    func randomWod(){
+        randomWodCategory = Int(arc4random_uniform(UInt32(3)))
         
-        createCustomWod.isHidden = true
-        tableHeader.frame.size.height = 44
-        
-        if(segmentedControl.selectedSegmentIndex == 0)
-        {
-            segmentSelected = wodCollectionOne
-        }
-        if(segmentedControl.selectedSegmentIndex == 1)
-        {
-            segmentSelected = wodCollectionTwo
-        }
-        if(segmentedControl.selectedSegmentIndex == 2)
-        {
-            segmentSelected = wodCollectionThree
-        }
-        if(segmentedControl.selectedSegmentIndex == 3)
-        {
-            segmentSelected = wodCollectionFour
-            
-            createCustomWod.isHidden = false
-            createCustomWod.layer.cornerRadius = 3
-            tableHeader.frame.size.height = 130
-        }
-        
-        searchBar.text = nil
-        self.tableView.reloadData()
+        switch randomWodCategory {
+        case 0:
+            random = Int(arc4random_uniform(UInt32(girlWods.count)))
+            setGirlWod(wodNumber: random)
+        case 1:
+            random = Int(arc4random_uniform(UInt32(heroWods.count)))
+            setHeroWod(wodNumber: random)
+        case 2:
+            random = Int(arc4random_uniform(UInt32(openWods.count)))
+            setOpenWod(wodNumber: random)
+        default:
+            random = Int(arc4random_uniform(UInt32(girlWods.count)))
+            setGirlWod(wodNumber: random)
+           }
     }
     
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.reloadData()
-    }
-    
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if segmentSelected == wodCollectionOne {
-            if searchBar.text?.isEmpty == false {
-                return filteredWorkouts.count
-            }
-            return self.girlWods.count
-        }
-        
-        if segmentSelected == wodCollectionTwo {
-            if searchBar.text?.isEmpty == false {
-                return filteredWorkouts.count
-            }
-            return self.heroWods.count
-            
-        }
-        if segmentSelected == wodCollectionThree{
-            if searchBar.text?.isEmpty == false {
-                return filteredWorkouts.count
-            }
-            return self.openWods.count
-            
-        }
-        else {
-            
-            if (fetchedResultsController.sections?[0].numberOfObjects == 0){
-                
-                emptyLabel.text = "No WODs"
-                emptyLabel.textAlignment = NSTextAlignment.center
-                emptyLabel.textColor = UIColor.lightGray
-                tableView.backgroundView = emptyLabel
-                
-                return (fetchedResultsController.sections?[0].numberOfObjects)!
-                
-            }
-                
-            else {
-                
-                emptyLabel.text = ""
-                if searchBar.text?.isEmpty == false {
-                    return filteredWods.count
-                }
-                return (fetchedResultsController.sections?[0].numberOfObjects)!
-                
-            }
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WodTableViewCell
-        
-        cell.wodDescOne.isUserInteractionEnabled = false
-        
-        if segmentSelected == wodCollectionOne {
-            
-            var wod = girlWods[indexPath.row]
-            
-            if searchBar.text?.isEmpty == false {
-                wod = filteredWorkouts[indexPath.row]
-            }
-            
-            cell.wodName.text = wod.name.uppercased()
-            cell.wodType.text = wod.typeDescription.uppercased()
-            cell.wodDescOne.text = wod.description
-            cell.wodDescOne.backgroundColor = UIColor.clear
-            
-            cell.totalWods.layer.masksToBounds = true
-            cell.totalWods.layer.cornerRadius = 5
-            cell.totalWods.backgroundColor = colorPicker(colorName: wod.color)
-            
-            cell.totalWodsFill.layer.masksToBounds = true
-            cell.totalWodsFill.layer.cornerRadius = 5
-            
-            if (wodsWithDataArray.contains(wod.name)) {
-                cell.totalWodsFill.backgroundColor = UIColor.clear
-            } else {
-                //cell.imageIcon.isHidden = true
-                cell.totalWodsFill.backgroundColor = UIColor(red:0.19, green:0.25, blue:0.29, alpha:1.0)
-            }
-            
-        }
-        if segmentSelected == wodCollectionTwo {
-            
-            var wod = heroWods[indexPath.row]
-            
-            if searchBar.text?.isEmpty == false {
-                wod = filteredWorkouts[indexPath.row]
-            }
-            
-            cell.wodName.text = wod.name.uppercased()
-            cell.wodType.text = wod.typeDescription.uppercased()
-            cell.wodDescOne.text = wod.description
-            cell.wodDescOne.backgroundColor = UIColor.clear
-            
-            cell.totalWods.layer.masksToBounds = true
-            cell.totalWods.layer.cornerRadius = 5
-            cell.totalWods.backgroundColor = colorPicker(colorName: wod.color)
-            
-            cell.totalWodsFill.layer.masksToBounds = true
-            cell.totalWodsFill.layer.cornerRadius = 5
-            
-            if (wodsWithDataArray.contains(wod.name)) {
-                cell.totalWodsFill.backgroundColor = UIColor.clear
-            } else {
-                //cell.imageIcon.isHidden = true
-                cell.totalWodsFill.backgroundColor = UIColor(red:0.19, green:0.25, blue:0.29, alpha:1.0)
-            }
-        }
-        if segmentSelected == wodCollectionThree {
-            
-            var wod = openWods[indexPath.row]
-            
-            if searchBar.text?.isEmpty == false {
-                wod = filteredWorkouts[indexPath.row]
-            }
-            
-            cell.wodName.text = wod.name.uppercased()
-            cell.wodType.text = wod.typeDescription.uppercased()
-            cell.wodDescOne.text = wod.description
-            cell.wodDescOne.backgroundColor = UIColor.clear
-            
-            cell.totalWods.layer.masksToBounds = true
-            cell.totalWods.layer.cornerRadius = 5
-            cell.totalWods.backgroundColor = colorPicker(colorName: wod.color)
-            
-            cell.totalWodsFill.layer.masksToBounds = true
-            cell.totalWodsFill.layer.cornerRadius = 5
-            
-            if (wodsWithDataArray.contains(wod.name)) {
-                cell.totalWodsFill.backgroundColor = UIColor.clear
-            } else {
-                //cell.imageIcon.isHidden = true
-                cell.totalWodsFill.backgroundColor = UIColor(red:0.19, green:0.25, blue:0.29, alpha:1.0)
-            }
-        }
-        if segmentSelected == wodCollectionFour {
-            
-            var wod = fetchedResultsController.object(at: indexPath) as! Wod
-            
-            if searchBar.text?.isEmpty == false {
-                wod = filteredWods[indexPath.row]
-            }
-            
-            cell.wodName.text = wod.name?.uppercased()
-            cell.wodType.text = wod.type?.uppercased()
-            cell.wodDescOne.text = wod.wodDescription
-            cell.wodDescOne.backgroundColor = UIColor.clear
-            //cell.backgroundColor = colorPicker(colorName: "green")
-            
-            cell.totalWods.layer.masksToBounds = true
-            cell.totalWods.layer.cornerRadius = 5
-            cell.totalWods.backgroundColor = colorPicker(colorName: "green")
-            
-            cell.totalWodsFill.layer.masksToBounds = true
-            cell.totalWodsFill.layer.cornerRadius = 5
-            
-            if (wodsWithDataArray.contains(wod.name!)) {
-                cell.totalWodsFill.backgroundColor = UIColor.clear
-            } else {
-                //cell.imageIcon.isHidden = true
-                cell.totalWodsFill.backgroundColor = UIColor(red:0.19, green:0.25, blue:0.29, alpha:1.0)
-            }
-            
-        }
-        
-        return cell
-        
-    }
-    
-    
-    func getWodResults() {
-        
-        let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
-        let con: NSManagedObjectContext = appDel.managedObjectContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Wod")
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
-        request.sortDescriptors = [sortDescriptor]
-        
-        let controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: con, sectionNameKeyPath: nil , cacheName: nil)
-        
-        controller.delegate = self
-        
-        fetchedResultsController = controller
-        
-        do {
-            try fetchedResultsController.performFetch()
-            
-        } catch {
-            let error = error as NSError
-            print("Fetch error:\(error.localizedDescription)")
-        }
-        
-    }
-    
-    func getWod() {
-        
-        let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
-        let con: NSManagedObjectContext = appDel.managedObjectContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WodResult")
-        request.returnsObjectsAsFaults = false
-        
-        do {
-            
-            let results = try con.fetch(request) as! [WodResult]
-            for res in results {
-                wodsWithDataArray.append(res.name!)
-            }
-            
-        } catch {
-            print("Unresolved error")
-            abort()
-        }
-    }
-    
+
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "showWodDescription" {
+        if segue.identifier == "showDescription" {
             let vc = segue.destination as! WodDescriptionViewController
-            self.searchBar.resignFirstResponder()
-            let indexPath = self.tableView.indexPathForSelectedRow
             
-            if segmentSelected == wodCollectionOne {
+            if randomWodCategory == 0 {
                 
-                var wod = girlWods[(indexPath?.row)!]
-                
-                if searchBar.text?.isEmpty == false {
-                    wod = filteredWorkouts[(indexPath?.row)!]
-                }
+                let wod = girlWods[random]
                 
                 vc.wodName = wod.name
                 vc.timeComponent = wod.typeDescription
@@ -352,14 +87,10 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 vc.wodId = wod.id
                 
             }
-            if segmentSelected == wodCollectionTwo {
+            if randomWodCategory == 1 {
                 
-                var wod = heroWods[(indexPath?.row)!]
-                
-                if searchBar.text?.isEmpty == false {
-                    wod = filteredWorkouts[(indexPath?.row)!]
-                }
-                
+                let wod = heroWods[random]
+    
                 vc.wodName = wod.name
                 vc.timeComponent = wod.typeDescription
                 vc.wodDescription = wod.description
@@ -368,14 +99,10 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 vc.secondColor = secondColorPicker(colorName: wod.color)
                 vc.wodId = wod.id
             }
-            if segmentSelected == wodCollectionThree {
+            if randomWodCategory == 2 {
                 
-                var wod = openWods[(indexPath?.row)!]
-                
-                if searchBar.text?.isEmpty == false {
-                    wod = filteredWorkouts[(indexPath?.row)!]
-                }
-                
+                let wod = openWods[random]
+            
                 vc.wodName = wod.name
                 vc.timeComponent = wod.typeDescription
                 vc.wodDescription = wod.description
@@ -385,108 +112,67 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 vc.wodId = wod.id
             }
             
-            if segmentSelected == wodCollectionFour {
-                
-                var wod = fetchedResultsController.object(at: indexPath!) as! Wod
-                
-                if searchBar.text?.isEmpty == false {
-                    wod = filteredWods[(indexPath?.row)!]
-                }
-                
-                vc.wodName = wod.name
-                
-                vc.timeComponent = wod.type
-                vc.wodDescription = wod.wodDescription!
-                vc.timeComponentType = wod.type
-                vc.color = colorPicker(colorName: "green")
-                vc.secondColor = secondColorPicker(colorName: "green")
-                vc.wodId = "0"
-                
-            }
-            
-            
         }
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if segmentSelected == wodCollectionFour {
-            return true
-        } else {
-            return false
-        }
+
+    override func viewWillAppear(_ animated: Bool) {
+        hideNavigation()
+    
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
-            let con: NSManagedObjectContext = appDel.managedObjectContext
-            
-            let idx = IndexPath(row: indexPath.row, section: 0)
-            let workout = fetchedResultsController.object(at: idx) as! Wod
-            con.delete(workout)
-            
-            do {
-                try con.save()
-            } catch {
-                return
-            }
-        }
+    override func viewWillDisappear(_ animated: Bool) {
+        showNavigation()
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func hideNavigation(){
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    func showNavigation(){
         
-        if segmentSelected == wodCollectionOne {
-            
-            
-            filteredWorkouts  = searchText.isEmpty ? girlWods : girlWods.filter({(dataString: Workout) -> Bool in
-                // If dataItem matches the searchText, return true to include it
-                return dataString.description.range(of: searchText, options: .caseInsensitive) != nil || dataString.name.range(of: searchText, options: .caseInsensitive) != nil
-                
-            })
-            
-        }
-        if segmentSelected == wodCollectionTwo {
-            
-            filteredWorkouts  = searchText.isEmpty ? heroWods : heroWods.filter({(dataString: Workout) -> Bool in
-                // If dataItem matches the searchText, return true to include it
-                return dataString.description.range(of: searchText, options: .caseInsensitive) != nil || dataString.name.range(of: searchText, options: .caseInsensitive) != nil
-                
-            })
-            
-        }
-        if segmentSelected == wodCollectionThree{
-            
-            filteredWorkouts  = searchText.isEmpty ? openWods : openWods.filter({(dataString: Workout) -> Bool in
-                // If dataItem matches the searchText, return true to include it
-                return dataString.description.range(of: searchText, options: .caseInsensitive) != nil || dataString.name.range(of: searchText, options: .caseInsensitive) != nil
-                
-            })
-            
-        }
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.17, green:0.18, blue:0.20, alpha:1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor(red:0.16, green:0.70, blue:0.48, alpha:1.0)
+    }
+    
+    func setGirlWod(wodNumber:Int){
         
-        if segmentSelected == wodCollectionFour {
-            
-            if searchText.isEmpty == false {
-                
-                searchPredicate = NSPredicate(format: "name CONTAINS[c] %@ OR wodDescription CONTAINS[c] %@ ", searchText, searchText)
-                filteredWods = (self.fetchedResultsController.fetchedObjects?.filter() {
-                    return self.searchPredicate!.evaluate(with: $0)
-                    } as! [Wod]?)!
-                
-            }
-            
-        }
-        tableView.reloadData()
+        let wod = girlWods[wodNumber]
+        wodName.text = wod.name.uppercased()
+        wodType.text = wod.typeDescription.uppercased()
+        wodDescription.text = wod.description
+        background.backgroundColor = colorPicker(colorName: wod.color)
+        
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
-    {
-        self.searchBar.endEditing(true)
+    func setHeroWod(wodNumber:Int){
+        
+        let wod = heroWods[wodNumber]
+        wodName.text = wod.name.uppercased()
+        wodType.text = wod.typeDescription.uppercased()
+        wodDescription.text = wod.description
+        
+        background.backgroundColor = colorPicker(colorName: wod.color)
+        
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        self.searchBar.endEditing(true)
+    func setOpenWod(wodNumber:Int){
+        
+        let wod = openWods[wodNumber]
+        wodName.text = wod.name.uppercased()
+        wodType.text = wod.typeDescription.uppercased()
+        wodDescription.text = wod.description
+        
+        background.backgroundColor = colorPicker(colorName: wod.color)
+        
     }
     
     func colorPicker(colorName: String?) -> UIColor {
@@ -535,10 +221,6 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func getWodData(){
         
-        getWodResults()
-        
-        getWod()
-        
         girlWods = [
             Workout(name:"Amanda", typeDescription:"9-7-5 reps for time", description:"Muscle-ups\nSnatches (135/95 lbs)", type: "For time", color: "orange", id: "4"),
             Workout(name:"Angie", typeDescription:"For time", description:"100 pull-ups\n100 push-ups\n100 sit-ups\n100 squats", type: "For time", color: "orange", id: "6"),
@@ -575,9 +257,9 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         heroWods  = [
             Workout(name:"Abbate", typeDescription:"For time", description:"Run 1 mile\n155-lb. clean and jerks, 21 reps\nRun 800 meters\n155-lb. clean and jerks, 21 reps\nRun 1 mile", type: "For time", color: "blue", id: "94"),
-           
+            
             Workout(name:"Adambrown", typeDescription:"2 Rounds for time", description:"295-lb. deadlifts, 24 reps\n24 box jumps, 24-inch box\n24 wall-ball shots, 20-lb. ball\n195-lb. bench presses, 24 reps\n24 box jumps, 24-inch box\n24 wall-ball shots, 20-lb. ball\n145-lb. cleans, 24 reps", type: "For time", color: "blue", id: "98"),
-             Workout(name:"Arnie", typeDescription:"For time", description:"21 Turkish get-ups, right arm\n50 kettlebell swings\n21 overhead squats, left arm\n50 kettlebell swings\n21 overhead squats, right arm\n50 kettlebell swings\n21 Turkish get-ups, left arm", type: "For time", color: "blue", id: "96"),
+            Workout(name:"Arnie", typeDescription:"For time", description:"21 Turkish get-ups, right arm\n50 kettlebell swings\n21 overhead squats, left arm\n50 kettlebell swings\n21 overhead squats, right arm\n50 kettlebell swings\n21 Turkish get-ups, left arm", type: "For time", color: "blue", id: "96"),
             Workout(name:"Badger", typeDescription:"3 Rounds for time", description:"30 squats cleans (95 lbs)\n30 pull-ups\nRun 800 meters", type: "For time", color: "blue", id: "100"),
             Workout(name:"Barraza", typeDescription:"As many rounds as possible in 18 min", description:"Run 200 meters\n275-lb. deadlifts, 9 reps\n6 burpee bar muscle-ups", type: "AMRAP", color: "blue", id: "102"),
             Workout(name:"Blake", typeDescription:"4 rounds for time", description:"100-ft. walking lunge with 45-lb. plate held overhead\n30 box jumps, 24-inch box\n20 wall-ball shots, 20-lb. ball\n10 handstand push-ups", type: "For time", color: "blue", id: "104"),
@@ -730,4 +412,6 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
             Workout(name:"OPEN 11.2", typeDescription:"As Many Reps as Possible in 15 min", description:"9 Deadlifts (155/100 lbs)\n12 Push-Ups\n15 Box Jumps (24/20 in)", type: "AMRAP", color: "yellow", id: "376"),
             Workout(name:"OPEN 11.1", typeDescription:"As many rounds as possible in 10 min", description:"30 Double-Unders\n15 Power Snatches (75/55 lbs)", type: "AMRAP", color: "yellow", id: "378"),]
     }
+
+
 }

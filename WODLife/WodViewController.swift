@@ -55,6 +55,8 @@ class WodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewWillAppear(_ animated: Bool) {
         
+       
+        
         wodsWithDataArray.removeAll()
         getWod()
         

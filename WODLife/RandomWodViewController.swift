@@ -43,6 +43,8 @@ class RandomWodViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     @IBAction func shuffleAction(_ sender: Any) {
     randomWod()
     }
@@ -117,6 +119,7 @@ class RandomWodViewController: UIViewController {
     
 
     override func viewWillAppear(_ animated: Bool) {
+        
         hideNavigation()
     
     }

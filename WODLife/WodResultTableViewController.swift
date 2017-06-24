@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Firebase
+
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
@@ -105,6 +107,8 @@ class WodResultTableViewController: UITableViewController, UIPickerViewDataSourc
     
     
     @IBAction func saveBtn(_ sender: AnyObject) {
+        
+        Analytics.logEvent("Save_Button", parameters: nil)
         
         if timeTextField.text!.isEmpty {
             

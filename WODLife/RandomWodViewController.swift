@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RandomWodViewController: UIViewController {
     @IBOutlet weak var wodName: UILabel!
@@ -44,8 +45,13 @@ class RandomWodViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func timerBtnAction(_ sender: Any) {
+        
+        Analytics.logEvent("GoToWorkout_Button", parameters: nil)
+    }
     
     @IBAction func shuffleAction(_ sender: Any) {
+    Analytics.logEvent("Shuffle_Button", parameters: nil)
     randomWod()
     }
     

@@ -50,6 +50,9 @@ class WodDescriptionViewController: UIViewController, UITableViewDataSource, UIT
         getWodResults()
         styleVideoView()
         getVideoUrl()
+        if videoView.isLoading {
+            print("video is views")
+        }
         
     }
     

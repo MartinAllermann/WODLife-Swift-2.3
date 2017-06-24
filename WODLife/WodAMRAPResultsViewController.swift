@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 
 class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate, UITextViewDelegate{
@@ -101,6 +102,8 @@ class WodAMRAPResultsTableViewController: UITableViewController, NSFetchedResult
     }
     
     @IBAction func saveB(_ sender: AnyObject) {
+        
+        Analytics.logEvent("Save_Button", parameters: nil)
         
         if roundsTextField.text!.isEmpty {
         roundsTextField.text = "0"

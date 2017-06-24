@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13F3CB5D7DA6659A7D0EB1E8 /* Pods_WODLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC4CA18939CC9493E91A8C7 /* Pods_WODLife.framework */; };
 		5B06F3241DE03F75006567C4 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06F3231DE03F75006567C4 /* HistoryCell.swift */; };
 		5B12E90D1EB90F5D0052A584 /* RandomWodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12E90C1EB90F5D0052A584 /* RandomWodViewController.swift */; };
 		5B18BF6F1DDCF283001B388D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18BF6E1DDCF283001B388D /* HistoryViewController.swift */; };
@@ -16,6 +17,7 @@
 		5B22793F1D605DB60020C0C1 /* forTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22793E1D605DB60020C0C1 /* forTimeViewController.swift */; };
 		5B2279411D605DD40020C0C1 /* amrapTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2279401D605DD40020C0C1 /* amrapTimeViewController.swift */; };
 		5B325D5B1E361F3C00D911EA /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B325D5A1E361F3C00D911EA /* Workout.swift */; };
+		5B4AB4961EFF0A6B00CE322F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B4AB4951EFF0A6B00CE322F /* GoogleService-Info.plist */; };
 		5B65128D1D4A2E5000824B6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65128C1D4A2E5000824B6C /* AppDelegate.swift */; };
 		5B6512921D4A2E5000824B6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6512901D4A2E5000824B6C /* Main.storyboard */; };
 		5B6512951D4A2E5000824B6C /* WODLife.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B6512931D4A2E5000824B6C /* WODLife.xcdatamodeld */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C0F0FB6DE67E9B9A42B2222 /* Pods-WODLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WODLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-WODLife/Pods-WODLife.release.xcconfig"; sourceTree = "<group>"; };
+		2DC4CA18939CC9493E91A8C7 /* Pods_WODLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WODLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B06F3231DE03F75006567C4 /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		5B0A0A131DFF492F001BE7EC /* WODLife 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WODLife 3.xcdatamodel"; sourceTree = "<group>"; };
 		5B12E90C1EB90F5D0052A584 /* RandomWodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomWodViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +48,7 @@
 		5B2279401D605DD40020C0C1 /* amrapTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = amrapTimeViewController.swift; sourceTree = "<group>"; };
 		5B325D5A1E361F3C00D911EA /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		5B452D8D1E2B77320097DBAE /* WODLife 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WODLife 5.xcdatamodel"; sourceTree = "<group>"; };
+		5B4AB4951EFF0A6B00CE322F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B6512891D4A2E5000824B6C /* WODLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WODLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B65128C1D4A2E5000824B6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B6512911D4A2E5000824B6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +68,7 @@
 		5BF808AB1E144B9700DBA447 /* Wod+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wod+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5BF808B21E153A0400DBA447 /* WodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodViewController.swift; sourceTree = "<group>"; };
 		5BF808B41E1550AC00DBA447 /* WodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WodTableViewCell.swift; sourceTree = "<group>"; };
+		CEB2B61AA6A2E5E5F92BD852 /* Pods-WODLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WODLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WODLife/Pods-WODLife.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,12 +76,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13F3CB5D7DA6659A7D0EB1E8 /* Pods_WODLife.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BCBF5CD0AD2D95C8AF0D85C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEB2B61AA6A2E5E5F92BD852 /* Pods-WODLife.debug.xcconfig */,
+				1C0F0FB6DE67E9B9A42B2222 /* Pods-WODLife.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5B6512801D4A2E5000824B6C = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +102,8 @@
 				5B20A67E1D4B797E006F42C9 /* WodResult.swift */,
 				5B65128B1D4A2E5000824B6C /* WODLife */,
 				5B65128A1D4A2E5000824B6C /* Products */,
+				0BCBF5CD0AD2D95C8AF0D85C /* Pods */,
+				6B5517D4F8293FFBD4CE1565 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +123,7 @@
 				5B6512901D4A2E5000824B6C /* Main.storyboard */,
 				5B6512961D4A2E5000824B6C /* Assets.xcassets */,
 				5B6512981D4A2E5000824B6C /* LaunchScreen.storyboard */,
+				5B4AB4951EFF0A6B00CE322F /* GoogleService-Info.plist */,
 				5B65129B1D4A2E5000824B6C /* Info.plist */,
 				5B6512931D4A2E5000824B6C /* WODLife.xcdatamodeld */,
 				5BF808B21E153A0400DBA447 /* WodViewController.swift */,
@@ -124,6 +143,14 @@
 			path = WODLife;
 			sourceTree = "<group>";
 		};
+		6B5517D4F8293FFBD4CE1565 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DC4CA18939CC9493E91A8C7 /* Pods_WODLife.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B65129E1D4A2E5000824B6C /* Build configuration list for PBXNativeTarget "WODLife" */;
 			buildPhases = (
+				521F58B73C68579FD5D71697 /* [CP] Check Pods Manifest.lock */,
 				5B6512851D4A2E5000824B6C /* Sources */,
 				5B6512861D4A2E5000824B6C /* Frameworks */,
 				5B6512871D4A2E5000824B6C /* Resources */,
+				1A7227418C2236B4A5E77C69 /* [CP] Embed Pods Frameworks */,
+				2847511193378BA2CC856604 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,12 +226,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B65129A1D4A2E5000824B6C /* LaunchScreen.storyboard in Resources */,
+				5B4AB4961EFF0A6B00CE322F /* GoogleService-Info.plist in Resources */,
 				5B6512971D4A2E5000824B6C /* Assets.xcassets in Resources */,
 				5B6512921D4A2E5000824B6C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A7227418C2236B4A5E77C69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WODLife/Pods-WODLife-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2847511193378BA2CC856604 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WODLife/Pods-WODLife-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		521F58B73C68579FD5D71697 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5B6512851D4A2E5000824B6C /* Sources */ = {
@@ -342,6 +421,7 @@
 		};
 		5B65129F1D4A2E5000824B6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEB2B61AA6A2E5E5F92BD852 /* Pods-WODLife.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -359,6 +439,7 @@
 		};
 		5B6512A01D4A2E5000824B6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C0F0FB6DE67E9B9A42B2222 /* Pods-WODLife.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
